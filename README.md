@@ -1,5 +1,4 @@
 # BreakingApp
-Customize the more obscure settings of Windows 11 system's UI
 
 **I discovered this in my archive and will release the code soon.**
 [ThisIsWin11](https://github.com/builtbybel/ThisIsWin11/releases/tag/1.1.153) is based on this code base.
