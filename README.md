@@ -7,7 +7,8 @@ My private version had all other tweaks integrated, so the code base including a
 
 ...and yes, this version also brings a small advantage over TIW11. The stone-age ui requires less resources and of course flickers a bit smoother on the screen
 
-![image](https://user-images.githubusercontent.com/57478606/152999351-42eb1ee4-884a-4fb2-8257-30c769488aa6.png)
+![BreakingApp_TnEcwgfNjD](https://user-images.githubusercontent.com/57478606/153063531-a140def6-360f-44d4-8f11-fadb014217be.png)
+
 
 I could imagine to maintain this version as well, because we can omit some things (like the GetStarted module) and invest more time in useful tweaks.
 
