@@ -8,3 +8,5 @@ My private version had all other tweaks integrated, so the code base including a
 and yes, this version also brings a small advantage over TIW11. The stone-age ui requires less resources and of course flickers a bit smoother on the screen
 
 ![image](https://user-images.githubusercontent.com/57478606/152999351-42eb1ee4-884a-4fb2-8257-30c769488aa6.png)
+
+Btw, I couldn't think of a better name in 6 minutes...;)
