@@ -9,4 +9,6 @@ My private version had all other tweaks integrated, so the code base including a
 
 ![image](https://user-images.githubusercontent.com/57478606/152999351-42eb1ee4-884a-4fb2-8257-30c769488aa6.png)
 
+I could imagine to maintain this version as well, because we can omit some things (like the GetStarted module) and invest more time in useful tweaks.
+
 Btw, I couldn't think of a better name in 6 minutes...;)
