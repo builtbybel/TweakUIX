@@ -1,7 +1,7 @@
 # BreakingApp
 
 **I discovered this in my archive and will release the code soon.**
-[ThisIsWin11](https://github.com/builtbybel/ThisIsWin11/releases/tag/1.1.153) is based on this code base.
+[ThisIsWin11](https://github.com/builtbybel/ThisIsWin11/releases/tag/1.1.153) is partly based on this code base.
 Somehow I prefer this classic UI more in corporate environments, so I decided to release this "lite" version of TIW11 as well. 
 My private version had all other tweaks integrated, so the code base including all tweaks of this app was largely taken from the last stable version of the TIW11 OpenTweaks module.
 
