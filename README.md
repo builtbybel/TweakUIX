@@ -10,6 +10,8 @@ My private version had all other tweaks integrated, so the code base including a
 
 ![Image 5](https://user-images.githubusercontent.com/57478606/153266248-5e3296d6-dca9-43cd-aa70-0c6575b44274.png)
 
+![screenshot](https://github.com/builtbybel/BreakingApp/blob/main/assets/bA.png)
+
 
 I could imagine to maintain this version as well, because we can omit some things (like the GetStarted module) and invest more time in useful tweaks.
 
