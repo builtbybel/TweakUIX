@@ -32,12 +32,12 @@ namespace BreakingApp
             this.components = new System.ComponentModel.Container();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.btnConfigure = new System.Windows.Forms.Button();
-            this.tvwTweaks = new System.Windows.Forms.TreeView();
+            this.tweaksTree = new System.Windows.Forms.TreeView();
             this.gbView = new System.Windows.Forms.GroupBox();
             this.btnTemplateExport = new System.Windows.Forms.Button();
             this.btnTemplateImport = new System.Windows.Forms.Button();
             this.lblTemplate = new System.Windows.Forms.Label();
-            this.rtbStatus = new System.Windows.Forms.RichTextBox();
+            this.richStatus = new System.Windows.Forms.RichTextBox();
             this.progress = new System.Windows.Forms.ProgressBar();
             this.cbTemplate = new System.Windows.Forms.ComboBox();
             this.pnlBottom = new System.Windows.Forms.Panel();
@@ -80,7 +80,7 @@ namespace BreakingApp
             // splitContainer.Panel1
             // 
             this.splitContainer.Panel1.Controls.Add(this.btnConfigure);
-            this.splitContainer.Panel1.Controls.Add(this.tvwTweaks);
+            this.splitContainer.Panel1.Controls.Add(this.tweaksTree);
             // 
             // splitContainer.Panel2
             // 
@@ -104,25 +104,25 @@ namespace BreakingApp
             this.btnConfigure.Visible = false;
             this.btnConfigure.Click += new System.EventHandler(this.btnConfigure_Click);
             // 
-            // tvwTweaks
+            // tweaksTree
             // 
-            this.tvwTweaks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tweaksTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tvwTweaks.BackColor = System.Drawing.Color.White;
-            this.tvwTweaks.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tvwTweaks.CausesValidation = false;
-            this.tvwTweaks.CheckBoxes = true;
-            this.tvwTweaks.HideSelection = false;
-            this.tvwTweaks.ItemHeight = 25;
-            this.tvwTweaks.Location = new System.Drawing.Point(12, 0);
-            this.tvwTweaks.Name = "tvwTweaks";
-            this.tvwTweaks.ShowNodeToolTips = true;
-            this.tvwTweaks.Size = new System.Drawing.Size(271, 533);
-            this.tvwTweaks.TabIndex = 0;
-            this.tvwTweaks.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tvwTweaks_AfterCheck);
-            this.tvwTweaks.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwTweaks_NodeMouseClick);
-            this.tvwTweaks.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tvwTweaks_MouseUp);
+            this.tweaksTree.BackColor = System.Drawing.Color.White;
+            this.tweaksTree.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tweaksTree.CausesValidation = false;
+            this.tweaksTree.CheckBoxes = true;
+            this.tweaksTree.HideSelection = false;
+            this.tweaksTree.ItemHeight = 25;
+            this.tweaksTree.Location = new System.Drawing.Point(12, 0);
+            this.tweaksTree.Name = "tweaksTree";
+            this.tweaksTree.ShowNodeToolTips = true;
+            this.tweaksTree.Size = new System.Drawing.Size(271, 533);
+            this.tweaksTree.TabIndex = 0;
+            this.tweaksTree.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tweaksTree_AfterCheck);
+            this.tweaksTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tweaksTree_NodeMouseClick);
+            this.tweaksTree.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tweaksTree_MouseUp);
             // 
             // gbView
             // 
@@ -132,7 +132,7 @@ namespace BreakingApp
             this.gbView.Controls.Add(this.btnTemplateExport);
             this.gbView.Controls.Add(this.btnTemplateImport);
             this.gbView.Controls.Add(this.lblTemplate);
-            this.gbView.Controls.Add(this.rtbStatus);
+            this.gbView.Controls.Add(this.richStatus);
             this.gbView.Controls.Add(this.progress);
             this.gbView.Controls.Add(this.cbTemplate);
             this.gbView.ForeColor = System.Drawing.SystemColors.HotTrack;
@@ -177,21 +177,21 @@ namespace BreakingApp
             this.lblTemplate.TabIndex = 4;
             this.lblTemplate.Text = "Template:";
             // 
-            // rtbStatus
+            // richStatus
             // 
-            this.rtbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.richStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbStatus.AutoWordSelection = true;
-            this.rtbStatus.BackColor = System.Drawing.Color.White;
-            this.rtbStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbStatus.HideSelection = false;
-            this.rtbStatus.Location = new System.Drawing.Point(12, 72);
-            this.rtbStatus.Name = "rtbStatus";
-            this.rtbStatus.Size = new System.Drawing.Size(491, 380);
-            this.rtbStatus.TabIndex = 1;
-            this.rtbStatus.Text = "";
-            this.rtbStatus.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.rtbStatus_LinkClicked);
+            this.richStatus.AutoWordSelection = true;
+            this.richStatus.BackColor = System.Drawing.Color.White;
+            this.richStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richStatus.HideSelection = false;
+            this.richStatus.Location = new System.Drawing.Point(12, 72);
+            this.richStatus.Name = "richStatus";
+            this.richStatus.Size = new System.Drawing.Size(491, 380);
+            this.richStatus.TabIndex = 1;
+            this.richStatus.Text = "";
+            this.richStatus.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richStatus_LinkClicked);
             // 
             // progress
             // 
@@ -424,10 +424,10 @@ namespace BreakingApp
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer;
-        private System.Windows.Forms.TreeView tvwTweaks;
+        private System.Windows.Forms.TreeView tweaksTree;
         private System.Windows.Forms.Panel pnlBottom;
         private System.Windows.Forms.Button btnApply;
-        private System.Windows.Forms.RichTextBox rtbStatus;
+        private System.Windows.Forms.RichTextBox richStatus;
         private System.Windows.Forms.ProgressBar progress;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Button btnUndo;

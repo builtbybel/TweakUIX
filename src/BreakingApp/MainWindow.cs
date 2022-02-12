@@ -27,9 +27,9 @@ namespace BreakingApp
         private void MainWindow_Shown(object sender, EventArgs e)
         {
             InitializeTweaks();
-            UISelection();
-
             InitializeTemplates();
+
+            UISelection();
         }
 
         // Some UI nicety
@@ -44,7 +44,7 @@ namespace BreakingApp
                                        + osInfo.GetVersion() + "\x20"
                                        + osInfo.Is64Bit();
 
-            rtbStatus.Text = "Select a setting from the tree list at left or load a predefined template." +
+            richStatus.Text = "Select a setting from the tree list at left or load a predefined template." +
                             "\n\nWith this app you are able to change some settings, which aren't reachable within Windows 11." +
                              "\nIt is a simple tool with an even simpler UI based on Microsoft Powertoys/TweakUI." +
                              "\n\nMore information can be found here " + Helpers.Strings.Uri.URL_GITREPO;
@@ -52,11 +52,11 @@ namespace BreakingApp
 
         public void InitializeTweaks()
         {
-            tvwTweaks.Nodes.Clear();
-            tvwTweaks.BeginUpdate();
+            tweaksTree.Nodes.Clear();
+            tweaksTree.BeginUpdate();
 
-            // Set logger to target rtbStatus
-            logger.SetTarget(rtbStatus);
+            // Set logger to target richStatus
+            logger.SetTarget(richStatus);
 
             // Root node
             TreeNode root = new TreeNode("Tweak UI")
@@ -192,21 +192,35 @@ namespace BreakingApp
                 plugins,
             });
 
-            tvwTweaks.Nodes.Add(root);
+            tweaksTree.Nodes.Add(root);
 
             // Some tvw nicety
-            foreach (TreeNode tn in tvwTweaks.Nodes) { tn.Expand(); }
-            tvwTweaks.EndUpdate();
+            foreach (TreeNode tn in tweaksTree.Nodes) { tn.Expand(); }
+            tweaksTree.EndUpdate();
         }
 
         private void InitializeTemplates()
         {
+            cbTemplate.Items.Clear();
+
             try
             {
                 string[] files = Directory.GetFiles(Helpers.Strings.Data.DataRootDir, "*.break");
                 cbTemplate.Items.AddRange(files.Select((string filePath) => Path.GetFileNameWithoutExtension(filePath)).ToArray());
             }
             catch { MessageBox.Show("No template files found."); }
+        }
+
+        private void tweaksTree_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            tweaksTree.BeginUpdate();
+
+            foreach (TreeNode child in e.Node.Nodes)
+            {
+                child.Checked = e.Node.Checked;
+            }
+
+            tweaksTree.EndUpdate();
         }
 
         // Search nodes recursive
@@ -216,9 +230,9 @@ namespace BreakingApp
             {
                 if (node.Text.ToUpper().Contains(searchFor))
                 {
-                    tvwTweaks.SelectedNode = node;
+                    tweaksTree.SelectedNode = node;
                     node.BackColor = Color.Yellow;
-                    tvwTweaks.Focus();
+                    tweaksTree.Focus();
                 }
                 if (SearchTreeNodes(node.Nodes, searchFor))
                     return true;
@@ -240,7 +254,7 @@ namespace BreakingApp
         {
             List<TweaksNode> selectedTweaks = new List<TweaksNode>();
 
-            foreach (TreeNode treeNode in tvwTweaks.Nodes.All())
+            foreach (TreeNode treeNode in tweaksTree.Nodes.All())
             {
                 if (treeNode.Checked && treeNode.GetType() == typeof(TweaksNode))
                 {
@@ -260,7 +274,7 @@ namespace BreakingApp
 
             progress.Value = 0;
             progress.Visible = true;
-            rtbStatus.Text = "";
+            richStatus.Text = "";
         }
 
         private void DoProgress(int value)
@@ -279,7 +293,7 @@ namespace BreakingApp
         {
             btnApply.Enabled = false;
             btnUndo.Enabled = false;
-            tvwTweaks.Enabled = false;
+            tweaksTree.Enabled = false;
 
             foreach (TweaksNode node in treeNodes)
             {
@@ -296,14 +310,14 @@ namespace BreakingApp
 
             btnApply.Enabled = true;
             btnUndo.Enabled = true;
-            tvwTweaks.Enabled = true;
+            tweaksTree.Enabled = true;
         }
 
         private async void UndoTweaks(List<TweaksNode> treeNodes)
         {
             btnUndo.Enabled = false;
             btnApply.Enabled = false;
-            tvwTweaks.Enabled = false;
+            tweaksTree.Enabled = false;
 
             foreach (TweaksNode node in treeNodes)
             {
@@ -320,19 +334,7 @@ namespace BreakingApp
 
             btnUndo.Enabled = true;
             btnApply.Enabled = true;
-            tvwTweaks.Enabled = true;
-        }
-
-        private void tvwTweaks_AfterCheck(object sender, TreeViewEventArgs e)
-        {
-            tvwTweaks.BeginUpdate();
-
-            foreach (TreeNode child in e.Node.Nodes)
-            {
-                child.Checked = e.Node.Checked;
-            }
-
-            tvwTweaks.EndUpdate();
+            tweaksTree.Enabled = true;
         }
 
         private void SelectTweaksNodes(TreeNodeCollection trNodeCollection, bool isCheck)
@@ -362,8 +364,8 @@ namespace BreakingApp
 
                 bool shouldPerform = await analyzeTask;
                 gbView.Text = "Check " + node.Text;
-                tvwTweaks.SelectedNode = node;
-                tvwTweaks.Focus();
+                tweaksTree.SelectedNode = node;
+                tweaksTree.Focus();
 
                 if (shouldPerform)
                 {
@@ -426,10 +428,10 @@ namespace BreakingApp
 
         private void btnTemplateImport_Click(object sender, EventArgs e)
         {
-            ResetColorNode(tvwTweaks.Nodes, Color.Transparent);
-            SelectTweaksNodes(tvwTweaks.Nodes, false);
-            tvwTweaks.ExpandAll();
-            tvwTweaks.Nodes[0].EnsureVisible();
+            ResetColorNode(tweaksTree.Nodes, Color.Transparent);
+            SelectTweaksNodes(tweaksTree.Nodes, false);
+            tweaksTree.ExpandAll();
+            tweaksTree.Nodes[0].EnsureVisible();
 
             try
             {
@@ -438,13 +440,13 @@ namespace BreakingApp
                     while (!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
-                        foreach (TreeNode treeNode in tvwTweaks.Nodes.All())
+                        foreach (TreeNode treeNode in tweaksTree.Nodes.All())
                         {
                             if (treeNode.Text.Contains(line))
                             {
                                 treeNode.BackColor = Color.Yellow;
                                 treeNode.Checked = true;
-                                tvwTweaks.SelectedNode = treeNode;
+                                tweaksTree.SelectedNode = treeNode;
                             }
                         }
                     }
@@ -466,7 +468,7 @@ namespace BreakingApp
             {
                 using (StreamWriter writer = new StreamWriter(f.OpenFile()))
                 {
-                    foreach (TreeNode treeNode in tvwTweaks.Nodes.All())
+                    foreach (TreeNode treeNode in tweaksTree.Nodes.All())
                     {
                         if (!treeNode.Checked)
                             continue;
@@ -476,6 +478,7 @@ namespace BreakingApp
                     writer.Close();
                 }
                 MessageBox.Show("Template has been successfully exported.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                InitializeTemplates(); // Refresh
             }
         }
 
@@ -483,16 +486,16 @@ namespace BreakingApp
         {
             menuExpand.Checked = !(menuExpand.Checked);
 
-            tvwTweaks.BeginUpdate();
+            tweaksTree.BeginUpdate();
             if (menuExpand.Checked == true)
             {
-                tvwTweaks.Nodes[0].ExpandAll();
-                tvwTweaks.Nodes[0].EnsureVisible();
+                tweaksTree.Nodes[0].ExpandAll();
+                tweaksTree.Nodes[0].EnsureVisible();
             }
             else if (menuExpand.Checked == false)
-                tvwTweaks.Nodes[0].Collapse();
+                tweaksTree.Nodes[0].Collapse();
 
-            tvwTweaks.EndUpdate();
+            tweaksTree.EndUpdate();
         }
 
         private void menuCheck_Click(object sender, EventArgs e)
@@ -500,9 +503,9 @@ namespace BreakingApp
             menuCheck.Checked = !(menuCheck.Checked);
 
             if (menuCheck.Checked == true)
-                SelectTweaksNodes(tvwTweaks.Nodes, true);
+                SelectTweaksNodes(tweaksTree.Nodes, true);
             else
-                SelectTweaksNodes(tvwTweaks.Nodes, false);
+                SelectTweaksNodes(tweaksTree.Nodes, false);
         }
 
         private void menuSaveLog_Click(object sender, EventArgs e)
@@ -518,7 +521,7 @@ namespace BreakingApp
             {
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    File.WriteAllText(dlg.FileName, rtbStatus.Text, Encoding.UTF8);
+                    File.WriteAllText(dlg.FileName, richStatus.Text, Encoding.UTF8);
                 }
             }
             catch (Exception ex)
@@ -534,12 +537,12 @@ namespace BreakingApp
                 var searchFor = textSearch.Text.Trim().ToUpper();
                 if (searchFor != "")
                 {
-                    if (tvwTweaks.Nodes.Count > 0)
+                    if (tweaksTree.Nodes.Count > 0)
                     {
-                        if (SearchTreeNodes(tvwTweaks.Nodes, searchFor))
+                        if (SearchTreeNodes(tweaksTree.Nodes, searchFor))
                         {
-                            tvwTweaks.SelectedNode.Expand();
-                            tvwTweaks.Focus();
+                            tweaksTree.SelectedNode.Expand();
+                            tweaksTree.Focus();
                         }
                     }
                 }
@@ -549,27 +552,27 @@ namespace BreakingApp
         private void textSearch_Click(object sender, EventArgs e)
         {
             textSearch.Clear();
-            ResetColorNode(tvwTweaks.Nodes, Color.Transparent);
+            ResetColorNode(tweaksTree.Nodes, Color.Transparent);
         }
 
-        private void tvwTweaks_MouseUp(object sender, MouseEventArgs e)
+        private void tweaksTree_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
-                tvwTweaks.SelectedNode = tvwTweaks.GetNodeAt(e.X, e.Y);
+                tweaksTree.SelectedNode = tweaksTree.GetNodeAt(e.X, e.Y);
 
                 // Configure .app-files marked with asterix
-                if (tvwTweaks.SelectedNode != null && tvwTweaks.SelectedNode.Text.Contains("*"))
+                if (tweaksTree.SelectedNode != null && tweaksTree.SelectedNode.Text.Contains("*"))
                 {
-                    contextMenuApp.Show(tvwTweaks, e.Location);
+                    contextMenuApp.Show(tweaksTree, e.Location);
                 }
             }
         }
 
-        private void tvwTweaks_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        private void tweaksTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            tvwTweaks.SelectedNode = tvwTweaks.GetNodeAt(e.X, e.Y);
-            if (tvwTweaks.SelectedNode.Text.Contains("*"))
+            tweaksTree.SelectedNode = tweaksTree.GetNodeAt(e.X, e.Y);
+            if (tweaksTree.SelectedNode.Text.Contains("*"))
 
                 btnConfigure.Visible = true;
             else
@@ -578,7 +581,7 @@ namespace BreakingApp
 
         private void btnConfigure_Click(object sender, EventArgs e)
         {
-            switch (tvwTweaks.SelectedNode.Text)
+            switch (tweaksTree.SelectedNode.Text)
             {
                 case "*Uninstall broken Windows updates":
                     Process.Start("notepad.exe", Helpers.Strings.Data.DataRootDir + "brokenKB.app");
@@ -595,7 +598,7 @@ namespace BreakingApp
                     break;
 
                 default:
-                    MessageBox.Show("No configuration options available.", tvwTweaks.SelectedNode.Text);
+                    MessageBox.Show("No configuration options available.", tweaksTree.SelectedNode.Text);
                     break;
             }
         }
@@ -605,7 +608,7 @@ namespace BreakingApp
 
         private void menuAppConfigure_Click(object sender, EventArgs e) => btnConfigure.PerformClick();
 
-        private void rtbStatus_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
+        private void richStatus_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
 
         private void btnMenu_Click(object sender, EventArgs e) => this.menuMain.Show(Cursor.Position.X, Cursor.Position.Y);
 

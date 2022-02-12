@@ -98,6 +98,7 @@
     <Compile Include="Tweaks\Apps\Tasks.cs" />
     <Compile Include="Tweaks\Apps\TrackingApps.cs" />
     <Compile Include="Tweaks\Apps\Videos.cs" />
+    <Compile Include="Tweaks\App\InBoxApps.cs" />
     <Compile Include="Tweaks\App\Packages.cs" />
     <Compile Include="Tweaks\Gaming\GameDVR.cs" />
     <Compile Include="Tweaks\Gaming\PowerThrottling.cs" />
@@ -141,7 +142,6 @@
     <Compile Include="Tweaks\System\TeamsAutostart.cs" />
     <Compile Include="Tweaks\System\XPSWriter.cs" />
     <Compile Include="Tweaks\App\Uninstaller.cs" />
-    <Compile Include="Tweaks\App\UninstallerPreview.cs" />
     <Compile Include="Tweaks\Update\Wuauserv.cs" />
     <Compile Include="Tweaks\Update\Wusa.cs" />
     <Compile Include="Helpers\WindowsHelper.cs" />
