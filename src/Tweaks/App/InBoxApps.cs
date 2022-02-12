@@ -49,13 +49,13 @@ namespace BreakingApp.Tweaks.App
         {
             using (PowerShell script = PowerShell.Create())
             {
-                //script.AddScript("Get-appxprovisionedpackage –online | where-object {$_.packagename –notlike “*store*”} | Remove-AppxProvisionedPackage –online");
-               // script.AddScript("Get-AppxPackage | where-object {$_.name –notlike “*store*”} | Remove-AppxPackage");
+                script.AddScript("Get-AppxPackage | where-object {$_.name –notlike “*store*”} | Remove-AppxPackage");
 
                 try
                 {
-                    logger.Log($"\nRemoving {script.AddScript("Get-AppxPackage | where-object {$_.name –notlike “*store*”} | Remove-AppxPackage")}");
+                    logger.Log("Removing apps. Please wait...");
                     script.Invoke();
+                    logger.Log("Done. Windows is fresh and clean again.");
                 }
                 catch
                 { }
