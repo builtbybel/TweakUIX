@@ -156,8 +156,8 @@ namespace BreakingApp
             });
 
             TreeNode uninstaller = new TreeNode("*Uninstaller", new TreeNode[] {
-                 new TweaksNode(new Tweaks.App.UninstallerPreview()),
                  new TweaksNode(new Tweaks.App.Uninstaller()),
+                 new TweaksNode(new Tweaks.App.InBoxApps()),
             })
             {
                 ToolTipText = "Right-click on entry to configure this app",
@@ -405,7 +405,7 @@ namespace BreakingApp
 
         private void btnUndo_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you really want to revert all selected settings to Windows 11 default state?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (MessageBox.Show("Do you really want to revert all selected settings to default state?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 Reset();
 
