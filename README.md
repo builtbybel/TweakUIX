@@ -1,6 +1,6 @@
 # BreakingApp
 
-**I discovered this in my archive and will release the code soon.**
+**I discovered this in my archive.**
 This was my first attempt to recreate somehow Microsofts **PowerToys/TweakUI** and it finally became [ThisIsWin11](https://github.com/builtbybel/ThisIsWin11/releases/tag/1.1.153)
 
 Somehow I prefer this standalone version more, so I decided to push it to public on Github. 
