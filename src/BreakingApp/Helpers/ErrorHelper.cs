@@ -7,7 +7,7 @@ namespace BreakingApp
     {
         private static RichTextBox target = null;
 
-        // Errorlogger to target rtbStatus
+        // Errorlogger to target richStatus
         public void SetTarget(RichTextBox richText)
         {
             target = richText;

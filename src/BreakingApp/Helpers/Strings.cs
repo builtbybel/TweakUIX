@@ -14,7 +14,7 @@ namespace BreakingApp.Helpers
 
         public static class Uri
         {
-            public const string URL_ASSEMBLY = "https://raw.githubusercontent.com/builtbybel/BreakingApp/main/src/Properties/AssemblyInfo.cs";
+            public const string URL_ASSEMBLY = "https://raw.githubusercontent.com/builtbybel/BreakingApp/main/src/BreakingApp/Properties/AssemblyInfo.cs";
             public const string URL_TWITTER = "https://twitter.com/builtbybel";
             public const string URL_DONATE = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=donate@builtbybel.com&lc=US&item_name=%20Builtbybel&no_note=0&cn=&currency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted";
             public const string URL_GITREPO = "https://github.com/builtbybel/BreakingApp";
