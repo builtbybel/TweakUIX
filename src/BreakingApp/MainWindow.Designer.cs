@@ -30,7 +30,7 @@ namespace BreakingApp
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.sc = new System.Windows.Forms.SplitContainer();
             this.btnConfigure = new System.Windows.Forms.Button();
             this.tweaksTree = new System.Windows.Forms.TreeView();
             this.gbView = new System.Windows.Forms.GroupBox();
@@ -59,38 +59,38 @@ namespace BreakingApp
             this.contextMenuApp = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuAppConfigure = new System.Windows.Forms.ToolStripMenuItem();
             this.textSearch = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
-            this.splitContainer.Panel1.SuspendLayout();
-            this.splitContainer.Panel2.SuspendLayout();
-            this.splitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sc)).BeginInit();
+            this.sc.Panel1.SuspendLayout();
+            this.sc.Panel2.SuspendLayout();
+            this.sc.SuspendLayout();
             this.gbView.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.menuMain.SuspendLayout();
             this.contextMenuApp.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer
+            // sc
             // 
-            this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.sc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer.Location = new System.Drawing.Point(4, 26);
-            this.splitContainer.Name = "splitContainer";
+            this.sc.Location = new System.Drawing.Point(4, 26);
+            this.sc.Name = "sc";
             // 
-            // splitContainer.Panel1
+            // sc.Panel1
             // 
-            this.splitContainer.Panel1.Controls.Add(this.btnConfigure);
-            this.splitContainer.Panel1.Controls.Add(this.tweaksTree);
+            this.sc.Panel1.Controls.Add(this.btnConfigure);
+            this.sc.Panel1.Controls.Add(this.tweaksTree);
             // 
-            // splitContainer.Panel2
+            // sc.Panel2
             // 
-            this.splitContainer.Panel2.AutoScroll = true;
-            this.splitContainer.Panel2.BackColor = System.Drawing.Color.White;
-            this.splitContainer.Panel2.Controls.Add(this.gbView);
-            this.splitContainer.Panel2.Controls.Add(this.pnlBottom);
-            this.splitContainer.Size = new System.Drawing.Size(806, 583);
-            this.splitContainer.SplitterDistance = 284;
-            this.splitContainer.TabIndex = 0;
+            this.sc.Panel2.AutoScroll = true;
+            this.sc.Panel2.BackColor = System.Drawing.Color.White;
+            this.sc.Panel2.Controls.Add(this.gbView);
+            this.sc.Panel2.Controls.Add(this.pnlBottom);
+            this.sc.Size = new System.Drawing.Size(806, 583);
+            this.sc.SplitterDistance = 295;
+            this.sc.TabIndex = 0;
             // 
             // btnConfigure
             // 
@@ -118,7 +118,7 @@ namespace BreakingApp
             this.tweaksTree.Location = new System.Drawing.Point(12, 0);
             this.tweaksTree.Name = "tweaksTree";
             this.tweaksTree.ShowNodeToolTips = true;
-            this.tweaksTree.Size = new System.Drawing.Size(271, 533);
+            this.tweaksTree.Size = new System.Drawing.Size(280, 533);
             this.tweaksTree.TabIndex = 0;
             this.tweaksTree.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tweaksTree_AfterCheck);
             this.tweaksTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tweaksTree_NodeMouseClick);
@@ -138,7 +138,7 @@ namespace BreakingApp
             this.gbView.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.gbView.Location = new System.Drawing.Point(3, 5);
             this.gbView.Name = "gbView";
-            this.gbView.Size = new System.Drawing.Size(509, 458);
+            this.gbView.Size = new System.Drawing.Size(498, 458);
             this.gbView.TabIndex = 1;
             this.gbView.TabStop = false;
             this.gbView.Text = "Description";
@@ -188,7 +188,7 @@ namespace BreakingApp
             this.richStatus.HideSelection = false;
             this.richStatus.Location = new System.Drawing.Point(12, 72);
             this.richStatus.Name = "richStatus";
-            this.richStatus.Size = new System.Drawing.Size(491, 380);
+            this.richStatus.Size = new System.Drawing.Size(480, 380);
             this.richStatus.TabIndex = 1;
             this.richStatus.Text = "";
             this.richStatus.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richStatus_LinkClicked);
@@ -199,7 +199,7 @@ namespace BreakingApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progress.Location = new System.Drawing.Point(8, 22);
             this.progress.Name = "progress";
-            this.progress.Size = new System.Drawing.Size(495, 5);
+            this.progress.Size = new System.Drawing.Size(479, 5);
             this.progress.TabIndex = 167;
             this.progress.Visible = false;
             // 
@@ -210,7 +210,7 @@ namespace BreakingApp
             this.cbTemplate.FormattingEnabled = true;
             this.cbTemplate.Location = new System.Drawing.Point(85, 35);
             this.cbTemplate.Name = "cbTemplate";
-            this.cbTemplate.Size = new System.Drawing.Size(253, 21);
+            this.cbTemplate.Size = new System.Drawing.Size(251, 21);
             this.cbTemplate.TabIndex = 2;
             // 
             // pnlBottom
@@ -224,7 +224,7 @@ namespace BreakingApp
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBottom.Location = new System.Drawing.Point(0, 467);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(518, 116);
+            this.pnlBottom.Size = new System.Drawing.Size(507, 116);
             this.pnlBottom.TabIndex = 0;
             // 
             // lblInfo
@@ -239,7 +239,7 @@ namespace BreakingApp
             // btnCheck
             // 
             this.btnCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCheck.Location = new System.Drawing.Point(3, 90);
+            this.btnCheck.Location = new System.Drawing.Point(3, 72);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(75, 23);
             this.btnCheck.TabIndex = 2;
@@ -250,7 +250,7 @@ namespace BreakingApp
             // btnUndo
             // 
             this.btnUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUndo.Location = new System.Drawing.Point(437, 90);
+            this.btnUndo.Location = new System.Drawing.Point(426, 72);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(75, 23);
             this.btnUndo.TabIndex = 1;
@@ -261,7 +261,7 @@ namespace BreakingApp
             // btnApply
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.Location = new System.Drawing.Point(356, 90);
+            this.btnApply.Location = new System.Drawing.Point(345, 72);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 0;
@@ -385,7 +385,7 @@ namespace BreakingApp
             // textSearch
             // 
             this.textSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textSearch.Location = new System.Drawing.Point(686, 4);
+            this.textSearch.Location = new System.Drawing.Point(697, 4);
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(101, 20);
             this.textSearch.TabIndex = 4;
@@ -400,16 +400,16 @@ namespace BreakingApp
             this.ClientSize = new System.Drawing.Size(822, 621);
             this.Controls.Add(this.textSearch);
             this.Controls.Add(this.btnMenu);
-            this.Controls.Add(this.splitContainer);
+            this.Controls.Add(this.sc);
             this.Name = "MainWindow";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BreakingApp";
             this.Shown += new System.EventHandler(this.MainWindow_Shown);
-            this.splitContainer.Panel1.ResumeLayout(false);
-            this.splitContainer.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
-            this.splitContainer.ResumeLayout(false);
+            this.sc.Panel1.ResumeLayout(false);
+            this.sc.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sc)).EndInit();
+            this.sc.ResumeLayout(false);
             this.gbView.ResumeLayout(false);
             this.gbView.PerformLayout();
             this.pnlBottom.ResumeLayout(false);
@@ -423,7 +423,7 @@ namespace BreakingApp
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer;
+        private System.Windows.Forms.SplitContainer sc;
         private System.Windows.Forms.TreeView tweaksTree;
         private System.Windows.Forms.Panel pnlBottom;
         private System.Windows.Forms.Button btnApply;

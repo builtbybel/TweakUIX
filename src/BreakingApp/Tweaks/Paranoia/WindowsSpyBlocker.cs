@@ -40,7 +40,7 @@ namespace BreakingApp.Tweaks.Paranoia
             }
             catch
             {
-                logger.Log("spy.txt from https://github.com/crazy-max/WindowsSpyBlocker repository not found.\nDownload the file and copy it to \"Data\" directory of this app.");
+                logger.Log("Feature not available. Add it via Menu > \"Add features\" ");
                 return false;
             }
         }

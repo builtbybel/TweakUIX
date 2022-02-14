@@ -35,7 +35,7 @@ namespace BreakingApp
         // Some UI nicety
         private void UISelection()
         {
-            this.Size = new Size(900, 800);
+            this.Size = new Size(900, 700);
 
             menuAppInfo.Text = "(Preview-" + Program.GetCurrentVersionTostring() + "-walter.release)";
             lblInfo.Text = "Version " + Program.GetCurrentVersionTostring() +
@@ -351,7 +351,7 @@ namespace BreakingApp
         {
             Reset();
             int performTweaksCount = 0;
-            splitContainer.Panel2.Enabled = false;
+            sc.Panel2.Enabled = false;
 
             List<TweaksNode> selectedTweaks = CollectTweaksNodes();
 
@@ -394,7 +394,7 @@ namespace BreakingApp
             logger.Log(sum.ToString(), "");
 
             gbView.Text = performTweaksCount + " of " + selectedTweaks.Count + " settings requires attention.";
-            splitContainer.Panel2.Enabled = true;
+            sc.Panel2.Enabled = true;
         }
 
         private void btnApply_Click(object sender, EventArgs e)
@@ -604,7 +604,13 @@ namespace BreakingApp
         }
 
         private void menuFeatures_Click(object sender, EventArgs e)
-             => MessageBox.Show("Working on it.");
+        {
+            using (var form = new FeaturesWindow())
+
+            {
+                form.ShowDialog();
+            }
+        }
 
         private void menuAppConfigure_Click(object sender, EventArgs e) => btnConfigure.PerformClick();
 

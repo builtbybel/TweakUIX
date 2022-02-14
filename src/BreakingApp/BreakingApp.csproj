@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeaturesWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeaturesWindow.Designer.cs">
+      <DependentUpon>FeaturesWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\OS.cs" />
     <Compile Include="Helpers\Strings.cs" />
     <Compile Include="Helpers\Utils.cs" />
@@ -145,6 +151,9 @@
     <Compile Include="Tweaks\Update\Wuauserv.cs" />
     <Compile Include="Tweaks\Update\Wusa.cs" />
     <Compile Include="Helpers\WindowsHelper.cs" />
+    <EmbeddedResource Include="FeaturesWindow.resx">
+      <DependentUpon>FeaturesWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
