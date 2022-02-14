@@ -1,6 +1,7 @@
 ![Latest Release](https://img.shields.io/github/v/release/builtbybel/BreakingApp?style=for-the-badge)
 ![Issues Badge](https://img.shields.io/github/issues/builtbybel/BreakingApp?style=for-the-badge)
 ![Stars Badge](https://img.shields.io/github/stars/builtbybel/BreakingApp?color=yellow&style=for-the-badge)
+![Downloads Badge](https://img.shields.io/github/downloads/builtbybel/BreakingApp/total.svg?style=for-the-badge)
 
 <br>
 
