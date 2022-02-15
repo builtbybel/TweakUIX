@@ -47,7 +47,7 @@ namespace BreakingApp.Tweaks.App
             }
             catch
             {
-                logger.Log("- No bloatware apps found to be uninstalled.");
+                logger.Log("Feature not available. Add it via Menu > \"Add features\" ");
             }
 
             return (File.Exists(packagesList));

@@ -450,8 +450,8 @@ namespace BreakingApp
                             }
                         }
                     }
-                    MessageBox.Show("Template has been successfully loaded.\n\nWe have highlighted the configuration that would be enabled (no changes are done yet).", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     btnCheck.PerformClick();
+                    logger.Log($"[{cbTemplate.Text} has been successfully loaded].\nWe have highlighted the configuration that would be enabled (no changes are done yet).");
                 }
             }
             catch { MessageBox.Show("No template loaded."); }

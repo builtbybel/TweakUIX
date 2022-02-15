@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -9,10 +12,7 @@ namespace BreakingApp
 {
     public partial class FeaturesWindow : Form
     {
-        public FeaturesWindow()
-        {
-            InitializeComponent();
-        }
+        public FeaturesWindow() => InitializeComponent();
 
         private void FeaturesWindow_Load(object sender, EventArgs e)
         {
@@ -24,7 +24,7 @@ namespace BreakingApp
 
             XDocument doc = XDocument.Load(Helpers.Strings.Data.DataRootDir + "app.xml");
 
-            foreach (var dm in doc.Descendants("Template"))
+            foreach (var dm in doc.Descendants("Feature"))
             {
                 ListViewItem item = new ListViewItem(new string[]
                 {
@@ -39,6 +39,8 @@ namespace BreakingApp
                 listView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                 listView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
+
+            isFeatureInstalled();
         }
 
         private void Wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -46,6 +48,20 @@ namespace BreakingApp
             pBar.Value = e.ProgressPercentage;
             pBar.Update();
             // this.Invoke((MethodInvoker)(() => lblStatus.Text = $"{e.ProgressPercentage}%"));
+        }
+
+        public void isFeatureInstalled()
+        {
+            foreach (ListViewItem item in listView.Items)
+            {
+                var feature = item.SubItems[3].Text;
+                if (File.Exists(Helpers.Strings.Data.DataRootDir + feature.Split('/').Last()))
+                    item.ForeColor = Color.Gray;
+                else
+                {
+                    item.ForeColor = Color.Black;
+                }
+            }
         }
 
         private async void btnInstall_Click(object sender, EventArgs e)
@@ -84,6 +100,7 @@ namespace BreakingApp
                 }
 
                 MessageBox.Show(eachItem.SubItems[0].Text + " " + "installed.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                isFeatureInstalled(); // Refresh
 
                 pBar.Visible = false;
             }

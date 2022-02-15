@@ -271,11 +271,11 @@ namespace BreakingApp
             // 
             // btnMenu
             // 
-            this.btnMenu.BackColor = System.Drawing.Color.MediumOrchid;
+            this.btnMenu.BackColor = System.Drawing.Color.White;
             this.btnMenu.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnMenu.FlatAppearance.BorderSize = 0;
             this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenu.ForeColor = System.Drawing.Color.White;
+            this.btnMenu.ForeColor = System.Drawing.Color.Black;
             this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnMenu.Location = new System.Drawing.Point(12, 4);
             this.btnMenu.Name = "btnMenu";

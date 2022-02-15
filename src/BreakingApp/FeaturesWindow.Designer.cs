@@ -92,6 +92,7 @@ namespace BreakingApp
             this.Controls.Add(this.listView);
             this.Name = "FeaturesWindow";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Install Features";
             this.Load += new System.EventHandler(this.FeaturesWindow_Load);
