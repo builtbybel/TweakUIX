@@ -1,0 +1,39 @@
+<BreakingApp>
+   <Feature>
+     <id>Help file</id>
+	 <description>Short Guide to BreakingApp</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/BreakingApp/main/features/help.txt</uri>
+   </Feature>
+   
+  <Feature>
+    <id>WindowsSpyBlocker - Firewall spy rules</id>
+	 <description>Spy rules blocking Windows telemetry</description>
+	<dev>crazy-max</dev>
+    <uri>https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/firewall/spy.txt</uri>
+   </Feature>
+     <Feature>
+     <id>Install essential apps</id>
+	 <description>7zip, Bleachbit, IrfanView, Firefox, Notepad++, ShareX, SumatraPDF, VLC Player</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/BreakingApp/main/features/packages.app</uri>
+   </Feature>
+      <Feature>
+     <id>Debloating Windows 10 and Windows 11</id>
+	 <description>This willl fetch a community debloating list</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/BreakingApp/main/features/uninstaller.app</uri>
+   </Feature>
+         <Feature>
+     <id>Windows 10 Template</id>
+	 <description>Loads a preset of Tweaks available for Windows 10</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/BreakingApp/main/features/Windows10_Template.break</uri>
+   </Feature>
+         <Feature>
+     <id>Gaming Template</id>
+	 <description>Rcommended Tweaks for a better Gaming Experience</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/BreakingApp/main/features/Gaming_Template.break</uri>
+   </Feature>
+ </BreakingApp>
