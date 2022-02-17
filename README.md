@@ -20,6 +20,4 @@ My private version had all other tweaks integrated, so the code base including a
 
 ![screenshot](https://github.com/builtbybel/BreakingApp/blob/main/assets/bA.png)
 
-I could imagine to maintain this version as well, because we can omit some things (like the GetStarted module) and invest more time in useful tweaks.
-
 Btw, I couldn't think of a better name in 6 minutes...;)
