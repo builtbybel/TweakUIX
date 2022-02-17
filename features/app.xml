@@ -1,11 +1,16 @@
 <BreakingApp>
+  <Feature>
+     <id>Features signature file</id>
+	 <description>All features offered here are obtained from this file</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/BreakingApp/main/features/app.xml</uri>
+   </Feature>
    <Feature>
      <id>Help file</id>
 	 <description>Short Guide to BreakingApp</description>
 	<dev>Builtbybel</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/BreakingApp/main/features/help.txt</uri>
    </Feature>
-   
   <Feature>
     <id>WindowsSpyBlocker - Firewall spy rules</id>
 	 <description>Spy rules blocking Windows telemetry</description>
