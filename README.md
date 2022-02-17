@@ -10,7 +10,8 @@ _Tweak UI was part of Windows XP PowerToys and one of the most known Windows Pow
 **In the current version, there are twelve utilities added in the PowerToys but my favorite one - TweakUI - is still missing.**
 
 [ThisIsWin11](https://github.com/builtbybel/ThisIsWin11/r) was my first attempt to enhance somehow the **PowerToys** productivity apps with some system tools. 
-**This will be my first atempt to recreate a part of the classic TweakUI featuring the classic look.**
+
+**This will be my first atempt to recreate a part of the classic Tweak UI featuring the classic look.**
 
 ThisIsWin11 was partly based on tweaks of the BreakingApp mentioned here. Somehow I prefer this standalone version more, so I decided to push it to public on Github. 
 My private version had all other tweaks integrated, so the code base including all tweaks of this app was largely taken from the last stable version of the TIW11 OpenTweaks module.
