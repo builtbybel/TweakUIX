@@ -35,6 +35,7 @@ namespace BreakingApp.Helpers
                        Program.GetCurrentVersionTostring())
 
                     {
+                        logger.Log($"- [Checking for app updates] BreakingApp {latestVersion} is available. ");
                         if (MessageBox.Show($"Do you want to check latest release {latestVersion} on GitHub?", @"App update available",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {

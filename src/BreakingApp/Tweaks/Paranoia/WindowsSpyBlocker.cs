@@ -10,7 +10,7 @@ namespace BreakingApp.Tweaks.Paranoia
 
         public override string ID()
         {
-            return "Block Windows 11 telemetry with WindowsSpyBlocker";
+            return "*Block Windows telemetry with WindowsSpyBlocker";
         }
 
         public override string Info()
