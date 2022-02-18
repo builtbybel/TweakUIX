@@ -1,0 +1,75 @@
+﻿using System;
+using System.Diagnostics;
+using System.Globalization;
+using System.Text;
+
+namespace TweakUIX
+{
+    public static class WindowsHelper
+    {
+        private static readonly ErrorHelper logger = ErrorHelper.Instance;
+
+        // Command Prompt (to be replaced with wt.exe)
+        public static void RunCmd(string args)
+        {
+            ProcStart(Helpers.Strings.Paths.ShellCommandPrompt, args);
+        }
+
+        //  Windows Terminal
+        public static void RunWT(string args)
+        {
+            ProcStart(Helpers.Strings.Paths.ShellWT, args);
+        }
+
+        public static void ProcStart(string name, string args)
+        {
+            try
+            {
+                var proc = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = name,
+                        Arguments = args,
+                        UseShellExecute = false,
+                        RedirectStandardOutput = true,
+                        StandardOutputEncoding = Encoding.GetEncoding(CultureInfo.CurrentCulture.TextInfo.OEMCodePage),
+                        CreateNoWindow = true
+                    }
+                };
+                proc.Start();
+                string line = null;
+                while (!proc.StandardOutput.EndOfStream)
+                {
+                    line += Environment.NewLine + proc.StandardOutput.ReadLine();
+                }
+                proc.WaitForExit();
+                logger.Log($"{name} {args} {line}");
+            }
+            catch
+            {
+                logger.Log($"Could not start {name} {args}.");
+            }
+        }
+
+        public static void IsServiceRunning(string service)
+        {
+            logger.Log($"Check if {service} service is running");
+            RunCmd($"/c sc query {service} | find \"RUNNING\"");
+        }
+
+        public static void DisableService(string service)
+        {
+            RunCmd($"/c net stop {service}");
+            ProcStart(Helpers.Strings.Paths.ShellPS, $"-command \"Set-Service -Name {service} -StartupType disabled\"");
+            logger.Log($"Disable {service} service");
+        }
+
+        public static void EnableService(string service)
+        {
+            RunCmd($"/c net start {service}");
+            ProcStart(Helpers.Strings.Paths.ShellPS, $"-command \"Set-Service -Name {service} -StartupType auto\"");
+            logger.Log($"Enable {service} service");
+        }
+    }
+}
