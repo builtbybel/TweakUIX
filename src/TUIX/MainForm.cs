@@ -204,7 +204,7 @@ namespace TweakUIX
 
             try
             {
-                string[] files = Directory.GetFiles(Helpers.Strings.Data.DataRootDir, "*.break");
+                string[] files = Directory.GetFiles(Helpers.Strings.Data.DataRootDir, "*.tuix");
                 cbTemplate.Items.AddRange(files.Select((string filePath) => Path.GetFileNameWithoutExtension(filePath)).ToArray());
             }
             catch { MessageBox.Show("No template files found."); }
@@ -368,15 +368,15 @@ namespace TweakUIX
 
                 if (shouldPerform)
                 {
-                    logger.Log("Should be fixed: {0}", node.Text);
+                    logger.Log("Should be applied: {0}", node.Text);
                     // logger.Log("- {0}", node.Text);
 
                     performTweaksCount += 1;
                 }
                 else
                 {
-                    node.Checked = false; //uncheck all fixed
-                    // logger.Log("Already fixed: {0}", node.Text);
+                    node.Checked = false; //uncheck all applied
+                    // logger.Log("Already applied: {0}", node.Text);
                 }
             }
 
@@ -387,12 +387,12 @@ namespace TweakUIX
             sum.Append(Environment.NewLine);
             sum.Append("======= Results =======\n");
             sum.Append($"{selectedTweaks.Count} issues has been checked.\r\n");
-            sum.Append($"{selectedTweaks.Count - performTweaksCount} issues already fixed (we've unchecked it).\r\n");
+            sum.Append($"{selectedTweaks.Count - performTweaksCount} tweaks already applied (we've unchecked it).\r\n");
             sum.Append(Environment.NewLine);
-            sum.Append($"{performTweaksCount} issues needs to be fixed (just a recommendation).\r\n");
+            sum.Append($"{performTweaksCount} tweaks needs to be applied (just a recommendation).\r\n");
             logger.Log(sum.ToString(), "");
 
-            gbView.Text = performTweaksCount + " of " + selectedTweaks.Count + " settings requires attention.";
+            gbView.Text = performTweaksCount + " of " + selectedTweaks.Count + " issues requires attention.";
             sc.Panel2.Enabled = true;
         }
 
@@ -425,7 +425,7 @@ namespace TweakUIX
             }
         }
 
-        private void btnTemplateImport_Click(object sender, EventArgs e)
+        private void btnTemplateLoad_Click(object sender, EventArgs e)
         {
             ResetColorNode(tweaksTree.Nodes, Color.Transparent);
             SelectTweaksNodes(tweaksTree.Nodes, false);
@@ -434,7 +434,7 @@ namespace TweakUIX
 
             try
             {
-                using (StreamReader reader = new StreamReader(Helpers.Strings.Data.DataRootDir + cbTemplate.Text + ".break"))
+                using (StreamReader reader = new StreamReader(Helpers.Strings.Data.DataRootDir + cbTemplate.Text + ".tuix"))
                 {
                     while (!reader.EndOfStream)
                     {
@@ -456,12 +456,12 @@ namespace TweakUIX
             catch { MessageBox.Show("No template loaded."); }
         }
 
-        private void btnTemplateExport_Click(object sender, EventArgs e)
+        private void btnTemplateSave_Click(object sender, EventArgs e)
         {
             SaveFileDialog f = new SaveFileDialog();
             f.InitialDirectory = Helpers.Strings.Data.DataRootDir;
             f.FileName = "TweakUIX-template";
-            f.Filter = "TweakUIX files *.break|*.break";
+            f.Filter = "TweakUIX files *.tuix|*.tuix";
 
             if (f.ShowDialog() == DialogResult.OK)
             {
@@ -476,7 +476,7 @@ namespace TweakUIX
 
                     writer.Close();
                 }
-                MessageBox.Show("Template has been successfully exported.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Template has been successfully saved.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 InitializeTemplates(); // Refresh
             }
         }
@@ -615,14 +615,6 @@ namespace TweakUIX
             }
         }
 
-        private void menuAppConfigure_Click(object sender, EventArgs e) => btnOptions.PerformClick();
-
-        private void richStatus_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
-
-        private void btnMenu_Click(object sender, EventArgs e) => this.menuMain.Show(Cursor.Position.X, Cursor.Position.Y);
-
-        private void menuProjectURI_Click(object sender, EventArgs e) => Process.Start(Helpers.Strings.Uri.URL_GITREPO);
-
         private void menuSendLog_Click(object sender, EventArgs e)
         {
             string header = this.Text + "\x20" + Program.GetCurrentVersionTostring();
@@ -643,5 +635,13 @@ namespace TweakUIX
 
             e.Cancel = true;
         }
+
+        private void menuAppConfigure_Click(object sender, EventArgs e) => btnOptions.PerformClick();
+
+        private void richStatus_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
+
+        private void btnMenu_Click(object sender, EventArgs e) => this.menuMain.Show(Cursor.Position.X, Cursor.Position.Y);
+
+        private void menuProjectURI_Click(object sender, EventArgs e) => Process.Start(Helpers.Strings.Uri.URL_GITREPO);
     }
 }

@@ -61,20 +61,6 @@ namespace TweakUIX
             // this.Invoke((MethodInvoker)(() => lblStatus.Text = $"{e.ProgressPercentage}%"));
         }
 
-        public void isFeatureInstalled()
-        {
-            foreach (ListViewItem item in listView.Items)
-            {
-                var feature = item.SubItems[3].Text;
-                if (File.Exists(Helpers.Strings.Data.DataRootDir + feature.Split('/').Last()))
-                    item.ForeColor = Color.Gray;
-                else
-                {
-                    item.ForeColor = Color.Black;
-                }
-            }
-        }
-
         private async void btnInstall_Click(object sender, EventArgs e)
         {
             bool bNeedRestart = false;
@@ -116,10 +102,10 @@ namespace TweakUIX
                 }
                 builder.Append("\n- " + eachItem.SubItems[0].Text);
 
-                // Restart required
-                if (eachItem.SubItems[3].Text.Contains(".break") || eachItem.SubItems[3].Text.Contains(".xml"))
+                // Restart required by filetypes
+                if (eachItem.SubItems[3].Text.Contains(".tuix") || eachItem.SubItems[3].Text.Contains(".xml"))
                 {
-                    builder.Append(" (Restart required.)");
+                    builder.Append(" (Restart required)");
                     bNeedRestart = true;
                 }
             }
@@ -135,6 +121,20 @@ namespace TweakUIX
             }
 
             pBar.Visible = false;
+        }
+
+        public void isFeatureInstalled()
+        {
+            foreach (ListViewItem item in listView.Items)
+            {
+                var feature = item.SubItems[3].Text;
+                if (File.Exists(Helpers.Strings.Data.DataRootDir + feature.Split('/').Last()))
+                    item.ForeColor = Color.Gray;
+                else
+                {
+                    item.ForeColor = Color.Black;
+                }
+            }
         }
 
         private void btnOpenFolder_Click(object sender, EventArgs e) => Process.Start(new ProcessStartInfo("explorer.exe", Helpers.Strings.Data.DataRootDir) { UseShellExecute = true });

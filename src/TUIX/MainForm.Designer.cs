@@ -34,8 +34,8 @@ namespace TweakUIX
             this.btnOptions = new System.Windows.Forms.Button();
             this.tweaksTree = new System.Windows.Forms.TreeView();
             this.gbView = new System.Windows.Forms.GroupBox();
-            this.btnTemplateExport = new System.Windows.Forms.Button();
-            this.btnTemplateImport = new System.Windows.Forms.Button();
+            this.btnTemplateSave = new System.Windows.Forms.Button();
+            this.btnTemplateLoad = new System.Windows.Forms.Button();
             this.lblTemplate = new System.Windows.Forms.Label();
             this.richStatus = new System.Windows.Forms.RichTextBox();
             this.progress = new System.Windows.Forms.ProgressBar();
@@ -130,8 +130,8 @@ namespace TweakUIX
             this.gbView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbView.Controls.Add(this.btnTemplateExport);
-            this.gbView.Controls.Add(this.btnTemplateImport);
+            this.gbView.Controls.Add(this.btnTemplateSave);
+            this.gbView.Controls.Add(this.btnTemplateLoad);
             this.gbView.Controls.Add(this.lblTemplate);
             this.gbView.Controls.Add(this.richStatus);
             this.gbView.Controls.Add(this.progress);
@@ -145,31 +145,31 @@ namespace TweakUIX
             this.gbView.Text = "Tweak UI for Windows";
             this.tt.SetToolTip(this.gbView, "Description box");
             // 
-            // btnTemplateExport
+            // btnTemplateSave
             // 
-            this.btnTemplateExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTemplateExport.BackColor = System.Drawing.Color.White;
-            this.btnTemplateExport.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnTemplateExport.Location = new System.Drawing.Point(366, 33);
-            this.btnTemplateExport.Name = "btnTemplateExport";
-            this.btnTemplateExport.Size = new System.Drawing.Size(42, 23);
-            this.btnTemplateExport.TabIndex = 168;
-            this.btnTemplateExport.Text = "Save";
-            this.btnTemplateExport.UseVisualStyleBackColor = false;
-            this.btnTemplateExport.Click += new System.EventHandler(this.btnTemplateExport_Click);
+            this.btnTemplateSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTemplateSave.BackColor = System.Drawing.Color.White;
+            this.btnTemplateSave.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnTemplateSave.Location = new System.Drawing.Point(366, 33);
+            this.btnTemplateSave.Name = "btnTemplateSave";
+            this.btnTemplateSave.Size = new System.Drawing.Size(42, 23);
+            this.btnTemplateSave.TabIndex = 168;
+            this.btnTemplateSave.Text = "Save";
+            this.btnTemplateSave.UseVisualStyleBackColor = false;
+            this.btnTemplateSave.Click += new System.EventHandler(this.btnTemplateSave_Click);
             // 
-            // btnTemplateImport
+            // btnTemplateLoad
             // 
-            this.btnTemplateImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTemplateImport.BackColor = System.Drawing.Color.White;
-            this.btnTemplateImport.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnTemplateImport.Location = new System.Drawing.Point(414, 33);
-            this.btnTemplateImport.Name = "btnTemplateImport";
-            this.btnTemplateImport.Size = new System.Drawing.Size(96, 23);
-            this.btnTemplateImport.TabIndex = 3;
-            this.btnTemplateImport.Text = "Load template...";
-            this.btnTemplateImport.UseVisualStyleBackColor = false;
-            this.btnTemplateImport.Click += new System.EventHandler(this.btnTemplateImport_Click);
+            this.btnTemplateLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTemplateLoad.BackColor = System.Drawing.Color.White;
+            this.btnTemplateLoad.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnTemplateLoad.Location = new System.Drawing.Point(414, 33);
+            this.btnTemplateLoad.Name = "btnTemplateLoad";
+            this.btnTemplateLoad.Size = new System.Drawing.Size(96, 23);
+            this.btnTemplateLoad.TabIndex = 3;
+            this.btnTemplateLoad.Text = "Load template...";
+            this.btnTemplateLoad.UseVisualStyleBackColor = false;
+            this.btnTemplateLoad.Click += new System.EventHandler(this.btnTemplateLoad_Click);
             // 
             // lblTemplate
             // 
@@ -436,9 +436,9 @@ namespace TweakUIX
         private System.Windows.Forms.Button btnUndo;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.ComboBox cbTemplate;
-        private System.Windows.Forms.Button btnTemplateImport;
+        private System.Windows.Forms.Button btnTemplateLoad;
         private System.Windows.Forms.Label lblTemplate;
-        private System.Windows.Forms.Button btnTemplateExport;
+        private System.Windows.Forms.Button btnTemplateSave;
         private System.Windows.Forms.GroupBox gbView;
         private System.Windows.Forms.ContextMenuStrip menuMain;
         private System.Windows.Forms.ToolStripMenuItem menuExpand;

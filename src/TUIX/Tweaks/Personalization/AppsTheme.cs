@@ -16,7 +16,7 @@ namespace TweakUIX.Tweaks.Personalization
 
         public override string Info()
         {
-            return "This will also enable dark theme for TweakUIX.";
+            return "";
         }
 
         public override bool CheckTweak()
