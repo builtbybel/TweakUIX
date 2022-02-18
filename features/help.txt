@@ -12,7 +12,7 @@
                                        
 [State] Tweaks needs to be applied: This indicates that the Windows tweaks are in place.
                                            
-[State] Tweaks already applied: This indicates that the recommend tweaks are in place.
+[State] Tweaks already applied: This indicates that the recommended tweaks are in place.
 
 
 -------------
