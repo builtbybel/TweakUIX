@@ -37,10 +37,10 @@ namespace BreakingApp
         {
             this.Size = new Size(900, 700);
 
-            menuAppInfo.Text = "(Preview-" + Program.GetCurrentVersionTostring() + "-walter.release)";
+            menuAppInfo.Text = "(Version-" + Program.GetCurrentVersionTostring() + "-walter.release)";
             lblInfo.Text = "Version " + Program.GetCurrentVersionTostring() +
                                 "\n\nFor " + osInfo.GetChassisType() + "\x20" +
-                                "Windows 11" + "\x20"
+                                osInfo.IsWin11() + "\x20"
                                 + osInfo.GetVersion() + "\x20"
                                 + osInfo.Is64Bit();
 
@@ -622,7 +622,14 @@ namespace BreakingApp
 
         private void btnMenu_Click(object sender, EventArgs e) => this.menuMain.Show(Cursor.Position.X, Cursor.Position.Y);
 
-        private void menuSendLog_Click(object sender, EventArgs e) => MessageBox.Show("Working on it...");
+        private void menuSendLog_Click(object sender, EventArgs e)
+        {
+            string header = this.Text + "\x20" + Program.GetCurrentVersionTostring() ;
+            string body = "Copy paste your log to get help...";
+            string uri = $"{Helpers.Strings.Uri.URL_GITREPO}/issues/new?labels=report&title={header}&body={body}";
+
+            Process.Start(uri);
+        }
 
         private void menuProjectURI_Click(object sender, EventArgs e) => Process.Start(Helpers.Strings.Uri.URL_GITREPO);
 

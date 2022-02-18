@@ -6,7 +6,7 @@ namespace BreakingApp.Helpers
 {
     public class OS
     {
-        public bool IsWin11()
+        public string IsWin11()
         {
             try
             {
@@ -14,11 +14,11 @@ namespace BreakingApp.Helpers
                 int osbuild = Convert.ToInt32(key.GetValue("CurrentBuildNumber"));
                 if (osbuild >= 21996)
                 {
-                    return true;
+                    return "Windows 11";
                 }
             }
             catch { }
-            return false;
+            return "Windows 10 (Partial support)";
         }
 
         public string GetVersion()

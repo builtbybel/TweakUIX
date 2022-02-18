@@ -124,8 +124,6 @@ namespace BreakingApp
                 }
             }
 
-            pBar.Visible = false;
-
             MessageBox.Show("Features successfully installed:\n" + builder.ToString(), FormTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             isFeatureInstalled();
 
@@ -135,6 +133,8 @@ namespace BreakingApp
                 Application.Restart();
                 Environment.Exit(0);
             }
+
+            pBar.Visible = false;
         }
 
         private void btnOpenFolder_Click(object sender, EventArgs e) => Process.Start(new ProcessStartInfo("explorer.exe", Helpers.Strings.Data.DataRootDir) { UseShellExecute = true });

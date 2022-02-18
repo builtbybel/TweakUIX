@@ -302,50 +302,50 @@ namespace BreakingApp
             this.menuAppInfo});
             this.menuMain.Name = "menuMain";
             this.menuMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuMain.Size = new System.Drawing.Size(297, 170);
+            this.menuMain.Size = new System.Drawing.Size(228, 192);
             // 
             // menuFeatures
             // 
             this.menuFeatures.Name = "menuFeatures";
-            this.menuFeatures.Size = new System.Drawing.Size(296, 22);
+            this.menuFeatures.Size = new System.Drawing.Size(227, 22);
             this.menuFeatures.Text = "Add features";
             this.menuFeatures.Click += new System.EventHandler(this.menuFeatures_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(293, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(224, 6);
             // 
             // menuExpand
             // 
             this.menuExpand.Name = "menuExpand";
-            this.menuExpand.Size = new System.Drawing.Size(296, 22);
+            this.menuExpand.Size = new System.Drawing.Size(227, 22);
             this.menuExpand.Text = "Expand all";
             this.menuExpand.Click += new System.EventHandler(this.menuExpand_Click);
             // 
             // menuCheck
             // 
             this.menuCheck.Name = "menuCheck";
-            this.menuCheck.Size = new System.Drawing.Size(296, 22);
+            this.menuCheck.Size = new System.Drawing.Size(227, 22);
             this.menuCheck.Text = "Check all";
             this.menuCheck.Click += new System.EventHandler(this.menuCheck_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(293, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(224, 6);
             // 
             // menuSaveLog
             // 
             this.menuSaveLog.Name = "menuSaveLog";
-            this.menuSaveLog.Size = new System.Drawing.Size(296, 22);
+            this.menuSaveLog.Size = new System.Drawing.Size(227, 22);
             this.menuSaveLog.Text = "Save log";
             this.menuSaveLog.Click += new System.EventHandler(this.menuSaveLog_Click);
             // 
             // menuSendLog
             // 
             this.menuSendLog.Name = "menuSendLog";
-            this.menuSendLog.Size = new System.Drawing.Size(296, 22);
+            this.menuSendLog.Size = new System.Drawing.Size(227, 22);
             this.menuSendLog.Text = "Upload log to Github";
             this.menuSendLog.Click += new System.EventHandler(this.menuSendLog_Click);
             // 
@@ -354,7 +354,7 @@ namespace BreakingApp
             this.menuProjectURI.BackColor = System.Drawing.Color.Gainsboro;
             this.menuProjectURI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuProjectURI.Name = "menuProjectURI";
-            this.menuProjectURI.Size = new System.Drawing.Size(296, 22);
+            this.menuProjectURI.Size = new System.Drawing.Size(227, 22);
             this.menuProjectURI.Text = "Follow project on Github...";
             this.menuProjectURI.Click += new System.EventHandler(this.menuProjectURI_Click);
             // 
@@ -363,8 +363,8 @@ namespace BreakingApp
             this.menuAppInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuAppInfo.ForeColor = System.Drawing.Color.Gray;
             this.menuAppInfo.Name = "menuAppInfo";
-            this.menuAppInfo.Size = new System.Drawing.Size(296, 22);
-            this.menuAppInfo.Text = "(Preview-0.11.150.718-walter.release)";
+            this.menuAppInfo.Size = new System.Drawing.Size(227, 22);
+            this.menuAppInfo.Text = "(version-walter.release)";
             // 
             // contextMenuApp
             // 
