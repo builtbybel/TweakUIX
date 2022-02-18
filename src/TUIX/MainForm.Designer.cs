@@ -44,7 +44,6 @@ namespace TweakUIX
             this.lblInfo = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
             this.btnUndo = new System.Windows.Forms.Button();
-            this.btnHelp = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
             this.menuMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuFeatures = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +59,7 @@ namespace TweakUIX
             this.menuAppConfigure = new System.Windows.Forms.ToolStripMenuItem();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.btnMenu = new System.Windows.Forms.Button();
+            this.tt = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.sc)).BeginInit();
             this.sc.Panel1.SuspendLayout();
             this.sc.Panel2.SuspendLayout();
@@ -142,7 +142,8 @@ namespace TweakUIX
             this.gbView.Size = new System.Drawing.Size(516, 456);
             this.gbView.TabIndex = 1;
             this.gbView.TabStop = false;
-            this.gbView.Text = "Description";
+            this.gbView.Text = "Tweak UI for Windows";
+            this.tt.SetToolTip(this.gbView, "Description box");
             // 
             // btnTemplateExport
             // 
@@ -223,7 +224,6 @@ namespace TweakUIX
             this.pnlBottom.Controls.Add(this.lblInfo);
             this.pnlBottom.Controls.Add(this.btnCheck);
             this.pnlBottom.Controls.Add(this.btnUndo);
-            this.pnlBottom.Controls.Add(this.btnHelp);
             this.pnlBottom.Controls.Add(this.btnApply);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBottom.Location = new System.Drawing.Point(0, 467);
@@ -254,7 +254,7 @@ namespace TweakUIX
             // btnUndo
             // 
             this.btnUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUndo.Location = new System.Drawing.Point(416, 72);
+            this.btnUndo.Location = new System.Drawing.Point(444, 72);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(75, 23);
             this.btnUndo.TabIndex = 1;
@@ -262,23 +262,10 @@ namespace TweakUIX
             this.btnUndo.UseVisualStyleBackColor = true;
             this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
-            // btnHelp
-            // 
-            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHelp.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnHelp.Location = new System.Drawing.Point(497, 72);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(21, 23);
-            this.btnHelp.TabIndex = 5;
-            this.btnHelp.Text = "?";
-            this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
-            // 
             // btnApply
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.Location = new System.Drawing.Point(335, 72);
+            this.btnApply.Location = new System.Drawing.Point(363, 72);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 0;
@@ -412,11 +399,15 @@ namespace TweakUIX
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.textSearch);
             this.Controls.Add(this.sc);
+            this.HelpButton = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TweakUIX";
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.MainForm_HelpButtonClicked);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.sc.Panel1.ResumeLayout(false);
             this.sc.Panel2.ResumeLayout(false);
@@ -463,8 +454,8 @@ namespace TweakUIX
         private System.Windows.Forms.Button btnOptions;
         private System.Windows.Forms.ToolStripMenuItem menuAppInfo;
         private System.Windows.Forms.TextBox textSearch;
-        private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.ToolTip tt;
     }
 }
 

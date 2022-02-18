@@ -1,5 +1,4 @@
-﻿using TweakUIX.ITreeNode;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TweakUIX.ITreeNode;
 
 namespace TweakUIX
 {
@@ -45,9 +45,8 @@ namespace TweakUIX
                                 + osInfo.Is64Bit();
 
             richStatus.Text = "Select a setting from the tree list at left or load a predefined template." +
-                            "\n\nWith this app you are able to change some settings, which aren't reachable within Windows 11." +
-                             "\nIt is a simple tool with an even simpler UI based on Microsoft Powertoys/TweakUI." +
-                             "\n\nMore information can be found here " + Helpers.Strings.Uri.URL_GITREPO;
+                            "\n\nTo get help, click the ? in the upper right corner of the dialog." +
+                             "\nThe help will appear in the \"Description \" box.";
         }
 
         public void InitializeTweaks()
@@ -622,18 +621,18 @@ namespace TweakUIX
 
         private void btnMenu_Click(object sender, EventArgs e) => this.menuMain.Show(Cursor.Position.X, Cursor.Position.Y);
 
+        private void menuProjectURI_Click(object sender, EventArgs e) => Process.Start(Helpers.Strings.Uri.URL_GITREPO);
+
         private void menuSendLog_Click(object sender, EventArgs e)
         {
-            string header = this.Text + "\x20" + Program.GetCurrentVersionTostring() ;
+            string header = this.Text + "\x20" + Program.GetCurrentVersionTostring();
             string body = "Copy paste your log to get help...";
             string uri = $"{Helpers.Strings.Uri.URL_GITREPO}/issues/new?labels=report&title={header}&body={body}";
 
             Process.Start(uri);
         }
 
-        private void menuProjectURI_Click(object sender, EventArgs e) => Process.Start(Helpers.Strings.Uri.URL_GITREPO);
-
-        private void btnHelp_Click(object sender, EventArgs e)
+        private void MainForm_HelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
         {
             string helpfile = Helpers.Strings.Data.DataRootDir + "help.txt";
             if (File.Exists(helpfile))
@@ -641,6 +640,8 @@ namespace TweakUIX
                 richStatus.Text = File.ReadAllText(helpfile);
             else
                 richStatus.Text = "Feature not available. Add it via Menu > \"Add features\" ";
+
+            e.Cancel = true;
         }
     }
 }
