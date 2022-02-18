@@ -5,6 +5,8 @@
 ### .. the last PowerToy
 # TweakUIX
 
+More information can be found on my blog https://www.builtbybel.com/blog/19-apps/47-powertoys-tweakui-is-back-for-windows-10-and-windows-11
+
 _Tweak UI was part of Windows XP PowerToys and one of the most known Windows PowerToys to tweak the User Interface (UI). With this tool you are able to change settings, which aren't reachable within Windows. Since the release of Windows 95, Microsoft has made available a set of "PowerToys", which is a suite of extra little utilities that Microsoft feels power users would appreciate. Now, after about 25 years (in 2019), Microsoft has resurrected PowerToys for Windows 10 and Windows 11._
 
 **In the current version, there are twelve utilities added in the PowerToys but my favorite one - TweakUI - is still missing.**
