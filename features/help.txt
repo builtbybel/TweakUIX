@@ -18,4 +18,4 @@
 -------------
 To update this help file or any other feature goto Menu > Add features > Install
 
-More information about this app can be found here https://github.com/builtbybel/BreakingApp
+More information about this app can be found here https://github.com/builtbybel/TweakUIX
