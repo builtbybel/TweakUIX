@@ -19,7 +19,7 @@
    </Feature>
      <Feature>
      <id>Install essential apps</id>
-	 <description>7zip, Bleachbit, IrfanView, Firefox, Notepad++, ShareX, SumatraPDF, VLC Player</description>
+	 <description>The great eight: 7zip, Bleachbit, IrfanView, Firefox, Notepad++, ShareX, SumatraPDF, VLC Player</description>
 	<dev>Builtbybel</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/BreakingApp/main/features/packages.app</uri>
    </Feature>
