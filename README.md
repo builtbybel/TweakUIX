@@ -20,4 +20,5 @@ My private version had all other tweaks integrated, so the code base including a
 
 ![screenshot](https://github.com/builtbybel/BreakingApp/blob/main/assets/bA.png)
 
-Btw, I couldn't think of a better name in 6 minutes...;)
+Btw, I couldn't think of a better name in 6 minutes...;) You can discuss about the app name [here](https://github.com/builtbybel/BreakingApp/discussions/3)
+The tendency is eventually to change the name to **TweakUIX**
