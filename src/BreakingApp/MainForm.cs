@@ -37,7 +37,7 @@ namespace BreakingApp
         {
             this.Size = new Size(900, 700);
 
-            menuAppInfo.Text = "(Version-" + Program.GetCurrentVersionTostring() + "-walter.release)";
+            menuAppInfo.Text = "(Version-" + Program.GetCurrentVersionTostring() + "-walter.release-Builtbybel)";
             lblInfo.Text = "Version " + Program.GetCurrentVersionTostring() +
                                 "\n\nFor " + osInfo.GetChassisType() + "\x20" +
                                 osInfo.IsWin11() + "\x20"

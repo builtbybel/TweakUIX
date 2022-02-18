@@ -16,7 +16,7 @@ namespace BreakingApp.Tweaks.Update
 
         public override string Info()
         {
-            return "This will uninstall Windows 11 updates that have known issues or that are causing problems on your computer.\n" +
+            return "This will uninstall Windows updates that have known issues or that are causing problems on your computer.\n" +
                     "Click the <Check> button to search the database for broken updates.";
         }
 
@@ -35,7 +35,7 @@ namespace BreakingApp.Tweaks.Update
             }
             catch
             {
-                logger.Log("- There are currently no Windows 11 updates registered in the database which might cause problems or crashes.");
+                logger.Log("- There are currently no Windows updates registered in the database which might cause problems or crashes.");
             }
 
             return (File.Exists(kbList));
@@ -60,7 +60,7 @@ namespace BreakingApp.Tweaks.Update
             }
             catch
             {
-                logger.Log("- There are currently no Windows 11 updates registered in the database which might cause problems or crashes.");
+                logger.Log("- There are currently no Windows updates registered in the database which might cause problems or crashes.");
                 return false;
             }
         }
