@@ -1,7 +1,7 @@
-### BreakingApp - Uninstaller (Community rules)
+### TweakUIX  - Uninstaller (Community rules)
 ### License: MIT
 ### Updated: 2022-02-10
-### More info: https://github.com/builtbybel/BreakingApp
+### More info: https://github.com/builtbybel/TweakUIX
 ### You can add or delete entries in this file at any time. 
 
 2FE3CB00.PICSART-PHOTOSTUDIO

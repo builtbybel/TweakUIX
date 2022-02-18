@@ -10,9 +10,9 @@
 
 [Button] Save template: This allows you to set your favorite tweaks and save them to a local file.
                                        
-[State] Issues needs to be fixed: This indicates that the Windows tweaks are in place.
+[State] Tweaks needs to be applied: This indicates that the Windows tweaks are in place.
                                            
-[State] Issues already fixed: This indicates that the recommend tweaks are in place.
+[State] Tweaks already applied: This indicates that the recommend tweaks are in place.
 
 
 -------------
