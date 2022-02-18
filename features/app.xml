@@ -33,12 +33,12 @@
      <id>Windows 10 Template</id>
 	 <description>Loads a preset of Tweaks available for Windows 10</description>
 	<dev>Builtbybel</dev>
-    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/Windows10_Template.break</uri>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/Windows10_Template.tuix</uri>
    </Feature>
          <Feature>
      <id>Gaming Template</id>
 	 <description>Rcommended Tweaks for a better Gaming Experience</description>
 	<dev>Builtbybel</dev>
-    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/Gaming_Template.break</uri>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/Gaming_Template.tuix</uri>
    </Feature>
  </TweakUIX>
