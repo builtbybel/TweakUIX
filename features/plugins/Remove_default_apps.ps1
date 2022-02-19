@@ -1,4 +1,4 @@
-###This script allows you to remove unwanted Apps that come with Windows within a GUI. ###
+###This plugin allows you to remove unwanted apps that come with Windows within a GUI. ###
 ###Press <CTRL> if you want to select and remove mutliple apps at the same time
 
 [reflection.assembly]::loadwithpartialname("System.Windows.Forms") | Out-Null 
