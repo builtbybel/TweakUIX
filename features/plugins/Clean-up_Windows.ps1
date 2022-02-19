@@ -1,5 +1,5 @@
 ﻿###This will use classic Disk clean-up utility aka Cleanmgr.exe to clear unnecessary files from your computer's hard disk instead of Microsoft's replacement "Storage Sense app" which is part of the Settings app.###
-###This script will use command-line options to specify that Cleanmgr.exe cleans up all areas expect Recycle Bin and Previous Windows Installations.###
+###This plugin will use command-line options to specify that Cleanmgr.exe cleans up all areas expect Recycle Bin and Previous Windows Installations.###
 ###Requires -RunSilent
 
 Requires -RunAsAdministrator
