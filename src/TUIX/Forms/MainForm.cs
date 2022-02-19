@@ -22,7 +22,12 @@ namespace TweakUIX
 
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
-        public MainForm() => InitializeComponent();
+        public MainForm()
+        {
+            InitializeComponent();
+
+            SetView(new PluginsForm());
+        }
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
@@ -53,16 +58,13 @@ namespace TweakUIX
         {
             page.TopLevel = false;
             page.Parent = this;
-            page.AutoScroll = true;
             page.Dock = DockStyle.Fill;
             page.FormBorderStyle = FormBorderStyle.None;
             page.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
-            gbView.Visible = false;
+            page.AutoScroll = true;
+
             sc.Panel2.Controls.Add(page);
-            btnCheck.Visible =
-            btnApply.Visible =
-            btnUndo.Visible =
-            false;
+
             page.Show();
         }
 
@@ -73,15 +75,13 @@ namespace TweakUIX
             switch (tweaksTree.SelectedNode.Text)
             {
                 case "*Plugins":
-                    SetView(new PluginsForm());
+                    gbView.Visible = false;
+                    pnlBottom.Visible = false;
                     break;
 
                 default:
                     gbView.Visible = true;
-                    btnCheck.Visible =
-                    btnApply.Visible =
-                    btnUndo.Visible =
-                    true;
+                    pnlBottom.Visible = true;
                     break;
             }
             //  }
