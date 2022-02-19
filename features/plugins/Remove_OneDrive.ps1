@@ -1,5 +1,5 @@
-###This script will remove and disable OneDrive integration. ###
-###Author of this script: https://github.com/W4RH4WK/Debloat-Windows-10###
+###This plugin will remove and disable OneDrive integration. ###
+###Author of this plugin: https://github.com/W4RH4WK/Debloat-Windows-10###
 ###Requires -RunSilent
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\force-mkdir.psm1
