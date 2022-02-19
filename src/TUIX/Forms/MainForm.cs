@@ -42,7 +42,7 @@ namespace TweakUIX
         {
             this.Size = new Size(900, 700);
 
-            menuAppInfo.Text = "(Version-" + Program.GetCurrentVersionTostring() + "-walter.release-Builtbybel)";
+            menuAppInfo.Text = "(Version-" + Program.GetCurrentVersionTostring() + "-aurora.release-Builtbybel)";
             lblInfo.Text = "Version " + Program.GetCurrentVersionTostring() +
                                 "\n\nFor " + osInfo.GetChassisType() + "\x20" +
                                 osInfo.IsWin11() + "\x20"
@@ -62,9 +62,7 @@ namespace TweakUIX
             page.FormBorderStyle = FormBorderStyle.None;
             page.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
             page.AutoScroll = true;
-
             sc.Panel2.Controls.Add(page);
-
             page.Show();
         }
 

@@ -31,13 +31,13 @@ namespace TweakUIX
         {
             this.gbView = new System.Windows.Forms.GroupBox();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.lblPluginInfo = new System.Windows.Forms.Label();
             this.progress = new System.Windows.Forms.ProgressBar();
             this.listPlugs = new System.Windows.Forms.CheckedListBox();
             this.richStatus = new System.Windows.Forms.RichTextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.richPluginInfo = new System.Windows.Forms.RichTextBox();
             this.gbView.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.SuspendLayout();
@@ -48,15 +48,15 @@ namespace TweakUIX
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbView.BackColor = System.Drawing.SystemColors.Control;
+            this.gbView.Controls.Add(this.richPluginInfo);
             this.gbView.Controls.Add(this.lblHeader);
-            this.gbView.Controls.Add(this.lblPluginInfo);
             this.gbView.Controls.Add(this.progress);
             this.gbView.Controls.Add(this.listPlugs);
             this.gbView.Controls.Add(this.richStatus);
             this.gbView.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.gbView.Location = new System.Drawing.Point(3, 5);
             this.gbView.Name = "gbView";
-            this.gbView.Size = new System.Drawing.Size(514, 520);
+            this.gbView.Size = new System.Drawing.Size(514, 445);
             this.gbView.TabIndex = 3;
             this.gbView.TabStop = false;
             this.gbView.Text = "Plugins for Tweak UI";
@@ -73,18 +73,6 @@ namespace TweakUIX
             this.lblHeader.TabIndex = 10;
             this.lblHeader.Text = "You will find here plugin files for TweakUIX.\r\nTo install new plugins goto Menu >" +
     " Add features\r\n\r\n";
-            // 
-            // lblPluginInfo
-            // 
-            this.lblPluginInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPluginInfo.AutoEllipsis = true;
-            this.lblPluginInfo.ForeColor = System.Drawing.Color.Black;
-            this.lblPluginInfo.Location = new System.Drawing.Point(15, 309);
-            this.lblPluginInfo.Name = "lblPluginInfo";
-            this.lblPluginInfo.Size = new System.Drawing.Size(489, 194);
-            this.lblPluginInfo.TabIndex = 9;
             // 
             // progress
             // 
@@ -120,7 +108,7 @@ namespace TweakUIX
             this.richStatus.HideSelection = false;
             this.richStatus.Location = new System.Drawing.Point(12, 72);
             this.richStatus.Name = "richStatus";
-            this.richStatus.Size = new System.Drawing.Size(496, 185);
+            this.richStatus.Size = new System.Drawing.Size(496, 110);
             this.richStatus.TabIndex = 1;
             this.richStatus.Text = "";
             // 
@@ -161,6 +149,20 @@ namespace TweakUIX
             this.pnlBottom.Size = new System.Drawing.Size(529, 92);
             this.pnlBottom.TabIndex = 4;
             // 
+            // richPluginInfo
+            // 
+            this.richPluginInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richPluginInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.richPluginInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richPluginInfo.Location = new System.Drawing.Point(15, 309);
+            this.richPluginInfo.Name = "richPluginInfo";
+            this.richPluginInfo.Size = new System.Drawing.Size(489, 119);
+            this.richPluginInfo.TabIndex = 11;
+            this.richPluginInfo.Text = "";
+            this.richPluginInfo.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richPluginInfo_LinkClicked);
+            // 
             // PluginsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -187,8 +189,8 @@ namespace TweakUIX
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.ProgressBar progress;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label lblPluginInfo;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlBottom;
+        private System.Windows.Forms.RichTextBox richPluginInfo;
     }
 }

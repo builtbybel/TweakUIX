@@ -53,7 +53,7 @@ namespace TweakUIX
 
                         var equals = new[] { "Requires -RunSilent" };
 
-                        var str = lblPluginInfo.Text;
+                        var str = richPluginInfo.Text;
                         btnCancel.Visible = true;
                         progress.Visible = true;
                         progress.Style = ProgressBarStyle.Marquee;
@@ -111,13 +111,11 @@ namespace TweakUIX
                     while (!sr.EndOfStream)
                         content.AppendLine(sr.ReadLine());
 
-                    lblPluginInfo.Text = string.Join(Environment.NewLine, File.ReadAllLines(plugsDir).Where(s => s.StartsWith("###")).Select(s => s.Substring(3).Replace("###", "\n")));
+                    richPluginInfo.Text = string.Join(Environment.NewLine, File.ReadAllLines(plugsDir).Where(s => s.StartsWith("###")).Select(s => s.Substring(3).Replace("###", "\n")));
                 }
             }
             catch { }
         }
-
-        private void btnApply_Click(object sender, EventArgs e) => DoPlugin();
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -137,5 +135,9 @@ namespace TweakUIX
 
             btnCancel.Visible = false;
         }
+
+        private void btnApply_Click(object sender, EventArgs e) => DoPlugin();
+
+        private void richPluginInfo_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
     }
 }
