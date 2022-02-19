@@ -29,7 +29,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -73,10 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FeaturesForm.cs">
+    <Compile Include="Forms\FeaturesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FeaturesForm.Designer.cs">
+    <Compile Include="Forms\FeaturesForm.Designer.cs">
       <DependentUpon>FeaturesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\OS.cs" />
@@ -86,11 +86,17 @@
     <Compile Include="Helpers\TweaksNode.cs" />
     <Compile Include="Helpers\ErrorHelper.cs" />
     <Compile Include="ITreeNode.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PluginsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PluginsForm.Designer.cs">
+      <DependentUpon>PluginsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -166,11 +172,14 @@
     <Compile Include="Tweaks\Update\Wuauserv.cs" />
     <Compile Include="Tweaks\Update\Wusa.cs" />
     <Compile Include="Helpers\WindowsHelper.cs" />
-    <EmbeddedResource Include="FeaturesForm.resx">
+    <EmbeddedResource Include="Forms\FeaturesForm.resx">
       <DependentUpon>FeaturesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PluginsForm.resx">
+      <DependentUpon>PluginsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

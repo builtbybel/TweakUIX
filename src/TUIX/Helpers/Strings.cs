@@ -10,6 +10,8 @@ namespace TweakUIX.Helpers
         {
             public static string DataRootDir = Application.StartupPath +
                                                 @"\app\";
+            public static string PluginsRootDir = Application.StartupPath +
+                                                @"\app\plugins\";
         }
 
         public static class Uri
