@@ -1,4 +1,4 @@
-###This tweak will turn off unnecessary Windows 11 services.###
+###This plugin will turn off unnecessary Windows 11 services.###
 ###A detailed explantation of each service can be found here: https://nerdschalk.com/what-windows-11-services-to-disable-safely-and-how###
 ###- Connected User Experiences and Telemetry
 ###- FAX
