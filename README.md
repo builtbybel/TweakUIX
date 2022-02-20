@@ -19,6 +19,19 @@ _Tweak UI was part of Windows XP PowerToys and one of the most known Windows Pow
 **More information can be found on my blog 
 https://www.builtbybel.com/blog/19-apps/47-powertoys-tweakui-is-back-for-windows-10-and-windows-11**
 
+ ## Download and installing
+
+Goto **Releases** page > **Assets** > Click on **TweakUIX.zip**
+
+ ![dltweakuix](https://user-images.githubusercontent.com/57478606/154859955-2df51981-c994-4ba9-a183-e4735d411cdb.png)
+ 
+ or [click here to download the latest version of TweakUIX](https://github.com/builtbybel/TweakUIX/releases)
+
+
+
+### Installation
+A classic installation is not necessary at all, because TIW11 is 100% portable. All you have to do is to extract the `TIW11.zip` archive and run the file provided as .exe
+ 
 
 _[ThisIsWin11](https://github.com/builtbybel/ThisIsWin11/r) was my first attempt to enhance somehow the PowerToys productivity apps with some system tools. It was partly based on tweaks of the TweakUIX mentioned here. Somehow I prefer this standalone version more, so I decided to push it to public on Github. 
 My private version had all other tweaks integrated, so the code base including all tweaks of this app was largely taken from the last stable version of the TIW11 OpenTweaks module._
