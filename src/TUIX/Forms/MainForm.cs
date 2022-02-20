@@ -112,11 +112,7 @@ namespace TweakUIX
             };
 
             TreeNode about = new TreeNode("About", new TreeNode[] {
-            })
-            {
-                //ForeColor = Color.Gray,
-                Checked = false,
-            };
+            });
 
             TreeNode settings = new TreeNode("Settings", new TreeNode[] {
                 new TweaksNode(new Tweaks.Settings.AppUpdate()),
@@ -252,6 +248,10 @@ namespace TweakUIX
             // Some tvw nicety
             foreach (TreeNode tn in tweaksTree.Nodes) { tn.Expand(); }
             tweaksTree.EndUpdate();
+
+            // Remove checkmarks in About | Plugins
+            ITreeExtensions.HideCheckBox(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);  
+            ITreeExtensions.HideCheckBox(tweaksTree, tweaksTree.Nodes[0].Nodes[11]); 
         }
 
         private void InitializeTemplates()
@@ -274,6 +274,9 @@ namespace TweakUIX
             {
                 child.Checked = e.Node.Checked;
             }
+
+            ITreeExtensions.HideCheckBox(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);
+            ITreeExtensions.HideCheckBox(tweaksTree, tweaksTree.Nodes[0].Nodes[11]);
 
             tweaksTree.EndUpdate();
         }
