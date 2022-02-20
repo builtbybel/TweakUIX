@@ -8,7 +8,7 @@
 This will be my first atempt to recreate a part of the classic Tweak UI featuring the classic look.
 
 ## The original
-![06fig14](https://user-images.githubusercontent.com/57478606/154859538-0840ca1e-4451-4edf-8dfe-ba07150d1880.jpg)
+![tweakuiorg](https://user-images.githubusercontent.com/57478606/154859579-18711baa-cfa0-45c8-9cb0-6377ea4a84a4.jpg)
 
 
 _Tweak UI was part of Windows XP PowerToys and one of the most known Windows PowerToys to tweak the User Interface (UI). With this tool you are able to change settings, which aren't reachable within Windows. Since the release of Windows 95, Microsoft has made available a set of "PowerToys", which is a suite of extra little utilities that Microsoft feels power users would appreciate. Now, after about 25 years, Microsoft has resurrected PowerToys for Windows 10 and Windows 11. But my favorite tool is still missing..._
