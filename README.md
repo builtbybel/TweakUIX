@@ -16,7 +16,8 @@ _Tweak UI was part of Windows XP PowerToys and one of the most known Windows Pow
 ## The Replica
 ![screenshot](https://github.com/builtbybel/TweakUIX/blob/main/assets/tuix.png)
 
-More information can be found on my blog https://www.builtbybel.com/blog/19-apps/47-powertoys-tweakui-is-back-for-windows-10-and-windows-11
+**More information can be found on my blog 
+https://www.builtbybel.com/blog/19-apps/47-powertoys-tweakui-is-back-for-windows-10-and-windows-11**
 
 
 _[ThisIsWin11](https://github.com/builtbybel/ThisIsWin11/r) was my first attempt to enhance somehow the PowerToys productivity apps with some system tools. It was partly based on tweaks of the TweakUIX mentioned here. Somehow I prefer this standalone version more, so I decided to push it to public on Github. 
