@@ -24,7 +24,7 @@ Goto **Releases** page > **Assets** > Click on **TweakUIX.zip**
 
  ![dltweakuix](https://user-images.githubusercontent.com/57478606/154859955-2df51981-c994-4ba9-a183-e4735d411cdb.png)
  
- or [click here to download the latest version of TweakUIX](https://github.com/builtbybel/TweakUIX/releases)
+ or just [click here to download the latest version of TweakUIX](https://github.com/builtbybel/TweakUIX/releases)
 
 ## The Background story
 _[ThisIsWin11](https://github.com/builtbybel/ThisIsWin11/r) was my first attempt to enhance somehow the PowerToys productivity apps with some system tools. It was partly based on tweaks of the TweakUIX mentioned here. Somehow I prefer this standalone version more, so I decided to push it to public on Github. 
