@@ -33,7 +33,7 @@ namespace TweakUIX
             this.sc = new System.Windows.Forms.SplitContainer();
             this.btnOptions = new System.Windows.Forms.Button();
             this.tweaksTree = new System.Windows.Forms.TreeView();
-            this.gbView = new System.Windows.Forms.GroupBox();
+            this.grpBox = new System.Windows.Forms.GroupBox();
             this.btnTemplateSave = new System.Windows.Forms.Button();
             this.btnTemplateLoad = new System.Windows.Forms.Button();
             this.lblTemplate = new System.Windows.Forms.Label();
@@ -64,7 +64,7 @@ namespace TweakUIX
             this.sc.Panel1.SuspendLayout();
             this.sc.Panel2.SuspendLayout();
             this.sc.SuspendLayout();
-            this.gbView.SuspendLayout();
+            this.grpBox.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.menuMain.SuspendLayout();
             this.contextMenuApp.SuspendLayout();
@@ -87,7 +87,7 @@ namespace TweakUIX
             // 
             this.sc.Panel2.AutoScroll = true;
             this.sc.Panel2.BackColor = System.Drawing.Color.White;
-            this.sc.Panel2.Controls.Add(this.gbView);
+            this.sc.Panel2.Controls.Add(this.grpBox);
             this.sc.Panel2.Controls.Add(this.pnlBottom);
             this.sc.Size = new System.Drawing.Size(806, 583);
             this.sc.SplitterDistance = 277;
@@ -115,6 +115,7 @@ namespace TweakUIX
             this.tweaksTree.CausesValidation = false;
             this.tweaksTree.CheckBoxes = true;
             this.tweaksTree.HideSelection = false;
+            this.tweaksTree.Indent = 19;
             this.tweaksTree.ItemHeight = 25;
             this.tweaksTree.Location = new System.Drawing.Point(12, 0);
             this.tweaksTree.Name = "tweaksTree";
@@ -126,25 +127,25 @@ namespace TweakUIX
             this.tweaksTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tweaksTree_NodeMouseClick);
             this.tweaksTree.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tweaksTree_MouseUp);
             // 
-            // gbView
+            // grpBox
             // 
-            this.gbView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.grpBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbView.Controls.Add(this.btnTemplateSave);
-            this.gbView.Controls.Add(this.btnTemplateLoad);
-            this.gbView.Controls.Add(this.lblTemplate);
-            this.gbView.Controls.Add(this.richStatus);
-            this.gbView.Controls.Add(this.progress);
-            this.gbView.Controls.Add(this.cbTemplate);
-            this.gbView.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.gbView.Location = new System.Drawing.Point(3, 5);
-            this.gbView.Name = "gbView";
-            this.gbView.Size = new System.Drawing.Size(516, 456);
-            this.gbView.TabIndex = 1;
-            this.gbView.TabStop = false;
-            this.gbView.Text = "Tweak UI for Windows";
-            this.tt.SetToolTip(this.gbView, "Description box");
+            this.grpBox.Controls.Add(this.btnTemplateSave);
+            this.grpBox.Controls.Add(this.btnTemplateLoad);
+            this.grpBox.Controls.Add(this.lblTemplate);
+            this.grpBox.Controls.Add(this.richStatus);
+            this.grpBox.Controls.Add(this.progress);
+            this.grpBox.Controls.Add(this.cbTemplate);
+            this.grpBox.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.grpBox.Location = new System.Drawing.Point(3, 5);
+            this.grpBox.Name = "grpBox";
+            this.grpBox.Size = new System.Drawing.Size(516, 456);
+            this.grpBox.TabIndex = 1;
+            this.grpBox.TabStop = false;
+            this.grpBox.Text = "Tweak UI for Windows 10/11";
+            this.tt.SetToolTip(this.grpBox, "Description box");
             // 
             // btnTemplateSave
             // 
@@ -193,6 +194,7 @@ namespace TweakUIX
             this.richStatus.HideSelection = false;
             this.richStatus.Location = new System.Drawing.Point(12, 72);
             this.richStatus.Name = "richStatus";
+            this.richStatus.ReadOnly = true;
             this.richStatus.Size = new System.Drawing.Size(498, 378);
             this.richStatus.TabIndex = 1;
             this.richStatus.Text = "";
@@ -290,7 +292,7 @@ namespace TweakUIX
             this.menuAppInfo});
             this.menuMain.Name = "menuMain";
             this.menuMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuMain.Size = new System.Drawing.Size(228, 192);
+            this.menuMain.Size = new System.Drawing.Size(228, 170);
             // 
             // menuFeatures
             // 
@@ -375,7 +377,7 @@ namespace TweakUIX
             // 
             this.textSearch.Location = new System.Drawing.Point(16, 5);
             this.textSearch.Name = "textSearch";
-            this.textSearch.Size = new System.Drawing.Size(153, 20);
+            this.textSearch.Size = new System.Drawing.Size(142, 20);
             this.textSearch.TabIndex = 4;
             this.textSearch.Text = "Search...";
             this.textSearch.Click += new System.EventHandler(this.textSearch_Click);
@@ -386,7 +388,7 @@ namespace TweakUIX
             this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu.Location = new System.Drawing.Point(197, 5);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(75, 20);
+            this.btnMenu.Size = new System.Drawing.Size(62, 20);
             this.btnMenu.TabIndex = 6;
             this.btnMenu.Text = "Menu";
             this.btnMenu.UseVisualStyleBackColor = true;
@@ -407,15 +409,15 @@ namespace TweakUIX
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TweakUIX";
+            this.Text = "Tweak UIX";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.MainForm_HelpButtonClicked);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.sc.Panel1.ResumeLayout(false);
             this.sc.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sc)).EndInit();
             this.sc.ResumeLayout(false);
-            this.gbView.ResumeLayout(false);
-            this.gbView.PerformLayout();
+            this.grpBox.ResumeLayout(false);
+            this.grpBox.PerformLayout();
             this.pnlBottom.ResumeLayout(false);
             this.pnlBottom.PerformLayout();
             this.menuMain.ResumeLayout(false);
@@ -438,7 +440,7 @@ namespace TweakUIX
         private System.Windows.Forms.Button btnTemplateLoad;
         private System.Windows.Forms.Label lblTemplate;
         private System.Windows.Forms.Button btnTemplateSave;
-        private System.Windows.Forms.GroupBox gbView;
+        private System.Windows.Forms.GroupBox grpBox;
         private System.Windows.Forms.ContextMenuStrip menuMain;
         private System.Windows.Forms.ToolStripMenuItem menuExpand;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

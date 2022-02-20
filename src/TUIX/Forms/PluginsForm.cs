@@ -60,7 +60,7 @@ namespace TweakUIX
                         progress.MarqueeAnimationSpeed = 30;
 
                         btnApply.Enabled = false;
-                        gbView.Text = "Processing " + listPlugs.Text;
+                        grpBox.Text = "Processing " + listPlugs.Text;
 
                         if (equals.Any(str.Contains))                   // Silent
                         {
@@ -87,14 +87,14 @@ namespace TweakUIX
                         }
 
                         btnApply.Enabled = true;
-                        gbView.Text = "";
+                        grpBox.Text = "";
                     }
                 }
 
                 progress.Visible = false;
                 btnCancel.Visible = false;
 
-                MessageBox.Show("Selected plugins have been successfully applied.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Plugins have been successfully applied.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

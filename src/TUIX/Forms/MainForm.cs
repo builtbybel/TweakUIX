@@ -26,7 +26,7 @@ namespace TweakUIX
         {
             InitializeComponent();
 
-            SetView(new PluginsForm());
+            SetView(new PluginsForm());     // Register Plugins form
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
@@ -43,46 +43,50 @@ namespace TweakUIX
             this.Size = new Size(900, 700);
 
             menuAppInfo.Text = "(Version-" + Program.GetCurrentVersionTostring() + "-aurora.release-Builtbybel)";
-            lblInfo.Text = "Version " + Program.GetCurrentVersionTostring() +
-                                "\n\nFor " + osInfo.GetChassisType() + "\x20" +
-                                osInfo.IsWin11() + "\x20"
+            lblInfo.Text = "Version " + Program.GetCurrentVersionTostring()
+                                + "\n\nFor " + osInfo.GetChassisType() + "\x20"
+                                + osInfo.IsWin11() + "\x20"
                                 + osInfo.GetVersion() + "\x20"
                                 + osInfo.Is64Bit();
 
-            richStatus.Text = "Select a setting from the tree list at left or load a predefined template." +
-                            "\n\nTo get help, click the ? in the upper right corner of the dialog." +
-                             "\nThe help will appear in the \"Description \" box.";
+            richStatus.Text = "Select a setting from the tree list at left or load a predefined template."
+                              + "\n\nTo get help, click the ? in the upper right corner of the dialog."
+                              + "\nThe help will appear in the \"Description \" box.";
         }
 
-        private void SetView(Form page)
+        private void SetView(Control page)
         {
-            page.TopLevel = false;
-            page.Parent = this;
-            page.Dock = DockStyle.Fill;
-            page.FormBorderStyle = FormBorderStyle.None;
+            //while (sc.Panel2.Controls.Count > 0)
+            //    sc.Panel2.Controls[0].Dispose();
+            if (page is Form)
+            {
+                var form = page as Form;
+                form.TopLevel = false;
+                form.Parent = this;
+                form.FormBorderStyle = FormBorderStyle.None;
+                form.Visible = true;
+                form.AutoScroll = true;
+            }
+
             page.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
-            page.AutoScroll = true;
+            page.Dock = DockStyle.Fill;
             sc.Panel2.Controls.Add(page);
-            page.Show();
         }
 
         private void tweaksTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            //  if (tweaksTree.SelectedNode.Checked == true)
-            // {
-            switch (tweaksTree.SelectedNode.Text)
+            switch (e.Node.Text)
             {
                 case "*Plugins":
-                    gbView.Visible = false;
+                    grpBox.Visible = false;
                     pnlBottom.Visible = false;
                     break;
 
                 default:
-                    gbView.Visible = true;
+                    grpBox.Visible = true;
                     pnlBottom.Visible = true;
                     break;
             }
-            //  }
         }
 
         public void InitializeTweaks()
@@ -98,6 +102,7 @@ namespace TweakUIX
             {
                 Checked = false,
             };
+
 
             TreeNode settings = new TreeNode("Settings", new TreeNode[] {
                 new TweaksNode(new Tweaks.Settings.AppUpdate()),
@@ -335,7 +340,7 @@ namespace TweakUIX
                 var setting = node.Tweak;
                 ConfiguredTaskAwaitable<bool> performTask = Task<bool>.Factory.StartNew(() => setting.DoTweak()).ConfigureAwait(true);
 
-                gbView.Text = "Applying " + node.Text;
+                grpBox.Text = "Applying " + node.Text;
 
                 var result = await performTask;
                 IncrementProgress();
@@ -359,7 +364,7 @@ namespace TweakUIX
                 var setting = node.Tweak;
                 ConfiguredTaskAwaitable<bool> performTask = Task<bool>.Factory.StartNew(() => setting.UndoTweak()).ConfigureAwait(true);
 
-                gbView.Text = "Undo " + node.Text;
+                grpBox.Text = "Undo " + node.Text;
 
                 var result = await performTask;
                 IncrementProgress();
@@ -398,7 +403,7 @@ namespace TweakUIX
                 // logger.Log("Check {0}", node.Text);
 
                 bool shouldPerform = await analyzeTask;
-                gbView.Text = "Check " + node.Text;
+                grpBox.Text = "Check " + node.Text;
                 tweaksTree.SelectedNode = node;
                 tweaksTree.Focus();
 
@@ -428,7 +433,7 @@ namespace TweakUIX
             sum.Append($"{performTweaksCount} tweaks needs to be applied (just a recommendation).\r\n");
             logger.Log(sum.ToString(), "");
 
-            gbView.Text = performTweaksCount + " of " + selectedTweaks.Count + " issues requires attention.";
+            grpBox.Text = performTweaksCount + " of " + selectedTweaks.Count + " issues requires attention.";
             sc.Panel2.Enabled = true;
         }
 
@@ -667,6 +672,8 @@ namespace TweakUIX
         private void MainForm_HelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
         {
             string helpfile = Helpers.Strings.Data.DataRootDir + "help.txt";
+
+            if (!grpBox.Visible) { MessageBox.Show("Not supported in this view."); }
             if (File.Exists(helpfile))
 
                 richStatus.Text = File.ReadAllText(helpfile);

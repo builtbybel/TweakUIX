@@ -44,7 +44,7 @@ namespace TweakUIX
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(12, 12);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(564, 294);
+            this.listView.Size = new System.Drawing.Size(564, 285);
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -52,7 +52,7 @@ namespace TweakUIX
             // btnInstall
             // 
             this.btnInstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInstall.Location = new System.Drawing.Point(501, 312);
+            this.btnInstall.Location = new System.Drawing.Point(501, 303);
             this.btnInstall.Name = "btnInstall";
             this.btnInstall.Size = new System.Drawing.Size(75, 23);
             this.btnInstall.TabIndex = 3;
@@ -63,7 +63,7 @@ namespace TweakUIX
             // btnOpenFolder
             // 
             this.btnOpenFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOpenFolder.Location = new System.Drawing.Point(12, 312);
+            this.btnOpenFolder.Location = new System.Drawing.Point(12, 303);
             this.btnOpenFolder.Name = "btnOpenFolder";
             this.btnOpenFolder.Size = new System.Drawing.Size(153, 23);
             this.btnOpenFolder.TabIndex = 2;
@@ -85,7 +85,7 @@ namespace TweakUIX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(588, 347);
+            this.ClientSize = new System.Drawing.Size(588, 338);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.btnInstall);
             this.Controls.Add(this.btnOpenFolder);
