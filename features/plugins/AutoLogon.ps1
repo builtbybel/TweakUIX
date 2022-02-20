@@ -1,5 +1,5 @@
 ﻿###If your computer is used in an environment where you are happy for all users to have easy access, you can enable auto login with this Plugin. ###
-###Author of this plugin: https://gist.github.com/RezaAmbler
+###Author of this plugin: https://gist.github.com/RezaAmbler/bc91bfeb57458bb9a9bc
 [cmdletbinding()]
 param (
     [Parameter(Mandatory=$true)] [ValidateNotNullOrEmpty()] [string]
