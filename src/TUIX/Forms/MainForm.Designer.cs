@@ -54,7 +54,6 @@ namespace TweakUIX
             this.menuSaveLog = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSendLog = new System.Windows.Forms.ToolStripMenuItem();
             this.menuProjectURI = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAppInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuApp = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuAppConfigure = new System.Windows.Forms.ToolStripMenuItem();
             this.textSearch = new System.Windows.Forms.TextBox();
@@ -288,8 +287,7 @@ namespace TweakUIX
             this.toolStripSeparator2,
             this.menuSaveLog,
             this.menuSendLog,
-            this.menuProjectURI,
-            this.menuAppInfo});
+            this.menuProjectURI});
             this.menuMain.Name = "menuMain";
             this.menuMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuMain.Size = new System.Drawing.Size(228, 170);
@@ -347,14 +345,6 @@ namespace TweakUIX
             this.menuProjectURI.Size = new System.Drawing.Size(227, 22);
             this.menuProjectURI.Text = "Follow project on Github...";
             this.menuProjectURI.Click += new System.EventHandler(this.menuProjectURI_Click);
-            // 
-            // menuAppInfo
-            // 
-            this.menuAppInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuAppInfo.ForeColor = System.Drawing.Color.Gray;
-            this.menuAppInfo.Name = "menuAppInfo";
-            this.menuAppInfo.Size = new System.Drawing.Size(227, 22);
-            this.menuAppInfo.Text = "(version)";
             // 
             // contextMenuApp
             // 
@@ -453,7 +443,6 @@ namespace TweakUIX
         private System.Windows.Forms.ContextMenuStrip contextMenuApp;
         private System.Windows.Forms.ToolStripMenuItem menuAppConfigure;
         private System.Windows.Forms.Button btnOptions;
-        private System.Windows.Forms.ToolStripMenuItem menuAppInfo;
         private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.ToolTip tt;

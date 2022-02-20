@@ -42,7 +42,6 @@ namespace TweakUIX
         {
             this.Size = new Size(900, 700);
 
-            menuAppInfo.Text = "(Version-" + Program.GetCurrentVersionTostring() + "-aurora.release-Builtbybel)";
             lblInfo.Text = "Version " + Program.GetCurrentVersionTostring()
                                 + "\n\nFor " + osInfo.GetChassisType() + "\x20"
                                 + osInfo.IsWin11() + "\x20"
@@ -77,6 +76,15 @@ namespace TweakUIX
         {
             switch (e.Node.Text)
             {
+                case "About":
+                    MessageBox.Show("PowerToys/Tweak UI Replica"
+                                   + "\n\tVersion " + Program.GetCurrentVersionTostring()
+                                   + "\n\tAurora release, MIT"
+                                   + "\n\t(C) 2022 Builtbybel (https://twitter.com/builtbybel)"
+                                   );
+
+                    break;
+
                 case "*Plugins":
                     grpBox.Visible = false;
                     pnlBottom.Visible = false;
@@ -103,6 +111,12 @@ namespace TweakUIX
                 Checked = false,
             };
 
+            TreeNode about = new TreeNode("About", new TreeNode[] {
+            })
+            {
+                //ForeColor = Color.Gray,
+                Checked = false,
+            };
 
             TreeNode settings = new TreeNode("Settings", new TreeNode[] {
                 new TweaksNode(new Tweaks.Settings.AppUpdate()),
@@ -219,6 +233,7 @@ namespace TweakUIX
 
             root.Nodes.AddRange(new TreeNode[]
             {
+                about,
                 settings,
                 personalization,
                 system,
