@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TweakUIX.Controls;
 using TweakUIX.ITreeNode;
 
 namespace TweakUIX
@@ -106,20 +107,20 @@ namespace TweakUIX
             logger.SetTarget(richStatus);
 
             // Root node
-            TreeNode root = new TreeNode("Tweak UI")
+            System.Windows.Forms.TreeNode root = new System.Windows.Forms.TreeNode("Tweak UI")
             {
                 Checked = false,
             };
 
-            TreeNode about = new TreeNode("About", new TreeNode[] {
+            System.Windows.Forms.TreeNode about = new System.Windows.Forms.TreeNode("About", new System.Windows.Forms.TreeNode[] {
             });
 
-            TreeNode settings = new TreeNode("Settings", new TreeNode[] {
+            System.Windows.Forms.TreeNode settings = new System.Windows.Forms.TreeNode("Settings", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Settings.AppUpdate()),
                 new TweaksNode(new Tweaks.Settings.RestorePoint()),
             });
 
-            TreeNode personalization = new TreeNode("Personalization", new TreeNode[] {
+            System.Windows.Forms.TreeNode personalization = new System.Windows.Forms.TreeNode("Personalization", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Personalization.AppsTheme()),
                 new TweaksNode(new Tweaks.Personalization.WindowsTheme()),
                 new TweaksNode(new Tweaks.Personalization.Transparency()),
@@ -138,7 +139,7 @@ namespace TweakUIX
                 new TweaksNode(new Tweaks.Personalization.HiddenFileExt()),
             }); CheckNodes(personalization);
 
-            TreeNode system = new TreeNode("System", new TreeNode[] {
+            System.Windows.Forms.TreeNode system = new System.Windows.Forms.TreeNode("System", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.System.Fax()),
                 new TweaksNode(new Tweaks.System.XPSWriter()),
                 new TweaksNode(new Tweaks.System.EnableWSL()),
@@ -147,24 +148,24 @@ namespace TweakUIX
                 new TweaksNode(new Tweaks.System.TeamsAutostart()),
             }); CheckNodes(system);
 
-            TreeNode paranoia = new TreeNode("Paranoia", new TreeNode[] {
+            System.Windows.Forms.TreeNode paranoia = new System.Windows.Forms.TreeNode("Paranoia", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Paranoia.CleanMgr()),
                 new TweaksNode(new Tweaks.Paranoia.WindowsSpyBlocker()),
                 new TweaksNode(new Tweaks.Paranoia.ShutUp11()),
             });
 
-            TreeNode update = new TreeNode("Windows Update", new TreeNode[] {
+            System.Windows.Forms.TreeNode update = new System.Windows.Forms.TreeNode("Windows Update", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Update.Wuauserv()),
                 new TweaksNode(new Tweaks.Update.Wusa()),
             });
 
-            TreeNode gaming = new TreeNode("Gaming", new TreeNode[] {
+            System.Windows.Forms.TreeNode gaming = new System.Windows.Forms.TreeNode("Gaming", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Gaming.GameDVR()),
                 new TweaksNode(new Tweaks.Gaming.PowerThrottling()),
                 new TweaksNode(new Tweaks.Gaming.VisualFX()),
             });
 
-            TreeNode privacy = new TreeNode("Privacy (disable)", new TreeNode[] {
+            System.Windows.Forms.TreeNode privacy = new System.Windows.Forms.TreeNode("Privacy (disable)", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Privacy.DiagnosticData()),
                 new TweaksNode(new Tweaks.Privacy.Telemetry()),
                 new TweaksNode(new Tweaks.Privacy.CompatibilityTelemetry()),
@@ -178,7 +179,7 @@ namespace TweakUIX
                 new TweaksNode(new Tweaks.Privacy.TailoredExperiences()),
             });
 
-            TreeNode apps = new TreeNode("Apps permissions (disable)", new TreeNode[] {
+            System.Windows.Forms.TreeNode apps = new System.Windows.Forms.TreeNode("Apps permissions (disable)", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Apps.AppNotifications()),
                 new TweaksNode(new Tweaks.Apps.Camera()),
                 new TweaksNode(new Tweaks.Apps.Microphone()),
@@ -205,7 +206,7 @@ namespace TweakUIX
                 new TweaksNode(new Tweaks.Apps.CellularData()),
             });
 
-            TreeNode uninstaller = new TreeNode("*Uninstaller", new TreeNode[] {
+            System.Windows.Forms.TreeNode uninstaller = new System.Windows.Forms.TreeNode("*Uninstaller", new System.Windows.Forms.TreeNode[] {
                  new TweaksNode(new Tweaks.App.Uninstaller()),
                  new TweaksNode(new Tweaks.App.InBoxApps()),
             })
@@ -213,21 +214,21 @@ namespace TweakUIX
                 ToolTipText = "Right-click on entry to configure this app",
             };
 
-            TreeNode installer = new TreeNode("*Packages", new TreeNode[] {
+            System.Windows.Forms.TreeNode installer = new System.Windows.Forms.TreeNode("*Packages", new System.Windows.Forms.TreeNode[] {
                  new TweaksNode(new Tweaks.App.Packages()),
             })
             {
                 ToolTipText = "Right-click on entry to configure this app",
             };
 
-            TreeNode plugins = new TreeNode("*Plugins", new TreeNode[] {
+            System.Windows.Forms.TreeNode plugins = new System.Windows.Forms.TreeNode("*Plugins", new System.Windows.Forms.TreeNode[] {
             })
             {
                 //ForeColor = Color.Gray,
                 Checked = false,
             };
 
-            root.Nodes.AddRange(new TreeNode[]
+            root.Nodes.AddRange(new System.Windows.Forms.TreeNode[]
             {
                 about,
                 settings,
@@ -246,12 +247,9 @@ namespace TweakUIX
             tweaksTree.Nodes.Add(root);
 
             // Some tvw nicety
-            foreach (TreeNode tn in tweaksTree.Nodes) { tn.Expand(); }
+            RemoveTreeNodeCheckmarks();
+            foreach (System.Windows.Forms.TreeNode tn in tweaksTree.Nodes) { tn.Expand(); }
             tweaksTree.EndUpdate();
-
-            // Remove checkmarks in About | Plugins
-            ITreeExtensions.HideCheckBox(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);  
-            ITreeExtensions.HideCheckBox(tweaksTree, tweaksTree.Nodes[0].Nodes[11]); 
         }
 
         private void InitializeTemplates()
@@ -265,26 +263,31 @@ namespace TweakUIX
             }
             catch { MessageBox.Show("No template files found."); }
         }
+         
+        // Remove checkmarks in About and Plugins tree
+        private void RemoveTreeNodeCheckmarks()
+        {
+            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);
+            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[11]);
+        }
 
         private void tweaksTree_AfterCheck(object sender, TreeViewEventArgs e)
         {
             tweaksTree.BeginUpdate();
 
-            foreach (TreeNode child in e.Node.Nodes)
+            foreach (System.Windows.Forms.TreeNode child in e.Node.Nodes)
             {
                 child.Checked = e.Node.Checked;
             }
 
-            ITreeExtensions.HideCheckBox(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);
-            ITreeExtensions.HideCheckBox(tweaksTree, tweaksTree.Nodes[0].Nodes[11]);
-
+            RemoveTreeNodeCheckmarks();
             tweaksTree.EndUpdate();
         }
 
         // Search nodes recursive
         private bool SearchTreeNodes(IEnumerable nodes, string searchFor)
         {
-            foreach (TreeNode node in nodes)
+            foreach (System.Windows.Forms.TreeNode node in nodes)
             {
                 if (node.Text.ToUpper().Contains(searchFor))
                 {
@@ -299,11 +302,11 @@ namespace TweakUIX
         }
 
         // Check favored parent node including all child nodes
-        public void CheckNodes(TreeNode startNode)
+        public void CheckNodes(System.Windows.Forms.TreeNode startNode)
         {
             startNode.Checked = true;
 
-            foreach (TreeNode node in startNode.Nodes)
+            foreach (System.Windows.Forms.TreeNode node in startNode.Nodes)
 
                 CheckNodes(node);
         }
@@ -312,7 +315,7 @@ namespace TweakUIX
         {
             List<TweaksNode> selectedTweaks = new List<TweaksNode>();
 
-            foreach (TreeNode treeNode in tweaksTree.Nodes.All())
+            foreach (System.Windows.Forms.TreeNode treeNode in tweaksTree.Nodes.All())
             {
                 if (treeNode.Checked && treeNode.GetType() == typeof(TweaksNode))
                 {
@@ -397,7 +400,7 @@ namespace TweakUIX
 
         private void SelectTweaksNodes(TreeNodeCollection trNodeCollection, bool isCheck)
         {
-            foreach (TreeNode trNode in trNodeCollection)
+            foreach (System.Windows.Forms.TreeNode trNode in trNodeCollection)
             {
                 trNode.Checked = isCheck;
                 if (trNode.Nodes.Count > 0)
@@ -476,7 +479,7 @@ namespace TweakUIX
 
         private void ResetColorNode(TreeNodeCollection nodes, Color Color)
         {
-            foreach (TreeNode child in nodes)
+            foreach (System.Windows.Forms.TreeNode child in nodes)
             {
                 child.BackColor = Color;
                 if (child.Nodes != null && child.Nodes.Count > 0)
@@ -498,7 +501,7 @@ namespace TweakUIX
                     while (!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
-                        foreach (TreeNode treeNode in tweaksTree.Nodes.All())
+                        foreach (System.Windows.Forms.TreeNode treeNode in tweaksTree.Nodes.All())
                         {
                             if (treeNode.Text.Contains(line))
                             {
@@ -526,11 +529,11 @@ namespace TweakUIX
             {
                 using (StreamWriter writer = new StreamWriter(f.OpenFile()))
                 {
-                    foreach (TreeNode treeNode in tweaksTree.Nodes.All())
+                    foreach (System.Windows.Forms.TreeNode treeNode in tweaksTree.Nodes.All())
                     {
                         if (!treeNode.Checked)
                             continue;
-                        writer.WriteLine(String.Format("{0}", treeNode.Text));
+                        writer.WriteLine(string.Format("{0}", treeNode.Text));
                     }
 
                     writer.Close();

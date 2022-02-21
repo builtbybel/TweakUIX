@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace TweakUIX
 {
-    internal class TweaksNode : TreeNode
+    internal class TweaksNode : System.Windows.Forms.TreeNode
     {
         public TweaksBase Tweak { get; }
 
