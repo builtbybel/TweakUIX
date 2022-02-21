@@ -497,14 +497,13 @@ namespace TweakUIX
 
         private void StarterPlugin(bool isStarter = false)
         {
-            string filePath = Helpers.Strings.Data.DataRootDir + "starter.tuix";
+            string filePath = Helpers.Strings.Data.DataRootDir + "startup.tuix";
 
             if (isStarter && File.Exists(filePath))
             {
                 SelectTweaksNodes(tweaksTree.Nodes, false);
-                tweaksTree.ExpandAll();
                 richStatus.Clear();
-                logger.Log("The following start configuration has been loaded:");
+                logger.Log("The following startup configuration has been loaded:");
 
                 using (StreamReader reader = new StreamReader(filePath))
                 {
@@ -522,6 +521,7 @@ namespace TweakUIX
                         }
                         logger.Log("- " + line);
                     }
+                    if (new FileInfo(filePath).Length == 0) logger.Log("- Empty configuration loaded.");
                 }
             }
 
