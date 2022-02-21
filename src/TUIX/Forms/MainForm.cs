@@ -20,26 +20,27 @@ namespace TweakUIX
 
         private int progression = 0;
         private int progressionIncrease = 0;
+        private bool initTemplate = false;
 
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
         public MainForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
-            SetView(new PluginsForm());     // Register Plugins form
+            this.SetStyle();
+            this.SetView(new PluginsForm());     // Register Plugins form
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-            InitializeTweaks();
-            InitializeTemplates();
-
-            UISelection();
+            this.InitializeTweaks();
+            this.InitializeTemplates();
+            this.StarterPlugin(true);
         }
 
         // Some UI nicety
-        private void UISelection()
+        private void SetStyle()
         {
             this.Size = new Size(900, 700);
 
@@ -263,7 +264,7 @@ namespace TweakUIX
             }
             catch { MessageBox.Show("No template files found."); }
         }
-         
+
         // Remove checkmarks in About and Plugins tree
         private void RemoveTreeNodeCheckmarks()
         {
@@ -438,7 +439,7 @@ namespace TweakUIX
                 else
                 {
                     node.Checked = false; //uncheck all applied
-                    // logger.Log("Already applied: {0}", node.Text);
+                                          // logger.Log("Already applied: {0}", node.Text);
                 }
             }
 
@@ -489,14 +490,22 @@ namespace TweakUIX
 
         private void btnTemplateLoad_Click(object sender, EventArgs e)
         {
-            ResetColorNode(tweaksTree.Nodes, Color.Transparent);
-            SelectTweaksNodes(tweaksTree.Nodes, false);
-            tweaksTree.ExpandAll();
-            tweaksTree.Nodes[0].EnsureVisible();
+            initTemplate = true;
+            StarterPlugin(false);
+        }
 
-            try
+        private void StarterPlugin(bool isStarter = false)
+        {
+            string filePath = Helpers.Strings.Data.DataRootDir + "starter.tuix";
+
+            if (isStarter && File.Exists(filePath))
             {
-                using (StreamReader reader = new StreamReader(Helpers.Strings.Data.DataRootDir + cbTemplate.Text + ".tuix"))
+                SelectTweaksNodes(tweaksTree.Nodes, false);
+                tweaksTree.ExpandAll();
+                richStatus.Clear();
+                logger.Log("The following start configuration has been loaded:");
+
+                using (StreamReader reader = new StreamReader(filePath))
                 {
                     while (!reader.EndOfStream)
                     {
@@ -510,12 +519,42 @@ namespace TweakUIX
                                 tweaksTree.SelectedNode = treeNode;
                             }
                         }
+                        logger.Log("- " + line);
                     }
-                    btnCheck.PerformClick();
-                    logger.Log($"[{cbTemplate.Text} has been successfully loaded].\nWe have highlighted the configuration that would be enabled (no changes are done yet).");
                 }
             }
-            catch { MessageBox.Show("No template loaded."); }
+
+            if (initTemplate)
+            {
+                ResetColorNode(tweaksTree.Nodes, Color.Transparent);
+                SelectTweaksNodes(tweaksTree.Nodes, false);
+                tweaksTree.ExpandAll();
+                tweaksTree.Nodes[0].EnsureVisible();
+
+                try
+                {
+                    using (StreamReader reader = new StreamReader(Helpers.Strings.Data.DataRootDir + cbTemplate.Text + ".tuix"))
+                    {
+                        while (!reader.EndOfStream)
+                        {
+                            string line = reader.ReadLine();
+                            foreach (System.Windows.Forms.TreeNode treeNode in tweaksTree.Nodes.All())
+                            {
+                                if (treeNode.Text.Contains(line))
+                                {
+                                    treeNode.BackColor = Color.Yellow;
+                                    treeNode.Checked = true;
+                                    tweaksTree.SelectedNode = treeNode;
+                                }
+                            }
+                        }
+
+                        btnCheck.PerformClick();
+                        logger.Log($"[{cbTemplate.Text} has been successfully loaded].\nWe have highlighted the configuration that would be enabled (no changes are done yet).");
+                    }
+                }
+                catch { MessageBox.Show("No template loaded."); }
+            }
         }
 
         private void btnTemplateSave_Click(object sender, EventArgs e)

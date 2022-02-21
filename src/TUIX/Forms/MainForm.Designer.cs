@@ -290,7 +290,7 @@ namespace TweakUIX
             this.menuProjectURI});
             this.menuMain.Name = "menuMain";
             this.menuMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuMain.Size = new System.Drawing.Size(228, 170);
+            this.menuMain.Size = new System.Drawing.Size(228, 148);
             // 
             // menuFeatures
             // 
