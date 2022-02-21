@@ -20,7 +20,7 @@ namespace TweakUIX
 
         private int progression = 0;
         private int progressionIncrease = 0;
-        private bool initTemplate = false;
+        private bool bLoadTemplate = false;
 
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
@@ -42,7 +42,7 @@ namespace TweakUIX
         // Some UI nicety
         private void SetStyle()
         {
-            this.Size = new Size(900, 700);
+            this.Size = new Size(800, 600);
 
             lblInfo.Text = "Version " + Program.GetCurrentVersionTostring()
                                 + "\n\nFor " + osInfo.GetChassisType() + "\x20"
@@ -74,29 +74,26 @@ namespace TweakUIX
             sc.Panel2.Controls.Add(page);
         }
 
-        private void tweaksTree_AfterSelect(object sender, TreeViewEventArgs e)
+        private void Reset()
         {
-            switch (e.Node.Text)
-            {
-                case "About":
-                    MessageBox.Show("PowerToys/Tweak UI Replica"
-                                   + "\n\tVersion " + Program.GetCurrentVersionTostring()
-                                   + "\n\tAurora release, MIT"
-                                   + "\n\t(C) 2022 Builtbybel (https://twitter.com/builtbybel)"
-                                   );
+            progression = 0;
+            progressionIncrease = 0;
 
-                    break;
+            progress.Value = 0;
+            progress.Visible = true;
+            richStatus.Text = "";
+        }
 
-                case "*Plugins":
-                    grpBox.Visible = false;
-                    pnlBottom.Visible = false;
-                    break;
+        private void DoProgress(int value)
+        {
+            progression = value;
+            progress.Value = progression;
+        }
 
-                default:
-                    grpBox.Visible = true;
-                    pnlBottom.Visible = true;
-                    break;
-            }
+        private void IncrementProgress()
+        {
+            progression += progressionIncrease;
+            progress.Value = progression;
         }
 
         public void InitializeTweaks()
@@ -265,11 +262,30 @@ namespace TweakUIX
             catch { MessageBox.Show("No template files found."); }
         }
 
-        // Remove checkmarks in About and Plugins tree
-        private void RemoveTreeNodeCheckmarks()
+        private void tweaksTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);
-            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[11]);
+            switch (e.Node.Text)
+            {
+                case "About":
+                    MessageBox.Show("PowerToys/Tweak UI Replica"
+                                   + "\n\tVersion " + Program.GetCurrentVersionTostring()
+                                   + "\n\tAurora release, MIT"
+                                   + "\n\t(C) 2022 Builtbybel (https://twitter.com/builtbybel)"
+                                   + "\n\t(This is NOT a product made by Microsoft nor related to them.)"
+                                   );
+
+                    break;
+
+                case "*Plugins":
+                    grpBox.Visible = false;
+                    pnlBottom.Visible = false;
+                    break;
+
+                default:
+                    grpBox.Visible = true;
+                    pnlBottom.Visible = true;
+                    break;
+            }
         }
 
         private void tweaksTree_AfterCheck(object sender, TreeViewEventArgs e)
@@ -283,6 +299,13 @@ namespace TweakUIX
 
             RemoveTreeNodeCheckmarks();
             tweaksTree.EndUpdate();
+        }
+
+        // Remove checkmarks in About and Plugins node
+        private void RemoveTreeNodeCheckmarks()
+        {
+            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);
+            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[11]);
         }
 
         // Search nodes recursive
@@ -327,28 +350,6 @@ namespace TweakUIX
             progressionIncrease = (int)Math.Floor(100.0f / selectedTweaks.Count);
 
             return selectedTweaks;
-        }
-
-        private void Reset()
-        {
-            progression = 0;
-            progressionIncrease = 0;
-
-            progress.Value = 0;
-            progress.Visible = true;
-            richStatus.Text = "";
-        }
-
-        private void DoProgress(int value)
-        {
-            progression = value;
-            progress.Value = progression;
-        }
-
-        private void IncrementProgress()
-        {
-            progression += progressionIncrease;
-            progress.Value = progression;
         }
 
         private async void ApplyTweaks(List<TweaksNode> treeNodes)
@@ -490,7 +491,7 @@ namespace TweakUIX
 
         private void btnTemplateLoad_Click(object sender, EventArgs e)
         {
-            initTemplate = true;
+            bLoadTemplate = true;
             StarterPlugin(false);
         }
 
@@ -524,7 +525,7 @@ namespace TweakUIX
                 }
             }
 
-            if (initTemplate)
+            if (bLoadTemplate)
             {
                 ResetColorNode(tweaksTree.Nodes, Color.Transparent);
                 SelectTweaksNodes(tweaksTree.Nodes, false);
@@ -650,10 +651,7 @@ namespace TweakUIX
         }
 
         private void textSearch_Click(object sender, EventArgs e)
-        {
-            textSearch.Clear();
-            ResetColorNode(tweaksTree.Nodes, Color.Transparent);
-        }
+        { textSearch.Clear(); ResetColorNode(tweaksTree.Nodes, Color.Transparent); }
 
         private void tweaksTree_MouseUp(object sender, MouseEventArgs e)
         {
