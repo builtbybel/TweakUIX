@@ -64,7 +64,6 @@ namespace TweakUIX
         private async void btnInstall_Click(object sender, EventArgs e)
         {
             bool bNeedRestart = false;
-   
 
             if (listView.CheckedItems.Count == 0)
             {

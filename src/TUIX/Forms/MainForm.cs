@@ -74,28 +74,6 @@ namespace TweakUIX
             sc.Panel2.Controls.Add(page);
         }
 
-        private void Reset()
-        {
-            progression = 0;
-            progressionIncrease = 0;
-
-            progress.Value = 0;
-            progress.Visible = true;
-            richStatus.Text = "";
-        }
-
-        private void DoProgress(int value)
-        {
-            progression = value;
-            progress.Value = progression;
-        }
-
-        private void IncrementProgress()
-        {
-            progression += progressionIncrease;
-            progress.Value = progression;
-        }
-
         public void InitializeTweaks()
         {
             tweaksTree.Nodes.Clear();
@@ -262,6 +240,28 @@ namespace TweakUIX
             catch { MessageBox.Show("No template files found."); }
         }
 
+        private void Reset()
+        {
+            progression = 0;
+            progressionIncrease = 0;
+
+            progress.Value = 0;
+            progress.Visible = true;
+            richStatus.Text = "";
+        }
+
+        private void DoProgress(int value)
+        {
+            progression = value;
+            progress.Value = progression;
+        }
+
+        private void IncrementProgress()
+        {
+            progression += progressionIncrease;
+            progress.Value = progression;
+        }
+
         private void tweaksTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
             switch (e.Node.Text)
@@ -306,23 +306,6 @@ namespace TweakUIX
         {
             TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);
             TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[11]);
-        }
-
-        // Search nodes recursive
-        private bool SearchTreeNodes(IEnumerable nodes, string searchFor)
-        {
-            foreach (System.Windows.Forms.TreeNode node in nodes)
-            {
-                if (node.Text.ToUpper().Contains(searchFor))
-                {
-                    tweaksTree.SelectedNode = node;
-                    node.BackColor = Color.Yellow;
-                    tweaksTree.Focus();
-                }
-                if (SearchTreeNodes(node.Nodes, searchFor))
-                    return true;
-            }
-            return false;
         }
 
         // Check favored parent node including all child nodes
@@ -614,7 +597,7 @@ namespace TweakUIX
             SaveFileDialog dlg = new SaveFileDialog();
             dlg.Filter = "*.txt|*.txt";
             dlg.DefaultExt = ".txt";
-            dlg.FileName = "TweakUIX_log";
+            dlg.FileName = "tuix_log";
             dlg.RestoreDirectory = true;
             dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
@@ -629,6 +612,23 @@ namespace TweakUIX
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        // Search nodes recursive
+        private bool SearchTreeNodes(IEnumerable nodes, string searchFor)
+        {
+            foreach (System.Windows.Forms.TreeNode node in nodes)
+            {
+                if (node.Text.ToUpper().Contains(searchFor))
+                {
+                    tweaksTree.SelectedNode = node;
+                    node.BackColor = Color.Yellow;
+                    tweaksTree.Focus();
+                }
+                if (SearchTreeNodes(node.Nodes, searchFor))
+                    return true;
+            }
+            return false;
         }
 
         private void textSearch_KeyUp(object sender, KeyEventArgs e)

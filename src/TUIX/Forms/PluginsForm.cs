@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace TweakUIX
 {
     public partial class PluginsForm : Form
     {
+        private string pluginsRootDir = Helpers.Strings.Data.PluginsRootDir + "MajorGeeks Windows Tweaks";
+
         public PluginsForm()
         {
             InitializeComponent();
@@ -117,6 +120,31 @@ namespace TweakUIX
             catch { }
         }
 
+        private void richPluginInfo_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
+
+        private void InitializePluginsCommunity()
+        {
+            if (!Directory.Exists(pluginsRootDir))
+            {
+                richHelp.Text = "The following packages are supported."
+                                + "\n- https://www.majorgeeks.com/files/details/majorgeeks_registry_tweaks.html"
+                                + "\n(After downloading, just extract it to \"app\\plugins\" directory.)";
+
+                return;
+            }
+            richHelp.Text = "How does it work?"
+                       + "\n1. Select a category and the tweak"
+                       + "\n2. Double click to trigger the tweak"
+                       + "\n\n(This package is powered by https://www.majorgeeks.com)";
+
+            listCategory.DataSource = Directory.GetDirectories(pluginsRootDir)
+                .Select(Path.GetFileName).ToList();
+            listCategory.SelectedIndexChanged += listCategory_SelectedIndexChanged;
+            listTweaks.SelectedIndexChanged += listTweaks_SelectedIndexChanged;
+        }
+
+        private void btnApply_Click(object sender, EventArgs e) => DoPlugin();
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             String CurrentUser = Environment.UserName;
@@ -136,8 +164,47 @@ namespace TweakUIX
             btnCancel.Visible = false;
         }
 
-        private void btnApply_Click(object sender, EventArgs e) => DoPlugin();
+        private void listCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var parentDir = Path.Combine(pluginsRootDir, listCategory.SelectedItem.ToString());
+            listTweaks.DataSource = Directory.GetDirectories(parentDir)
+                 .Select(Path.GetFileName).ToList();
+        }
 
-        private void richPluginInfo_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
+        private void listTweaks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var parentDir = Path.Combine(pluginsRootDir, listCategory.SelectedItem.ToString(),
+             listTweaks.SelectedItem.ToString());
+            dataGridView.DataSource = Directory.GetFiles(parentDir)
+                .Select(f => new { FileName = Path.GetFileName(f) }).ToList();
+        }
+
+        private void dataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (row.Cells[0].Value.ToString().Contains(".lnk") || row.Cells[0].Value.ToString().Contains(".html"))
+                {
+                    row.DefaultCellStyle.ForeColor = Color.SeaGreen;
+                }
+                else
+                {
+                    row.DefaultCellStyle.ForeColor = Color.Black;
+                }
+            }
+        }
+
+        private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+                Process.Start(pluginsRootDir + "\\" + listCategory.Text + "\\" + listTweaks.Text + "\\" + dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+        }
+
+        private void tab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tab.SelectedTab == tab.TabPages[1]) InitializePluginsCommunity();
+        }
+
+        private void richHelp_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
     }
 }

@@ -29,19 +29,62 @@ namespace TweakUIX
         /// </summary>
         private void InitializeComponent()
         {
+            this.tab = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.grpBox = new System.Windows.Forms.GroupBox();
             this.progress = new System.Windows.Forms.ProgressBar();
             this.listPlugs = new System.Windows.Forms.CheckedListBox();
             this.richStatus = new System.Windows.Forms.RichTextBox();
-            this.richPluginInfo = new System.Windows.Forms.RichTextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnApply = new System.Windows.Forms.Button();
-            this.pnlBottom = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.richPluginInfo = new System.Windows.Forms.RichTextBox();
+            this.pnlBottom = new System.Windows.Forms.Panel();
+            this.btnApply = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.listCategory = new System.Windows.Forms.ListBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.listTweaks = new System.Windows.Forms.ListBox();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.richHelp = new System.Windows.Forms.RichTextBox();
+            this.tab.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.grpBox.SuspendLayout();
-            this.pnlBottom.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.pnlBottom.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tab
+            // 
+            this.tab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tab.Controls.Add(this.tabPage1);
+            this.tab.Controls.Add(this.tabPage2);
+            this.tab.Location = new System.Drawing.Point(-2, 1);
+            this.tab.Name = "tab";
+            this.tab.SelectedIndex = 0;
+            this.tab.Size = new System.Drawing.Size(527, 568);
+            this.tab.TabIndex = 0;
+            this.tab.SelectedIndexChanged += new System.EventHandler(this.tab_SelectedIndexChanged);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.grpBox);
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.pnlBottom);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(519, 542);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Plugins";
             // 
             // grpBox
             // 
@@ -52,10 +95,10 @@ namespace TweakUIX
             this.grpBox.Controls.Add(this.listPlugs);
             this.grpBox.Controls.Add(this.richStatus);
             this.grpBox.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpBox.Location = new System.Drawing.Point(3, 5);
+            this.grpBox.Location = new System.Drawing.Point(6, 4);
             this.grpBox.Name = "grpBox";
-            this.grpBox.Size = new System.Drawing.Size(514, 226);
-            this.grpBox.TabIndex = 3;
+            this.grpBox.Size = new System.Drawing.Size(493, 226);
+            this.grpBox.TabIndex = 13;
             this.grpBox.TabStop = false;
             this.grpBox.Text = "Plugins for Tweak UI";
             // 
@@ -65,7 +108,7 @@ namespace TweakUIX
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progress.Location = new System.Drawing.Point(15, 19);
             this.progress.Name = "progress";
-            this.progress.Size = new System.Drawing.Size(492, 5);
+            this.progress.Size = new System.Drawing.Size(471, 5);
             this.progress.TabIndex = 6;
             this.progress.Visible = false;
             // 
@@ -78,7 +121,7 @@ namespace TweakUIX
             this.listPlugs.FormattingEnabled = true;
             this.listPlugs.Location = new System.Drawing.Point(15, 30);
             this.listPlugs.Name = "listPlugs";
-            this.listPlugs.Size = new System.Drawing.Size(493, 180);
+            this.listPlugs.Size = new System.Drawing.Size(472, 180);
             this.listPlugs.TabIndex = 4;
             this.listPlugs.SelectedIndexChanged += new System.EventHandler(this.listPlugs_SelectedIndexChanged);
             // 
@@ -93,9 +136,23 @@ namespace TweakUIX
             this.richStatus.HideSelection = false;
             this.richStatus.Location = new System.Drawing.Point(12, 72);
             this.richStatus.Name = "richStatus";
-            this.richStatus.Size = new System.Drawing.Size(479, 0);
+            this.richStatus.Size = new System.Drawing.Size(458, 0);
             this.richStatus.TabIndex = 1;
             this.richStatus.Text = "";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.richPluginInfo);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox1.Location = new System.Drawing.Point(6, 236);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(493, 205);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Description";
             // 
             // richPluginInfo
             // 
@@ -107,36 +164,10 @@ namespace TweakUIX
             this.richPluginInfo.Location = new System.Drawing.Point(15, 29);
             this.richPluginInfo.Name = "richPluginInfo";
             this.richPluginInfo.ReadOnly = true;
-            this.richPluginInfo.Size = new System.Drawing.Size(493, 178);
+            this.richPluginInfo.Size = new System.Drawing.Size(472, 170);
             this.richPluginInfo.TabIndex = 11;
             this.richPluginInfo.Text = "You will find here plugin files for TweakUIX.\nTo install new plugins goto Menu > " +
     "Add features.\n\n";
-            this.richPluginInfo.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richPluginInfo_LinkClicked);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(436, 48);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Visible = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnApply
-            // 
-            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnApply.ForeColor = System.Drawing.Color.Black;
-            this.btnApply.Location = new System.Drawing.Point(3, 48);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 23);
-            this.btnApply.TabIndex = 5;
-            this.btnApply.Text = "Apply";
-            this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // pnlBottom
             // 
@@ -145,24 +176,129 @@ namespace TweakUIX
             this.pnlBottom.Controls.Add(this.btnApply);
             this.pnlBottom.Controls.Add(this.btnCancel);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 531);
+            this.pnlBottom.Location = new System.Drawing.Point(3, 447);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(529, 92);
-            this.pnlBottom.TabIndex = 4;
+            this.pnlBottom.Size = new System.Drawing.Size(513, 92);
+            this.pnlBottom.TabIndex = 14;
             // 
-            // groupBox1
+            // btnApply
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnApply.ForeColor = System.Drawing.Color.Black;
+            this.btnApply.Location = new System.Drawing.Point(0, 57);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(75, 23);
+            this.btnApply.TabIndex = 5;
+            this.btnApply.Text = "Apply";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Location = new System.Drawing.Point(425, 57);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.AutoScroll = true;
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.listCategory);
+            this.tabPage2.Controls.Add(this.splitContainer1);
+            this.tabPage2.Controls.Add(this.richHelp);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(519, 542);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Advanced plugins";
+            // 
+            // listCategory
+            // 
+            this.listCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.listCategory.BackColor = System.Drawing.SystemColors.Control;
+            this.listCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listCategory.FormattingEnabled = true;
+            this.listCategory.Location = new System.Drawing.Point(7, 15);
+            this.listCategory.Name = "listCategory";
+            this.listCategory.Size = new System.Drawing.Size(154, 442);
+            this.listCategory.TabIndex = 7;
+            this.listCategory.SelectedIndexChanged += new System.EventHandler(this.listCategory_SelectedIndexChanged);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.richPluginInfo);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox1.Location = new System.Drawing.Point(3, 237);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(514, 213);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Description";
+            this.splitContainer1.Location = new System.Drawing.Point(167, 6);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(this.listTweaks);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.AutoScroll = true;
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridView);
+            this.splitContainer1.Size = new System.Drawing.Size(345, 453);
+            this.splitContainer1.SplitterDistance = 147;
+            this.splitContainer1.TabIndex = 8;
+            // 
+            // listTweaks
+            // 
+            this.listTweaks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listTweaks.BackColor = System.Drawing.SystemColors.Control;
+            this.listTweaks.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listTweaks.FormattingEnabled = true;
+            this.listTweaks.Location = new System.Drawing.Point(7, 10);
+            this.listTweaks.Name = "listTweaks";
+            this.listTweaks.Size = new System.Drawing.Size(137, 429);
+            this.listTweaks.TabIndex = 5;
+            this.listTweaks.SelectedIndexChanged += new System.EventHandler(this.listTweaks_SelectedIndexChanged);
+            // 
+            // dataGridView
+            // 
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridView.Location = new System.Drawing.Point(3, 10);
+            this.dataGridView.MultiSelect = false;
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
+            this.dataGridView.Size = new System.Drawing.Size(188, 440);
+            this.dataGridView.TabIndex = 3;
+            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            this.dataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView_RowPrePaint);
+            // 
+            // richHelp
+            // 
+            this.richHelp.BackColor = System.Drawing.SystemColors.Info;
+            this.richHelp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richHelp.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.richHelp.Location = new System.Drawing.Point(3, 465);
+            this.richHelp.Name = "richHelp";
+            this.richHelp.ReadOnly = true;
+            this.richHelp.Size = new System.Drawing.Size(513, 74);
+            this.richHelp.TabIndex = 10;
+            this.richHelp.Text = "";
+            this.richHelp.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richHelp_LinkClicked);
             // 
             // PluginsForm
             // 
@@ -170,30 +306,48 @@ namespace TweakUIX
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(529, 623);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.pnlBottom);
-            this.Controls.Add(this.grpBox);
+            this.ClientSize = new System.Drawing.Size(526, 571);
+            this.Controls.Add(this.tab);
+            this.HelpButton = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PluginsForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Plugins";
+            this.tab.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.grpBox.ResumeLayout(false);
-            this.pnlBottom.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.pnlBottom.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TabControl tab;
+        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox grpBox;
-        private System.Windows.Forms.RichTextBox richStatus;
-        private System.Windows.Forms.CheckedListBox listPlugs;
-        private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.ProgressBar progress;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Panel pnlBottom;
-        private System.Windows.Forms.RichTextBox richPluginInfo;
+        private System.Windows.Forms.CheckedListBox listPlugs;
+        private System.Windows.Forms.RichTextBox richStatus;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RichTextBox richPluginInfo;
+        private System.Windows.Forms.Panel pnlBottom;
+        private System.Windows.Forms.Button btnApply;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ListBox listCategory;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ListBox listTweaks;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.RichTextBox richHelp;
     }
 }

@@ -8,7 +8,7 @@ namespace TweakUIX
         /// <summary>
         /// Gets App version
         /// </summary>
-        internal static string GetCurrentVersionTostring() => new Version(Application.ProductVersion).ToString(3);
+        internal static string GetCurrentVersionTostring() => new Version(Application.ProductVersion).ToString(4);
 
         /// <summary>
         /// The main entry point for the application.
