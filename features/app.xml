@@ -15,7 +15,7 @@
      <id>Startup configuration file</id>
 	 <description>This file allows you to store a startup configuration</description>
 	<dev>Builtbybel</dev>
-    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/help.txt</uri>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/startup.tuix</uri>
    </Feature>
   <Feature>
     <id>WindowsSpyBlocker - Firewall spy rules</id>

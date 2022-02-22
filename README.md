@@ -5,7 +5,7 @@
 ### .. the last PowerToy
 # Tweak UIX
 
-This will be my first atempt to recreate a part of the classic Tweak UI featuring the classic look.
+This will be my first attempt to recreate a part of the classic Tweak UI featuring the classic look.
 
 ## The original
 ![msedge_zLM0f2Ce3r](https://user-images.githubusercontent.com/57478606/154860215-162bd277-5a55-4af2-a4b2-edf48f140453.png)
@@ -28,6 +28,6 @@ Goto **Releases** page > **Assets** > Click on **TweakUIX.zip**
 
 ## The Background story
 _[ThisIsWin11](https://github.com/builtbybel/ThisIsWin11/r) was my first attempt to enhance somehow the PowerToys productivity apps with some system tools. It was partly based on tweaks of the TweakUIX mentioned here. Somehow I prefer this standalone version more, so I decided to push it to public on Github. 
-My private version had all other tweaks integrated, so the code base including all tweaks of this app was largely taken from the last stable version of the TIW11 OpenTweaks module._
+My private version had all other tweaks integrated, so the code base including all tweaks of this app was largely taken from the last stable version of the TIW11 OpenTweaks module.There is still a lot to do and a lot of spaghetti code to clean up, but the first step is done.. :smirk:_
 
 ...and yes, this version also brings some advantage over TIW11. The stone-age ui requires less resources and of course flickers a bit smoother on the screen and runs at time of writing also on Win10.
