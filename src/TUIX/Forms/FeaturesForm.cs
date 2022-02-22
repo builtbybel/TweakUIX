@@ -107,7 +107,9 @@ namespace TweakUIX
                 builder.Append("\n- " + eachItem.SubItems[0].Text);
 
                 // Restart required by filetypes
-                if (eachItem.SubItems[3].Text.Contains(".tuix") || eachItem.SubItems[3].Text.Contains(".ps1") || eachItem.SubItems[3].Text.Contains(".xml"))
+                if (eachItem.SubItems[3].Text.Contains(".tuix") 
+                    || eachItem.SubItems[3].Text.Contains(".ps1") 
+                    || eachItem.SubItems[3].Text.Contains(".xml"))
                 {
                     builder.Append(" (Restart required.)");
                     bNeedRestart = true;

@@ -29,6 +29,7 @@ namespace TweakUIX
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.grpBox = new System.Windows.Forms.GroupBox();
@@ -41,11 +42,11 @@ namespace TweakUIX
             this.btnApply = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.richHelp = new System.Windows.Forms.RichTextBox();
             this.listCategory = new System.Windows.Forms.ListBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listTweaks = new System.Windows.Forms.ListBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.richHelp = new System.Windows.Forms.RichTextBox();
             this.tab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.grpBox.SuspendLayout();
@@ -69,7 +70,7 @@ namespace TweakUIX
             this.tab.Location = new System.Drawing.Point(-2, 1);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(527, 568);
+            this.tab.Size = new System.Drawing.Size(527, 535);
             this.tab.TabIndex = 0;
             this.tab.SelectedIndexChanged += new System.EventHandler(this.tab_SelectedIndexChanged);
             // 
@@ -82,7 +83,7 @@ namespace TweakUIX
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(519, 542);
+            this.tabPage1.Size = new System.Drawing.Size(519, 509);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Plugins";
             // 
@@ -149,7 +150,7 @@ namespace TweakUIX
             this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox1.Location = new System.Drawing.Point(6, 236);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(493, 205);
+            this.groupBox1.Size = new System.Drawing.Size(493, 172);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Description";
@@ -164,7 +165,7 @@ namespace TweakUIX
             this.richPluginInfo.Location = new System.Drawing.Point(15, 29);
             this.richPluginInfo.Name = "richPluginInfo";
             this.richPluginInfo.ReadOnly = true;
-            this.richPluginInfo.Size = new System.Drawing.Size(472, 170);
+            this.richPluginInfo.Size = new System.Drawing.Size(472, 137);
             this.richPluginInfo.TabIndex = 11;
             this.richPluginInfo.Text = "You will find here plugin files for TweakUIX.\nTo install new plugins goto Menu > " +
     "Add features.\n\n";
@@ -176,7 +177,7 @@ namespace TweakUIX
             this.pnlBottom.Controls.Add(this.btnApply);
             this.pnlBottom.Controls.Add(this.btnCancel);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(3, 447);
+            this.pnlBottom.Location = new System.Drawing.Point(3, 414);
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(513, 92);
             this.pnlBottom.TabIndex = 14;
@@ -210,15 +211,28 @@ namespace TweakUIX
             // 
             this.tabPage2.AutoScroll = true;
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.richHelp);
             this.tabPage2.Controls.Add(this.listCategory);
             this.tabPage2.Controls.Add(this.splitContainer1);
-            this.tabPage2.Controls.Add(this.richHelp);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(519, 542);
+            this.tabPage2.Size = new System.Drawing.Size(519, 509);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Advanced plugins";
+            // 
+            // richHelp
+            // 
+            this.richHelp.BackColor = System.Drawing.SystemColors.Info;
+            this.richHelp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richHelp.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.richHelp.Location = new System.Drawing.Point(3, 435);
+            this.richHelp.Name = "richHelp";
+            this.richHelp.ReadOnly = true;
+            this.richHelp.Size = new System.Drawing.Size(513, 71);
+            this.richHelp.TabIndex = 10;
+            this.richHelp.Text = "";
+            this.richHelp.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richHelp_LinkClicked);
             // 
             // listCategory
             // 
@@ -229,7 +243,7 @@ namespace TweakUIX
             this.listCategory.FormattingEnabled = true;
             this.listCategory.Location = new System.Drawing.Point(7, 15);
             this.listCategory.Name = "listCategory";
-            this.listCategory.Size = new System.Drawing.Size(154, 442);
+            this.listCategory.Size = new System.Drawing.Size(154, 403);
             this.listCategory.TabIndex = 7;
             this.listCategory.SelectedIndexChanged += new System.EventHandler(this.listCategory_SelectedIndexChanged);
             // 
@@ -250,8 +264,8 @@ namespace TweakUIX
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView);
-            this.splitContainer1.Size = new System.Drawing.Size(345, 453);
-            this.splitContainer1.SplitterDistance = 147;
+            this.splitContainer1.Size = new System.Drawing.Size(349, 425);
+            this.splitContainer1.SplitterDistance = 136;
             this.splitContainer1.TabIndex = 8;
             // 
             // listTweaks
@@ -264,41 +278,49 @@ namespace TweakUIX
             this.listTweaks.FormattingEnabled = true;
             this.listTweaks.Location = new System.Drawing.Point(7, 10);
             this.listTweaks.Name = "listTweaks";
-            this.listTweaks.Size = new System.Drawing.Size(137, 429);
+            this.listTweaks.Size = new System.Drawing.Size(126, 403);
             this.listTweaks.TabIndex = 5;
             this.listTweaks.SelectedIndexChanged += new System.EventHandler(this.listTweaks_SelectedIndexChanged);
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AllowUserToOrderColumns = true;
+            this.dataGridView.AllowUserToResizeColumns = false;
+            this.dataGridView.AllowUserToResizeRows = false;
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.ColumnHeadersVisible = false;
+            this.dataGridView.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView.Location = new System.Drawing.Point(3, 10);
+            this.dataGridView.Location = new System.Drawing.Point(3, 3);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            this.dataGridView.Size = new System.Drawing.Size(188, 440);
+            this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridView.ShowEditingIcon = false;
+            this.dataGridView.Size = new System.Drawing.Size(203, 420);
             this.dataGridView.TabIndex = 3;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             this.dataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView_RowPrePaint);
-            // 
-            // richHelp
-            // 
-            this.richHelp.BackColor = System.Drawing.SystemColors.Info;
-            this.richHelp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richHelp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.richHelp.Location = new System.Drawing.Point(3, 465);
-            this.richHelp.Name = "richHelp";
-            this.richHelp.ReadOnly = true;
-            this.richHelp.Size = new System.Drawing.Size(513, 74);
-            this.richHelp.TabIndex = 10;
-            this.richHelp.Text = "";
-            this.richHelp.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richHelp_LinkClicked);
             // 
             // PluginsForm
             // 
@@ -306,7 +328,7 @@ namespace TweakUIX
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(526, 571);
+            this.ClientSize = new System.Drawing.Size(526, 538);
             this.Controls.Add(this.tab);
             this.HelpButton = true;
             this.MaximizeBox = false;

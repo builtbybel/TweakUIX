@@ -196,10 +196,14 @@ namespace TweakUIX
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
-                Process.Start(pluginsRootDir + "\\" + listCategory.Text + "\\" + listTweaks.Text + "\\" + dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+            try
+            {
+                if (e.RowIndex != -1)
+                    Process.Start(pluginsRootDir + "\\" + listCategory.Text + "\\" + listTweaks.Text + "\\" + dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            
         }
-
         private void tab_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tab.SelectedTab == tab.TabPages[1]) InitializePluginsCommunity();
