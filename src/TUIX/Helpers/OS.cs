@@ -18,7 +18,7 @@ namespace TweakUIX.Helpers
                 }
             }
             catch { }
-            return "Windows 10";
+            return "Windows 10 (partial support)";
         }
 
         public string GetVersion()

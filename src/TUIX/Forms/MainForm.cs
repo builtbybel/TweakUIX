@@ -23,13 +23,24 @@ namespace TweakUIX
         private bool bLoadTemplate = false;
 
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
+        private Control _previousNavContent;
+
+        // Enables double-buffering for all controls from the form level down
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED
+                return handleParam;
+            }
+        }
 
         public MainForm()
         {
             this.InitializeComponent();
-
             this.SetStyle();
-            this.SetView(new PluginsForm());     // Register Plugins form
+            _previousNavContent = sc.Panel2.Controls[0];
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
@@ -55,23 +66,49 @@ namespace TweakUIX
                               + "\nThe help will appear in the \"Description \" box.";
         }
 
-        private void SetView(Control page)
+        private void SetView(Form page)
         {
-            //while (sc.Panel2.Controls.Count > 0)
-            //    sc.Panel2.Controls[0].Dispose();
-            if (page is Form)
-            {
-                var form = page as Form;
-                form.TopLevel = false;
-                form.Parent = this;
-                form.FormBorderStyle = FormBorderStyle.None;
-                form.Visible = true;
-                form.AutoScroll = true;
-            }
+            var form = page as Form;
+            form.TopLevel = false;
+            form.Parent = this;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Visible = true;
+            form.AutoScroll = true;
+            form.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
+            form.Dock = DockStyle.Fill;
 
-            page.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
-            page.Dock = DockStyle.Fill;
+            if (sc.Panel2.Controls.Count > 0)
+            {
+                _previousNavContent = sc.Panel2.Controls[0];
+                _previousNavContent.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
+                _previousNavContent.Dock = DockStyle.Fill;
+                sc.Panel2.Controls.Clear();
+            }
             sc.Panel2.Controls.Add(page);
+        }
+
+        private void tweaksTree_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            switch (e.Node.Text)
+            {
+                case "About":
+                    MessageBox.Show("PowerToys/Tweak UI Replica"
+                                   + "\n\tVersion " + Program.GetCurrentVersionTostring()
+                                   + "\n\tAurora release, MIT"
+                                   + "\n\t(C) 2022 Builtbybel (https://twitter.com/builtbybel)"
+                                   + "\n\t(This is NOT a product made by Microsoft nor related to them.)"
+                                   );
+                    break;
+
+                case "*Plugins":
+                    this.SetView(new PluginsForm());     // Register Plugins form
+                    break;
+
+                default:
+                    sc.Panel2.Controls.Clear();
+                    if (_previousNavContent != null) sc.Panel2.Controls.Add(_previousNavContent);
+                    break;
+            }
         }
 
         public void InitializeTweaks()
@@ -260,32 +297,6 @@ namespace TweakUIX
         {
             progression += progressionIncrease;
             progress.Value = progression;
-        }
-
-        private void tweaksTree_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            switch (e.Node.Text)
-            {
-                case "About":
-                    MessageBox.Show("PowerToys/Tweak UI Replica"
-                                   + "\n\tVersion " + Program.GetCurrentVersionTostring()
-                                   + "\n\tAurora release, MIT"
-                                   + "\n\t(C) 2022 Builtbybel (https://twitter.com/builtbybel)"
-                                   + "\n\t(This is NOT a product made by Microsoft nor related to them.)"
-                                   );
-
-                    break;
-
-                case "*Plugins":
-                    grpBox.Visible = false;
-                    pnlBottom.Visible = false;
-                    break;
-
-                default:
-                    grpBox.Visible = true;
-                    pnlBottom.Visible = true;
-                    break;
-            }
         }
 
         private void tweaksTree_AfterCheck(object sender, TreeViewEventArgs e)
@@ -731,7 +742,7 @@ namespace TweakUIX
         {
             string helpfile = Helpers.Strings.Data.DataRootDir + "help.txt";
 
-            if (!grpBox.Visible) { MessageBox.Show("Not supported in this view."); }
+            if (!richStatus.Visible) MessageBox.Show("Not supported in this view."); 
             if (File.Exists(helpfile))
 
                 richStatus.Text = File.ReadAllText(helpfile);

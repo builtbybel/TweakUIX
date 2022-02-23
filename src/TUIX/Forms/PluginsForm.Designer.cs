@@ -29,7 +29,7 @@ namespace TweakUIX
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.grpBox = new System.Windows.Forms.GroupBox();
@@ -98,7 +98,7 @@ namespace TweakUIX
             this.grpBox.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.grpBox.Location = new System.Drawing.Point(6, 4);
             this.grpBox.Name = "grpBox";
-            this.grpBox.Size = new System.Drawing.Size(493, 226);
+            this.grpBox.Size = new System.Drawing.Size(506, 226);
             this.grpBox.TabIndex = 13;
             this.grpBox.TabStop = false;
             this.grpBox.Text = "Plugins for Tweak UI";
@@ -109,7 +109,7 @@ namespace TweakUIX
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progress.Location = new System.Drawing.Point(15, 19);
             this.progress.Name = "progress";
-            this.progress.Size = new System.Drawing.Size(471, 5);
+            this.progress.Size = new System.Drawing.Size(484, 5);
             this.progress.TabIndex = 6;
             this.progress.Visible = false;
             // 
@@ -122,7 +122,7 @@ namespace TweakUIX
             this.listPlugs.FormattingEnabled = true;
             this.listPlugs.Location = new System.Drawing.Point(15, 30);
             this.listPlugs.Name = "listPlugs";
-            this.listPlugs.Size = new System.Drawing.Size(472, 180);
+            this.listPlugs.Size = new System.Drawing.Size(485, 180);
             this.listPlugs.TabIndex = 4;
             this.listPlugs.SelectedIndexChanged += new System.EventHandler(this.listPlugs_SelectedIndexChanged);
             // 
@@ -137,7 +137,7 @@ namespace TweakUIX
             this.richStatus.HideSelection = false;
             this.richStatus.Location = new System.Drawing.Point(12, 72);
             this.richStatus.Name = "richStatus";
-            this.richStatus.Size = new System.Drawing.Size(458, 0);
+            this.richStatus.Size = new System.Drawing.Size(471, 0);
             this.richStatus.TabIndex = 1;
             this.richStatus.Text = "";
             // 
@@ -150,7 +150,7 @@ namespace TweakUIX
             this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox1.Location = new System.Drawing.Point(6, 236);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(493, 172);
+            this.groupBox1.Size = new System.Drawing.Size(506, 172);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Description";
@@ -165,7 +165,7 @@ namespace TweakUIX
             this.richPluginInfo.Location = new System.Drawing.Point(15, 29);
             this.richPluginInfo.Name = "richPluginInfo";
             this.richPluginInfo.ReadOnly = true;
-            this.richPluginInfo.Size = new System.Drawing.Size(472, 137);
+            this.richPluginInfo.Size = new System.Drawing.Size(485, 137);
             this.richPluginInfo.TabIndex = 11;
             this.richPluginInfo.Text = "You will find here plugin files for TweakUIX.\nTo install new plugins goto Menu > " +
     "Add features.\n\n";
@@ -186,7 +186,7 @@ namespace TweakUIX
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnApply.ForeColor = System.Drawing.Color.Black;
-            this.btnApply.Location = new System.Drawing.Point(0, 57);
+            this.btnApply.Location = new System.Drawing.Point(0, 66);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 5;
@@ -198,7 +198,7 @@ namespace TweakUIX
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(425, 57);
+            this.btnCancel.Location = new System.Drawing.Point(414, 66);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
@@ -224,7 +224,7 @@ namespace TweakUIX
             // richHelp
             // 
             this.richHelp.BackColor = System.Drawing.SystemColors.Info;
-            this.richHelp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richHelp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richHelp.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.richHelp.Location = new System.Drawing.Point(3, 435);
             this.richHelp.Name = "richHelp";
@@ -241,30 +241,28 @@ namespace TweakUIX
             this.listCategory.BackColor = System.Drawing.SystemColors.Control;
             this.listCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listCategory.FormattingEnabled = true;
-            this.listCategory.Location = new System.Drawing.Point(7, 15);
+            this.listCategory.Location = new System.Drawing.Point(7, 16);
             this.listCategory.Name = "listCategory";
-            this.listCategory.Size = new System.Drawing.Size(154, 403);
+            this.listCategory.Size = new System.Drawing.Size(154, 416);
             this.listCategory.TabIndex = 7;
             this.listCategory.SelectedIndexChanged += new System.EventHandler(this.listCategory_SelectedIndexChanged);
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(167, 6);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.AutoScroll = true;
             this.splitContainer1.Panel1.Controls.Add(this.listTweaks);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView);
-            this.splitContainer1.Size = new System.Drawing.Size(349, 425);
+            this.splitContainer1.Size = new System.Drawing.Size(349, 428);
             this.splitContainer1.SplitterDistance = 136;
             this.splitContainer1.TabIndex = 8;
             // 
@@ -278,7 +276,7 @@ namespace TweakUIX
             this.listTweaks.FormattingEnabled = true;
             this.listTweaks.Location = new System.Drawing.Point(7, 10);
             this.listTweaks.Name = "listTweaks";
-            this.listTweaks.Size = new System.Drawing.Size(126, 403);
+            this.listTweaks.Size = new System.Drawing.Size(126, 416);
             this.listTweaks.TabIndex = 5;
             this.listTweaks.SelectedIndexChanged += new System.EventHandler(this.listTweaks_SelectedIndexChanged);
             // 
@@ -299,17 +297,17 @@ namespace TweakUIX
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.ColumnHeadersVisible = false;
-            this.dataGridView.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView.Location = new System.Drawing.Point(7, 10);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
@@ -317,7 +315,7 @@ namespace TweakUIX
             this.dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView.ShowEditingIcon = false;
-            this.dataGridView.Size = new System.Drawing.Size(203, 420);
+            this.dataGridView.Size = new System.Drawing.Size(192, 414);
             this.dataGridView.TabIndex = 3;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             this.dataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView_RowPrePaint);

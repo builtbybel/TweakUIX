@@ -135,6 +135,7 @@ namespace TweakUIX
             richHelp.Text = "How does it work?"
                        + "\n1. Select a category and the tweak"
                        + "\n2. Double click to trigger the tweak"
+                       + "\n3. Online help files are automatically searched and highlighted green."
                        + "\n\n(This package is powered by https://www.majorgeeks.com)";
 
             listCategory.DataSource = Directory.GetDirectories(pluginsRootDir)
@@ -183,7 +184,7 @@ namespace TweakUIX
         {
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                if (row.Cells[0].Value.ToString().Contains(".lnk") || row.Cells[0].Value.ToString().Contains(".html"))
+                if (row.Cells[0].Value.ToString().Contains(".html"))
                 {
                     row.DefaultCellStyle.ForeColor = Color.SeaGreen;
                 }

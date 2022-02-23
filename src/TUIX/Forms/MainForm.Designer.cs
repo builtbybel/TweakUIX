@@ -35,16 +35,16 @@ namespace TweakUIX
             this.tweaksTree = new System.Windows.Forms.TreeView();
             this.grpBox = new System.Windows.Forms.GroupBox();
             this.btnTemplateSave = new System.Windows.Forms.Button();
-            this.btnTemplateLoad = new System.Windows.Forms.Button();
-            this.lblTemplate = new System.Windows.Forms.Label();
-            this.richStatus = new System.Windows.Forms.RichTextBox();
-            this.progress = new System.Windows.Forms.ProgressBar();
-            this.cbTemplate = new System.Windows.Forms.ComboBox();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.lblInfo = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
             this.btnUndo = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
+            this.btnTemplateLoad = new System.Windows.Forms.Button();
+            this.lblTemplate = new System.Windows.Forms.Label();
+            this.richStatus = new System.Windows.Forms.RichTextBox();
+            this.progress = new System.Windows.Forms.ProgressBar();
+            this.cbTemplate = new System.Windows.Forms.ComboBox();
             this.menuMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuFeatures = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -85,9 +85,8 @@ namespace TweakUIX
             // sc.Panel2
             // 
             this.sc.Panel2.AutoScroll = true;
-            this.sc.Panel2.BackColor = System.Drawing.Color.White;
+            this.sc.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.sc.Panel2.Controls.Add(this.grpBox);
-            this.sc.Panel2.Controls.Add(this.pnlBottom);
             this.sc.Size = new System.Drawing.Size(806, 583);
             this.sc.SplitterDistance = 277;
             this.sc.TabIndex = 0;
@@ -131,16 +130,18 @@ namespace TweakUIX
             this.grpBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpBox.Controls.Add(this.btnTemplateSave);
+            this.grpBox.BackColor = System.Drawing.Color.White;
+            this.grpBox.Controls.Add(this.pnlBottom);
             this.grpBox.Controls.Add(this.btnTemplateLoad);
             this.grpBox.Controls.Add(this.lblTemplate);
             this.grpBox.Controls.Add(this.richStatus);
             this.grpBox.Controls.Add(this.progress);
             this.grpBox.Controls.Add(this.cbTemplate);
+            this.grpBox.Controls.Add(this.btnTemplateSave);
             this.grpBox.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpBox.Location = new System.Drawing.Point(3, 5);
+            this.grpBox.Location = new System.Drawing.Point(6, 5);
             this.grpBox.Name = "grpBox";
-            this.grpBox.Size = new System.Drawing.Size(516, 456);
+            this.grpBox.Size = new System.Drawing.Size(516, 575);
             this.grpBox.TabIndex = 1;
             this.grpBox.TabStop = false;
             this.grpBox.Text = "Tweak UI for Windows 10/11";
@@ -158,6 +159,63 @@ namespace TweakUIX
             this.btnTemplateSave.Text = "Save";
             this.btnTemplateSave.UseVisualStyleBackColor = false;
             this.btnTemplateSave.Click += new System.EventHandler(this.btnTemplateSave_Click);
+            // 
+            // pnlBottom
+            // 
+            this.pnlBottom.AutoScroll = true;
+            this.pnlBottom.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBottom.Controls.Add(this.lblInfo);
+            this.pnlBottom.Controls.Add(this.btnCheck);
+            this.pnlBottom.Controls.Add(this.btnUndo);
+            this.pnlBottom.Controls.Add(this.btnApply);
+            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBottom.ForeColor = System.Drawing.Color.Black;
+            this.pnlBottom.Location = new System.Drawing.Point(3, 469);
+            this.pnlBottom.Name = "pnlBottom";
+            this.pnlBottom.Size = new System.Drawing.Size(510, 103);
+            this.pnlBottom.TabIndex = 0;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(9, 14);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(47, 13);
+            this.lblInfo.TabIndex = 3;
+            this.lblInfo.Text = "App Info";
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCheck.Location = new System.Drawing.Point(6, 77);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(75, 23);
+            this.btnCheck.TabIndex = 2;
+            this.btnCheck.Text = "Check";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            // 
+            // btnUndo
+            // 
+            this.btnUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUndo.Location = new System.Drawing.Point(432, 77);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(75, 23);
+            this.btnUndo.TabIndex = 1;
+            this.btnUndo.Text = "Undo";
+            this.btnUndo.UseVisualStyleBackColor = true;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            // 
+            // btnApply
+            // 
+            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApply.Location = new System.Drawing.Point(351, 77);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(75, 23);
+            this.btnApply.TabIndex = 0;
+            this.btnApply.Text = "Apply";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // btnTemplateLoad
             // 
@@ -194,7 +252,7 @@ namespace TweakUIX
             this.richStatus.Location = new System.Drawing.Point(12, 72);
             this.richStatus.Name = "richStatus";
             this.richStatus.ReadOnly = true;
-            this.richStatus.Size = new System.Drawing.Size(498, 378);
+            this.richStatus.Size = new System.Drawing.Size(498, 391);
             this.richStatus.TabIndex = 1;
             this.richStatus.Text = "";
             this.richStatus.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richStatus_LinkClicked);
@@ -203,9 +261,9 @@ namespace TweakUIX
             // 
             this.progress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progress.Location = new System.Drawing.Point(8, 22);
+            this.progress.Location = new System.Drawing.Point(9, 22);
             this.progress.Name = "progress";
-            this.progress.Size = new System.Drawing.Size(497, 5);
+            this.progress.Size = new System.Drawing.Size(493, 5);
             this.progress.TabIndex = 167;
             this.progress.Visible = false;
             // 
@@ -216,64 +274,8 @@ namespace TweakUIX
             this.cbTemplate.FormattingEnabled = true;
             this.cbTemplate.Location = new System.Drawing.Point(85, 35);
             this.cbTemplate.Name = "cbTemplate";
-            this.cbTemplate.Size = new System.Drawing.Size(269, 21);
+            this.cbTemplate.Size = new System.Drawing.Size(276, 21);
             this.cbTemplate.TabIndex = 2;
-            // 
-            // pnlBottom
-            // 
-            this.pnlBottom.AutoScroll = true;
-            this.pnlBottom.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBottom.Controls.Add(this.lblInfo);
-            this.pnlBottom.Controls.Add(this.btnCheck);
-            this.pnlBottom.Controls.Add(this.btnUndo);
-            this.pnlBottom.Controls.Add(this.btnApply);
-            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 467);
-            this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(525, 116);
-            this.pnlBottom.TabIndex = 0;
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(9, 14);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(47, 13);
-            this.lblInfo.TabIndex = 3;
-            this.lblInfo.Text = "App Info";
-            // 
-            // btnCheck
-            // 
-            this.btnCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCheck.Location = new System.Drawing.Point(3, 72);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(75, 23);
-            this.btnCheck.TabIndex = 2;
-            this.btnCheck.Text = "Check";
-            this.btnCheck.UseVisualStyleBackColor = true;
-            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
-            // 
-            // btnUndo
-            // 
-            this.btnUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUndo.Location = new System.Drawing.Point(444, 72);
-            this.btnUndo.Name = "btnUndo";
-            this.btnUndo.Size = new System.Drawing.Size(75, 23);
-            this.btnUndo.TabIndex = 1;
-            this.btnUndo.Text = "Undo";
-            this.btnUndo.UseVisualStyleBackColor = true;
-            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
-            // 
-            // btnApply
-            // 
-            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.Location = new System.Drawing.Point(363, 72);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 23);
-            this.btnApply.TabIndex = 0;
-            this.btnApply.Text = "Apply";
-            this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // menuMain
             // 
