@@ -61,7 +61,7 @@ namespace TweakUIX
                                 + osInfo.IsWin11() + "\x20"
                                 + osInfo.GetVersion() + "\x20"
                                 + osInfo.Is64Bit();
-            richStatus.Text = "Select a setting from the tree list at left or load a predefined template."
+            richStatus.Text = "Select a setting from the tree list at left or load a predefined template for Tweakomatic."
                               + "\n\nTo get help, click the ? in the upper right corner of the dialog."
                               + "\nThe help will appear in the \"Description \" box.";
         }

@@ -34,7 +34,6 @@ namespace TweakUIX
             this.btnOptions = new System.Windows.Forms.Button();
             this.tweaksTree = new System.Windows.Forms.TreeView();
             this.grpBox = new System.Windows.Forms.GroupBox();
-            this.btnTemplateSave = new System.Windows.Forms.Button();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.lblInfo = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
@@ -45,6 +44,7 @@ namespace TweakUIX
             this.richStatus = new System.Windows.Forms.RichTextBox();
             this.progress = new System.Windows.Forms.ProgressBar();
             this.cbTemplate = new System.Windows.Forms.ComboBox();
+            this.btnTemplateSave = new System.Windows.Forms.Button();
             this.menuMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuFeatures = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -147,19 +147,6 @@ namespace TweakUIX
             this.grpBox.Text = "Tweak UI for Windows 10/11";
             this.tt.SetToolTip(this.grpBox, "Description box");
             // 
-            // btnTemplateSave
-            // 
-            this.btnTemplateSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTemplateSave.BackColor = System.Drawing.Color.White;
-            this.btnTemplateSave.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnTemplateSave.Location = new System.Drawing.Point(366, 33);
-            this.btnTemplateSave.Name = "btnTemplateSave";
-            this.btnTemplateSave.Size = new System.Drawing.Size(42, 23);
-            this.btnTemplateSave.TabIndex = 168;
-            this.btnTemplateSave.Text = "Save";
-            this.btnTemplateSave.UseVisualStyleBackColor = false;
-            this.btnTemplateSave.Click += new System.EventHandler(this.btnTemplateSave_Click);
-            // 
             // pnlBottom
             // 
             this.pnlBottom.AutoScroll = true;
@@ -236,9 +223,9 @@ namespace TweakUIX
             this.lblTemplate.ForeColor = System.Drawing.Color.Black;
             this.lblTemplate.Location = new System.Drawing.Point(9, 36);
             this.lblTemplate.Name = "lblTemplate";
-            this.lblTemplate.Size = new System.Drawing.Size(54, 13);
+            this.lblTemplate.Size = new System.Drawing.Size(74, 13);
             this.lblTemplate.TabIndex = 4;
-            this.lblTemplate.Text = "Template:";
+            this.lblTemplate.Text = "Tweakomatic:";
             // 
             // richStatus
             // 
@@ -263,7 +250,7 @@ namespace TweakUIX
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progress.Location = new System.Drawing.Point(9, 22);
             this.progress.Name = "progress";
-            this.progress.Size = new System.Drawing.Size(493, 5);
+            this.progress.Size = new System.Drawing.Size(499, 5);
             this.progress.TabIndex = 167;
             this.progress.Visible = false;
             // 
@@ -272,10 +259,23 @@ namespace TweakUIX
             this.cbTemplate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbTemplate.FormattingEnabled = true;
-            this.cbTemplate.Location = new System.Drawing.Point(85, 35);
+            this.cbTemplate.Location = new System.Drawing.Point(103, 35);
             this.cbTemplate.Name = "cbTemplate";
-            this.cbTemplate.Size = new System.Drawing.Size(276, 21);
+            this.cbTemplate.Size = new System.Drawing.Size(258, 21);
             this.cbTemplate.TabIndex = 2;
+            // 
+            // btnTemplateSave
+            // 
+            this.btnTemplateSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTemplateSave.BackColor = System.Drawing.Color.White;
+            this.btnTemplateSave.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnTemplateSave.Location = new System.Drawing.Point(366, 33);
+            this.btnTemplateSave.Name = "btnTemplateSave";
+            this.btnTemplateSave.Size = new System.Drawing.Size(42, 23);
+            this.btnTemplateSave.TabIndex = 168;
+            this.btnTemplateSave.Text = "Save";
+            this.btnTemplateSave.UseVisualStyleBackColor = false;
+            this.btnTemplateSave.Click += new System.EventHandler(this.btnTemplateSave_Click);
             // 
             // menuMain
             // 

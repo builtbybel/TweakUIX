@@ -207,7 +207,14 @@ namespace TweakUIX
         }
         private void tab_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tab.SelectedTab == tab.TabPages[1]) InitializeOptionalPlugins();
+            if (tab.SelectedTab == tab.TabPages[1])
+                InitializeOptionalPlugins();
+            else if (tab.SelectedTab == tab.TabPages[2])
+            {
+                MessageBox.Show("In the pipeline...\nThis was also a feature of Microsoft at that time of the ubiquitous Tweak UI app.");
+                tab.SelectedTab = tab.TabPages[0];
+            }
+            return;
         }
 
         private void richHelp_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
