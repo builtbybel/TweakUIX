@@ -30,8 +30,8 @@
     <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/packages.app</uri>
    </Feature>
       <Feature>
-     <id>Debloating Windows 10 and Windows 11</id>
-	 <description>This willl fetch a community debloating list</description>
+     <id>Template for Debloating Windows 10 and Windows 11</id>
+	 <description>This willl fetch a community debloating template</description>
 	<dev>Builtbybel</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/uninstaller.app</uri>
    </Feature>
@@ -71,17 +71,17 @@
 	<dev>W4RH4WK</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/Remove_OneDrive.ps1</uri>
    </Feature>
-         <Feature>
+    <Feature>
      <id>Reinstall all in-box apps (Plugin)</id>
 	 <description>This plugin will reinstall all in-box apps in a single step.</description>
 	<dev>Builtbybel</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/Reinstall-all-built-in-apps.ps1</uri>
    </Feature>
-       <Feature>
-     <id>MajorGeeks Windows Tweaks</id>
-	 <description>This is package with over 200 tweaks for Windows 10 and Windows 11. Goto plugins > Advanced plugins for usage.</description>
-	<dev>rcmaehl</dev>
-    <uri>https://github.com/MajorGeek/MajorGeeks-Windows-Tweaks/releases/download/2.80/MajorGeeks.Windows.Tweaks.2.80.zip</uri>
+    <Feature>
+     <id>Enable Ultimate Peformance Mode (Plugin)</id>
+	 <description>This plugin will add an "Ultimate Performance" power plan option to energy options.</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/Ultimate_PerformanceMode.ps1</uri>
    </Feature>
     <Feature>
      <id>AutoLogon (Plugin)</id>
@@ -94,11 +94,5 @@
 	 <description>This plugin will run a third-party utility with a GUI whichs allows you to redirect News, Search, Widgets, Weather and more to your default Browser.</description>
 	<dev>rcmaehl</dev>
     <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/MSEdgeRedirect.ps1</uri>
-   </Feature>
-       <Feature>
-     <id>Enable Ultimate Peformance Mode (Plugin)</id>
-	 <description>This plugin will add an "Ultimate Performance" power plan option to energy options.</description>
-	<dev>Builtbybel</dev>
-    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/Ultimate_PerformanceMode.ps1</uri>
    </Feature>
  </TweakUIX>
