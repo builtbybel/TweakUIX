@@ -39,8 +39,9 @@ namespace TweakUIX
         public MainForm()
         {
             this.InitializeComponent();
+            _previousNavContent = sc.Panel2.Controls[0]; // Start NavContent
+
             this.SetStyle();
-            _previousNavContent = sc.Panel2.Controls[0];
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
@@ -60,7 +61,6 @@ namespace TweakUIX
                                 + osInfo.IsWin11() + "\x20"
                                 + osInfo.GetVersion() + "\x20"
                                 + osInfo.Is64Bit();
-
             richStatus.Text = "Select a setting from the tree list at left or load a predefined template."
                               + "\n\nTo get help, click the ? in the upper right corner of the dialog."
                               + "\nThe help will appear in the \"Description \" box.";
@@ -89,9 +89,10 @@ namespace TweakUIX
 
         private void tweaksTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            // --Cleanup! PlEASE..
             switch (e.Node.Text)
             {
-                case "About":
+                case "About":                           // About this...
                     MessageBox.Show("PowerToys/Tweak UI Replica"
                                    + "\n\tVersion " + Program.GetCurrentVersionTostring()
                                    + "\n\tAurora release, MIT"
@@ -104,7 +105,7 @@ namespace TweakUIX
                     this.SetView(new PluginsForm());     // Register Plugins form
                     break;
 
-                default:
+                default:                                 // Go back to previous/default NavControl
                     sc.Panel2.Controls.Clear();
                     if (_previousNavContent != null) sc.Panel2.Controls.Add(_previousNavContent);
                     break;
@@ -133,28 +134,34 @@ namespace TweakUIX
                 new TweaksNode(new Tweaks.Settings.RestorePoint()),
             });
 
-            System.Windows.Forms.TreeNode personalization = new System.Windows.Forms.TreeNode("Personalization", new System.Windows.Forms.TreeNode[] {
-                new TweaksNode(new Tweaks.Personalization.AppsTheme()),
-                new TweaksNode(new Tweaks.Personalization.WindowsTheme()),
-                new TweaksNode(new Tweaks.Personalization.Transparency()),
-                new TweaksNode(new Tweaks.Personalization.SnapAssistFlyout()),
-                new TweaksNode(new Tweaks.Personalization.Widgets()),
-                new TweaksNode(new Tweaks.Personalization.WidgetsRemove()),
-                new TweaksNode(new Tweaks.Personalization.TaskbarAl()),
-                new TweaksNode(new Tweaks.Personalization.TaskbarSi()),
-                new TweaksNode(new Tweaks.Personalization.TaskbarMM()),
-                new TweaksNode(new Tweaks.Personalization.TaskbarSearch()),
-                new TweaksNode(new Tweaks.Personalization.TaskbarChat()),
-                new TweaksNode(new Tweaks.Personalization.TaskView()),
-                new TweaksNode(new Tweaks.Personalization.FileExplorer()),
-                new TweaksNode(new Tweaks.Personalization.MostUsedApps()),
-                new TweaksNode(new Tweaks.Personalization.HiddenFileFolder()),
-                new TweaksNode(new Tweaks.Personalization.HiddenFileExt()),
-            }); CheckNodes(personalization);
+            System.Windows.Forms.TreeNode explorer = new System.Windows.Forms.TreeNode("Explorer", new System.Windows.Forms.TreeNode[] {
+                new TweaksNode(new Tweaks.Explorer.FileExplorer()),
+                new TweaksNode(new Tweaks.Explorer.HiddenFileFolder()),
+                new TweaksNode(new Tweaks.Explorer.HiddenFileExt()),
+            });
 
-            System.Windows.Forms.TreeNode system = new System.Windows.Forms.TreeNode("System", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode desktop = new System.Windows.Forms.TreeNode("Desktop", new System.Windows.Forms.TreeNode[] {
+                new TweaksNode(new Tweaks.Desktop.AppsTheme()),
+                new TweaksNode(new Tweaks.Desktop.WindowsTheme()),
+                new TweaksNode(new Tweaks.Desktop.Transparency()),
+                new TweaksNode(new Tweaks.Desktop.SnapAssistFlyout()),
+                new TweaksNode(new Tweaks.Desktop.Widgets()),
+                new TweaksNode(new Tweaks.Desktop.WidgetsRemove()),
+                new TweaksNode(new Tweaks.Desktop.TaskbarAl()),
+                new TweaksNode(new Tweaks.Desktop.TaskbarSi()),
+                new TweaksNode(new Tweaks.Desktop.TaskbarMM()),
+                new TweaksNode(new Tweaks.Desktop.TaskbarSearch()),
+                new TweaksNode(new Tweaks.Desktop.TaskbarChat()),
+                new TweaksNode(new Tweaks.Desktop.TaskView()),
+
+                new TweaksNode(new Tweaks.Desktop.MostUsedApps()),
+
+            }); CheckNodes(desktop);
+
+            System.Windows.Forms.TreeNode system = new System.Windows.Forms.TreeNode("My Computer", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.System.Fax()),
                 new TweaksNode(new Tweaks.System.XPSWriter()),
+                new TweaksNode(new Tweaks.System.RemoveW11Watermark()),
                 new TweaksNode(new Tweaks.System.EnableWSL()),
                 new TweaksNode(new Tweaks.System.InstallWSA()),
                 new TweaksNode(new Tweaks.System.HyperV()),
@@ -241,11 +248,13 @@ namespace TweakUIX
                 Checked = false,
             };
 
+
             root.Nodes.AddRange(new System.Windows.Forms.TreeNode[]
             {
                 about,
                 settings,
-                personalization,
+                explorer,
+                desktop,
                 system,
                 paranoia,
                 update,
@@ -316,7 +325,7 @@ namespace TweakUIX
         private void RemoveTreeNodeCheckmarks()
         {
             TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);
-            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[11]);
+            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[12]);
         }
 
         // Check favored parent node including all child nodes
@@ -741,8 +750,9 @@ namespace TweakUIX
         private void MainForm_HelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
         {
             string helpfile = Helpers.Strings.Data.DataRootDir + "help.txt";
+            richStatus.Focus();
 
-            if (!richStatus.Visible) MessageBox.Show("Not supported in this view."); 
+            if (!richStatus.Focused) MessageBox.Show("Not supported in this view.");
             if (File.Exists(helpfile))
 
                 richStatus.Text = File.ReadAllText(helpfile);

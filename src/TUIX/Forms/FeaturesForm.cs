@@ -68,6 +68,7 @@ namespace TweakUIX
             if (listView.CheckedItems.Count == 0)
             {
                 MessageBox.Show("No feature selected.", FormTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
             StringBuilder builder = new StringBuilder();

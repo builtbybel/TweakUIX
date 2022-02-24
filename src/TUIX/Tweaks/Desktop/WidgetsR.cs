@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 
-namespace TweakUIX.Tweaks.Personalization
+namespace TweakUIX.Tweaks.Desktop
 {
     internal class WidgetsRemove : TweaksBase
     {

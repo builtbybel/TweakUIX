@@ -1,17 +1,18 @@
 ﻿using Microsoft.Win32;
+using System;
 
-namespace TweakUIX.Tweaks.Personalization
+namespace TweakUIX.Tweaks.Explorer
 {
-    internal class TaskbarSi : TweaksBase
+    internal class HiddenFileFolder : TweaksBase
     {
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
         private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
-        private const int desiredValue = 0;
+        private const int desiredValue = 1;
 
         public override string ID()
         {
-            return "Small Taskbar and icons";
+            return "Show hidden files, folders and drives in File Explorer";
         }
 
         public override string Info()
@@ -22,22 +23,22 @@ namespace TweakUIX.Tweaks.Personalization
         public override bool CheckTweak()
         {
             return !(
-               RegistryHelper.IntEquals(keyName, "TaskbarSi", desiredValue)
-             );
+                 RegistryHelper.IntEquals(keyName, "Hidden", desiredValue)
+            );
         }
 
         public override bool DoTweak()
         {
             try
             {
-                Registry.SetValue(keyName, "TaskbarSi", desiredValue, RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "Hidden", desiredValue, RegistryValueKind.DWord);
 
-                logger.Log("- Taskbar size has been set to small.\nRestart is required for the changes to take effect!");
+                logger.Log("- Hidden files, folders and drives are now visible.");
                 logger.Log(keyName);
                 return true;
             }
-            catch
-            { }
+            catch (Exception ex)
+            { logger.Log("Could not hide files, folders and drives {0}", ex.Message); }
 
             return false;
         }
@@ -46,8 +47,8 @@ namespace TweakUIX.Tweaks.Personalization
         {
             try
             {
-                Registry.SetValue(keyName, "TaskbarSi", "1", RegistryValueKind.DWord);
-                logger.Log("- Taskbar size has been set to default/medium.\nRestart is required for the changes to take effect!");
+                Registry.SetValue(keyName, "Hidden", 2, RegistryValueKind.DWord);
+                logger.Log("- Files, folders and drives are now hidden again.");
                 return true;
             }
             catch

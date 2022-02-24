@@ -1,17 +1,18 @@
 ﻿using Microsoft.Win32;
+using System;
 
-namespace TweakUIX.Tweaks.Personalization
+namespace TweakUIX.Tweaks.Desktop
 {
-    internal class WindowsTheme : TweaksBase
+    internal class Widgets : TweaksBase
     {
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
-        private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
+        private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
         private const int desiredValue = 0;
 
         public override string ID()
         {
-            return "Use Windows dark theme";
+            return "Disable Widgets";
         }
 
         public override string Info()
@@ -22,22 +23,22 @@ namespace TweakUIX.Tweaks.Personalization
         public override bool CheckTweak()
         {
             return !(
-               RegistryHelper.IntEquals(keyName, "SystemUsesLightTheme", desiredValue)
-             );
+                 RegistryHelper.IntEquals(keyName, "TaskbarDa", desiredValue)
+            );
         }
 
         public override bool DoTweak()
         {
             try
             {
-                Registry.SetValue(keyName, "SystemUsesLightTheme", desiredValue, RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "TaskbarDa", desiredValue, RegistryValueKind.DWord);
 
-                logger.Log("- Windows dark theme has been successfully enabled.");
+                logger.Log("- Widgets has been disabled.");
                 logger.Log(keyName);
                 return true;
             }
-            catch
-            { }
+            catch (Exception ex)
+            { logger.Log("Could not disable Widgets {0}", ex.Message); }
 
             return false;
         }
@@ -46,8 +47,8 @@ namespace TweakUIX.Tweaks.Personalization
         {
             try
             {
-                Registry.SetValue(keyName, "SystemUsesLightTheme", "1", RegistryValueKind.DWord);
-                logger.Log("- Windows light theme has been successfully enabled.");
+                Registry.SetValue(keyName, "TaskbarDa", 1, RegistryValueKind.DWord);
+                logger.Log("- Widgets has been enabled.");
                 return true;
             }
             catch

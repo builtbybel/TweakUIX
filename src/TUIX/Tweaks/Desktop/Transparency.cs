@@ -1,18 +1,18 @@
 ﻿using Microsoft.Win32;
 using System;
 
-namespace TweakUIX.Tweaks.Personalization
+namespace TweakUIX.Tweaks.Desktop
 {
-    internal class HiddenFileExt : TweaksBase
+    internal class Transparency : TweaksBase
     {
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
-        private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
+        private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";
         private const int desiredValue = 0;
 
         public override string ID()
         {
-            return "Show hidden file name extensions";
+            return "Disable acrylic Fluent Design effects";
         }
 
         public override string Info()
@@ -23,7 +23,7 @@ namespace TweakUIX.Tweaks.Personalization
         public override bool CheckTweak()
         {
             return !(
-                 RegistryHelper.IntEquals(keyName, "HideFileExt", desiredValue)
+                 RegistryHelper.IntEquals(keyName, "EnableTransparency", desiredValue)
             );
         }
 
@@ -31,14 +31,14 @@ namespace TweakUIX.Tweaks.Personalization
         {
             try
             {
-                Registry.SetValue(keyName, "HideFileExt", desiredValue, RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "EnableTransparency", desiredValue, RegistryValueKind.DWord);
 
-                logger.Log("- File name extensions are now visible.");
+                logger.Log("- Transparency effects has been disabled.");
                 logger.Log(keyName);
                 return true;
             }
             catch (Exception ex)
-            { logger.Log("Could not hide file name extensions {0}", ex.Message); }
+            { logger.Log("Could not disable transparency effects {0}", ex.Message); }
 
             return false;
         }
@@ -47,8 +47,8 @@ namespace TweakUIX.Tweaks.Personalization
         {
             try
             {
-                Registry.SetValue(keyName, "HideFileExt", 1, RegistryValueKind.DWord);
-                logger.Log("- File name extensions are now hidden again.");
+                Registry.SetValue(keyName, "EnableTransparency", 1, RegistryValueKind.DWord);
+                logger.Log("- Transparency effects has been enabled.");
                 return true;
             }
             catch

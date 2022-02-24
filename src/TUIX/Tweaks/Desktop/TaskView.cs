@@ -1,9 +1,9 @@
 ﻿using Microsoft.Win32;
 using System;
 
-namespace TweakUIX.Tweaks.Personalization
+namespace TweakUIX.Tweaks.Desktop
 {
-    internal class SnapAssistFlyout : TweaksBase
+    internal class TaskView : TweaksBase
     {
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
@@ -12,18 +12,18 @@ namespace TweakUIX.Tweaks.Personalization
 
         public override string ID()
         {
-            return "Disable Snap Assist";
+            return "Hide Task view button on taskbar";
         }
 
         public override string Info()
         {
-            return "When you hover over the maximize button in apps, this feature gives you a flyout to display possible layouts.";
+            return "";
         }
 
         public override bool CheckTweak()
         {
             return !(
-                 RegistryHelper.IntEquals(keyName, "EnableSnapAssistFlyout", desiredValue)
+                 RegistryHelper.IntEquals(keyName, "ShowTaskViewButton", desiredValue)
             );
         }
 
@@ -31,14 +31,14 @@ namespace TweakUIX.Tweaks.Personalization
         {
             try
             {
-                Registry.SetValue(keyName, "EnableSnapAssistFlyout", desiredValue, RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "ShowTaskViewButton", desiredValue, RegistryValueKind.DWord);
 
-                logger.Log("- Snap Assist Layout has been disabled.\nPlease restart your PC for the changes to take effect.");
+                logger.Log("- Task view button has been disabled.");
                 logger.Log(keyName);
                 return true;
             }
             catch (Exception ex)
-            { logger.Log("Could not disable Snap Assist {0}", ex.Message); }
+            { logger.Log("Could not disable Task view button {0}", ex.Message); }
 
             return false;
         }
@@ -47,8 +47,8 @@ namespace TweakUIX.Tweaks.Personalization
         {
             try
             {
-                Registry.SetValue(keyName, "EnableSnapAssistFlyout", 1, RegistryValueKind.DWord);
-                logger.Log("- Snap Assist has been enabled.\nPlease restart your PC for the changes to take effect.");
+                Registry.SetValue(keyName, "ShowTaskViewButton", 1, RegistryValueKind.DWord);
+                logger.Log("- Task view button has been enabled.");
                 return true;
             }
             catch

@@ -71,13 +71,13 @@ namespace TweakUIX.Helpers
             }
         }
 
-        // Launch Urls in rtb control
+        // Launch Urls in richText control
         public static void LaunchUri(string url)
         {
             if (IsHttpURL(url)) Process.Start(url);
         }
 
-        // Check Urls in in rtb control
+        // Check Urls in in richText control
         public static bool IsHttpURL(string url)
         {
             return

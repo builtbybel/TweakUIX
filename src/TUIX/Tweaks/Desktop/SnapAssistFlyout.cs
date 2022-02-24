@@ -1,9 +1,9 @@
 ﻿using Microsoft.Win32;
 using System;
 
-namespace TweakUIX.Tweaks.Personalization
+namespace TweakUIX.Tweaks.Desktop
 {
-    internal class TaskbarChat : TweaksBase
+    internal class SnapAssistFlyout : TweaksBase
     {
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
@@ -12,18 +12,18 @@ namespace TweakUIX.Tweaks.Personalization
 
         public override string ID()
         {
-            return "Hide Chat icon (Microsoft Teams) on taskbar";
+            return "Disable Snap Assist";
         }
 
         public override string Info()
         {
-            return "";
+            return "When you hover over the maximize button in apps, this feature gives you a flyout to display possible layouts.";
         }
 
         public override bool CheckTweak()
         {
             return !(
-                 RegistryHelper.IntEquals(keyName, "TaskbarMn", desiredValue)
+                 RegistryHelper.IntEquals(keyName, "EnableSnapAssistFlyout", desiredValue)
             );
         }
 
@@ -31,14 +31,14 @@ namespace TweakUIX.Tweaks.Personalization
         {
             try
             {
-                Registry.SetValue(keyName, "TaskbarMn", desiredValue, RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "EnableSnapAssistFlyout", desiredValue, RegistryValueKind.DWord);
 
-                logger.Log("- Chat icon has been disabled.");
+                logger.Log("- Snap Assist Layout has been disabled.\nPlease restart your PC for the changes to take effect.");
                 logger.Log(keyName);
                 return true;
             }
             catch (Exception ex)
-            { logger.Log("Could not disable chat icon {0}", ex.Message); }
+            { logger.Log("Could not disable Snap Assist {0}", ex.Message); }
 
             return false;
         }
@@ -47,8 +47,8 @@ namespace TweakUIX.Tweaks.Personalization
         {
             try
             {
-                Registry.SetValue(keyName, "TaskbarMn", 1, RegistryValueKind.DWord);
-                logger.Log("- Chat icon has been enabled.");
+                Registry.SetValue(keyName, "EnableSnapAssistFlyout", 1, RegistryValueKind.DWord);
+                logger.Log("- Snap Assist has been enabled.\nPlease restart your PC for the changes to take effect.");
                 return true;
             }
             catch

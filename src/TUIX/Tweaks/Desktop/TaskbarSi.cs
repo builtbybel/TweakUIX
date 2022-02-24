@@ -1,9 +1,8 @@
 ﻿using Microsoft.Win32;
-using System;
 
-namespace TweakUIX.Tweaks.Personalization
+namespace TweakUIX.Tweaks.Desktop
 {
-    internal class TaskView : TweaksBase
+    internal class TaskbarSi : TweaksBase
     {
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
@@ -12,7 +11,7 @@ namespace TweakUIX.Tweaks.Personalization
 
         public override string ID()
         {
-            return "Hide Task view button on taskbar";
+            return "Small Taskbar and icons";
         }
 
         public override string Info()
@@ -23,22 +22,22 @@ namespace TweakUIX.Tweaks.Personalization
         public override bool CheckTweak()
         {
             return !(
-                 RegistryHelper.IntEquals(keyName, "ShowTaskViewButton", desiredValue)
-            );
+               RegistryHelper.IntEquals(keyName, "TaskbarSi", desiredValue)
+             );
         }
 
         public override bool DoTweak()
         {
             try
             {
-                Registry.SetValue(keyName, "ShowTaskViewButton", desiredValue, RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "TaskbarSi", desiredValue, RegistryValueKind.DWord);
 
-                logger.Log("- Task view button has been disabled.");
+                logger.Log("- Taskbar size has been set to small.\nRestart is required for the changes to take effect!");
                 logger.Log(keyName);
                 return true;
             }
-            catch (Exception ex)
-            { logger.Log("Could not disable Task view button {0}", ex.Message); }
+            catch
+            { }
 
             return false;
         }
@@ -47,8 +46,8 @@ namespace TweakUIX.Tweaks.Personalization
         {
             try
             {
-                Registry.SetValue(keyName, "ShowTaskViewButton", 1, RegistryValueKind.DWord);
-                logger.Log("- Task view button has been enabled.");
+                Registry.SetValue(keyName, "TaskbarSi", "1", RegistryValueKind.DWord);
+                logger.Log("- Taskbar size has been set to default/medium.\nRestart is required for the changes to take effect!");
                 return true;
             }
             catch
