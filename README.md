@@ -8,7 +8,7 @@
 ### .. the last PowerToy
 # Tweak UIX
 
-This will be my first attempt to recreate a part of the classic Tweak UI featuring the classic look.
+This will be my first attempt to recreate a part of the classic at that time ubiquitous **Tweak UI** app featuring the classic look.
 
 ## The original
 ![msedge_zLM0f2Ce3r](https://user-images.githubusercontent.com/57478606/154860215-162bd277-5a55-4af2-a4b2-edf48f140453.png)
