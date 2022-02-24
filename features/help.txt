@@ -1,4 +1,4 @@
-[ToolTip] Info about a tweak: Move the cursor over a tweak to view a brief explanation.
+[ToolTip] Info about a tweak: Move the cursor over a tweak to view a brief explanation. Tweaks marked with a *(asterisk) offer configuration options. To do this, use the options button provided or right-click on the entry 
                                           
 [Button] Check: Determines which tweaks are enabled and configured on your system or not. NO system changes are done yet! 
                                            
@@ -13,6 +13,8 @@
 [State] Tweaks needs to be applied: This indicates that the Windows tweaks are in place.
                                            
 [State] Tweaks already applied: This indicates that the recommended tweaks are in place.
+
+
 
 
 -------------
