@@ -77,28 +77,22 @@ namespace TweakUIX
             form.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
             form.Dock = DockStyle.Fill;
 
-            if (sc.Panel2.Controls.Count > 0)
-            {
-                _previousNavContent = sc.Panel2.Controls[0];
-                _previousNavContent.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
-                _previousNavContent.Dock = DockStyle.Fill;
-                sc.Panel2.Controls.Clear();
-            }
+            _previousNavContent.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
+            _previousNavContent.Dock = DockStyle.Fill;
+            sc.Panel2.Controls.Clear();
             sc.Panel2.Controls.Add(page);
         }
 
         private void tweaksTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            // --Cleanup! PlEASE..
             switch (e.Node.Text)
             {
-                case "About":                           // About this...
-                    MessageBox.Show("PowerToys/Tweak UI Replica"
-                                   + "\n\tVersion " + Program.GetCurrentVersionTostring()
-                                   + "\n\tAurora release, MIT"
-                                   + "\n\t(C) 2022 Builtbybel (https://twitter.com/builtbybel)"
-                                   + "\n\t(This is NOT a product made by Microsoft nor related to them.)"
-                                   );
+                case "About":
+                    this.SetView(new AboutForm());       // Register About form
+                    break;
+
+                case "Policy":
+                    this.SetView(new PolicyForm());      // Register Policy form
                     break;
 
                 case "*Plugins":
@@ -129,6 +123,9 @@ namespace TweakUIX
             System.Windows.Forms.TreeNode about = new System.Windows.Forms.TreeNode("About", new System.Windows.Forms.TreeNode[] {
             });
 
+            System.Windows.Forms.TreeNode policy = new System.Windows.Forms.TreeNode("Policy", new System.Windows.Forms.TreeNode[] {
+            });
+
             System.Windows.Forms.TreeNode settings = new System.Windows.Forms.TreeNode("Settings", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Settings.AppUpdate()),
                 new TweaksNode(new Tweaks.Settings.RestorePoint()),
@@ -155,7 +152,6 @@ namespace TweakUIX
                 new TweaksNode(new Tweaks.Desktop.TaskView()),
 
                 new TweaksNode(new Tweaks.Desktop.MostUsedApps()),
-
             }); CheckNodes(desktop);
 
             System.Windows.Forms.TreeNode system = new System.Windows.Forms.TreeNode("My Computer", new System.Windows.Forms.TreeNode[] {
@@ -248,10 +244,10 @@ namespace TweakUIX
                 Checked = false,
             };
 
-
             root.Nodes.AddRange(new System.Windows.Forms.TreeNode[]
             {
                 about,
+                policy,
                 settings,
                 explorer,
                 desktop,
@@ -321,11 +317,12 @@ namespace TweakUIX
             tweaksTree.EndUpdate();
         }
 
-        // Remove checkmarks in About and Plugins node
+        // Remove checkmarks
         private void RemoveTreeNodeCheckmarks()
         {
-            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);
-            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[12]);
+            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);     // About
+            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[1]);     // Policy
+            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[13]);    // Plugins
         }
 
         // Check favored parent node including all child nodes

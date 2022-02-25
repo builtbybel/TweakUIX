@@ -74,6 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FeaturesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,12 @@
     </Compile>
     <Compile Include="Forms\PluginsForm.Designer.cs">
       <DependentUpon>PluginsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PolicyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PolicyForm.Designer.cs">
+      <DependentUpon>PolicyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,6 +187,9 @@
     <Compile Include="Tweaks\Update\Wuauserv.cs" />
     <Compile Include="Tweaks\Update\Wusa.cs" />
     <Compile Include="Helpers\WindowsHelper.cs" />
+    <EmbeddedResource Include="Forms\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FeaturesForm.resx">
       <DependentUpon>FeaturesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PluginsForm.resx">
       <DependentUpon>PluginsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PolicyForm.resx">
+      <DependentUpon>PolicyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
