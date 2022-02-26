@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Management;
 
-namespace TweakUIX.Tweaks.Settings
+namespace TweakUIX.Tweaks.System
 {
     internal class RestorePoint : TweaksBase
     {

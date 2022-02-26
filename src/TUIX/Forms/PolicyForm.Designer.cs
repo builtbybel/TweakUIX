@@ -42,9 +42,9 @@ namespace TweakUIX
             this.groupBox.Controls.Add(this.label1);
             this.groupBox.Controls.Add(this.btnRun);
             this.groupBox.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox.Location = new System.Drawing.Point(6, 4);
+            this.groupBox.Location = new System.Drawing.Point(2, 4);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(516, 109);
+            this.groupBox.Size = new System.Drawing.Size(524, 109);
             this.groupBox.TabIndex = 17;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Group Policy Editor";
@@ -57,7 +57,7 @@ namespace TweakUIX
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(6, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(316, 37);
+            this.label1.Size = new System.Drawing.Size(324, 37);
             this.label1.TabIndex = 2;
             this.label1.Text = "The Group Policy Editor allows you to change hundreds of additional settings.";
             // 
@@ -65,7 +65,7 @@ namespace TweakUIX
             // 
             this.btnRun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRun.ForeColor = System.Drawing.Color.Black;
-            this.btnRun.Location = new System.Drawing.Point(346, 67);
+            this.btnRun.Location = new System.Drawing.Point(354, 67);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(155, 23);
             this.btnRun.TabIndex = 1;

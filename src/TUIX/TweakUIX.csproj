@@ -7,7 +7,7 @@
     <ProjectGuid>{893CDC21-F2EE-40D5-B23B-D1038D4C9B72}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TweakUIX</RootNamespace>
-    <AssemblyName>TweakUIX</AssemblyName>
+    <AssemblyName>Tweak UIX</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -175,8 +175,7 @@
     <Compile Include="Tweaks\Privacy\TailoredExperiences.cs" />
     <Compile Include="Tweaks\Privacy\Telemetry.cs" />
     <Compile Include="Tweaks\Privacy\WindowsTips.cs" />
-    <Compile Include="Tweaks\Settings\AppUpdate.cs" />
-    <Compile Include="Tweaks\Settings\RestorePoint.cs" />
+    <Compile Include="Tweaks\System\RestorePoint.cs" />
     <Compile Include="Tweaks\System\EnableWSL.cs" />
     <Compile Include="Tweaks\System\FaxPrinter.cs" />
     <Compile Include="Tweaks\System\HyperV.cs" />

@@ -12,6 +12,8 @@ namespace TweakUIX
 {
     public partial class AboutForm : Form
     {
+        private Helpers.Utils appUpdate = new Helpers.Utils();
+
         public AboutForm()
         {
             InitializeComponent();
@@ -25,5 +27,8 @@ namespace TweakUIX
         }
 
         private void richInfo_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
+
+        private void btnAppUpdate_Click(object sender, EventArgs e) =>appUpdate.CheckForUpdates();
+        
     }
 }

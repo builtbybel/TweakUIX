@@ -8,7 +8,6 @@ namespace TweakUIX.Helpers
 {
     internal class Utils
     {
-        private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
         public void CheckForUpdates()
         {
@@ -29,14 +28,13 @@ namespace TweakUIX.Helpers
                     if (latestVersion ==
                         Program.GetCurrentVersionTostring())                                                     // Up-to-date
 
-                        logger.Log("- [Checking for app updates] No new release found");
+                        MessageBox.Show("No new release found.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     if (latestVersion !=                                                                        // Update available
                        Program.GetCurrentVersionTostring())
 
                     {
-                        logger.Log($"- [Checking for app updates] TweakUIX {latestVersion} is available. ");
-                        if (MessageBox.Show($"Do you want to check latest release {latestVersion} on GitHub?", @"App update available",
+                        if (MessageBox.Show($"Tweak UIX {latestVersion} is available.\nDo you want to goto the Github page?", @"App update available",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             Process.Start(Helpers.Strings.Uri.URL_GITLATEST);

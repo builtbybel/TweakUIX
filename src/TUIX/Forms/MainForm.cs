@@ -126,11 +126,6 @@ namespace TweakUIX
             System.Windows.Forms.TreeNode policy = new System.Windows.Forms.TreeNode("Policy", new System.Windows.Forms.TreeNode[] {
             });
 
-            System.Windows.Forms.TreeNode settings = new System.Windows.Forms.TreeNode("Settings", new System.Windows.Forms.TreeNode[] {
-                new TweaksNode(new Tweaks.Settings.AppUpdate()),
-                new TweaksNode(new Tweaks.Settings.RestorePoint()),
-            });
-
             System.Windows.Forms.TreeNode explorer = new System.Windows.Forms.TreeNode("Explorer", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Explorer.FileExplorer()),
                 new TweaksNode(new Tweaks.Explorer.HiddenFileFolder()),
@@ -155,6 +150,7 @@ namespace TweakUIX
             }); CheckNodes(desktop);
 
             System.Windows.Forms.TreeNode system = new System.Windows.Forms.TreeNode("My Computer", new System.Windows.Forms.TreeNode[] {
+                new TweaksNode(new Tweaks.System.RestorePoint()),
                 new TweaksNode(new Tweaks.System.Fax()),
                 new TweaksNode(new Tweaks.System.XPSWriter()),
                 new TweaksNode(new Tweaks.System.RemoveW11Watermark()),
@@ -248,7 +244,6 @@ namespace TweakUIX
             {
                 about,
                 policy,
-                settings,
                 explorer,
                 desktop,
                 system,
@@ -322,7 +317,7 @@ namespace TweakUIX
         {
             TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);     // About
             TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[1]);     // Policy
-            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[13]);    // Plugins
+            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[12]);    // Plugins
         }
 
         // Check favored parent node including all child nodes
