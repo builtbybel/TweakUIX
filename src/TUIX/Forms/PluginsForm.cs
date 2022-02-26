@@ -63,7 +63,7 @@ namespace TweakUIX
                         progress.MarqueeAnimationSpeed = 30;
 
                         btnApply.Enabled = false;
-                        grpBox.Text = "Processing " + listPlugs.Text;
+                        groupBoxPlugins.Text = "Processing " + listPlugs.Text;
 
                         if (equals.Any(str.Contains))                   // Silent
                         {
@@ -90,7 +90,7 @@ namespace TweakUIX
                         }
 
                         btnApply.Enabled = true;
-                        grpBox.Text = "";
+                        groupBoxPlugins.Text = "";
                     }
                 }
 
@@ -203,8 +203,8 @@ namespace TweakUIX
                     Process.Start(optionalPluginsDir + "\\" + listCategory.Text + "\\" + listTweaks.Text + "\\" + dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
-            
         }
+
         private void tab_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tab.SelectedTab == tab.TabPages[1])
@@ -215,6 +215,11 @@ namespace TweakUIX
                 tab.SelectedTab = tab.TabPages[0];
             }
             return;
+        }
+
+        private void BtnPopOut_Click(object sender, EventArgs e)
+        {
+            PluginsForm plugins = new PluginsForm(); plugins.Show();
         }
 
         private void richHelp_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);

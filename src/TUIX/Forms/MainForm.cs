@@ -23,7 +23,7 @@ namespace TweakUIX
         private bool bLoadTemplate = false;
 
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
-        private Control _previousNavContent;
+        private Control INavPage;
 
         // Enables double-buffering for all controls from the form level down
         protected override CreateParams CreateParams
@@ -39,8 +39,8 @@ namespace TweakUIX
         public MainForm()
         {
             this.InitializeComponent();
-            _previousNavContent = sc.Panel2.Controls[0]; // Start NavContent
 
+            INavPage = sc.Panel2.Controls[0]; // Default NavContent
             this.SetStyle();
         }
 
@@ -76,9 +76,9 @@ namespace TweakUIX
             form.AutoScroll = true;
             form.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
             form.Dock = DockStyle.Fill;
+            INavPage.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
+            INavPage.Dock = DockStyle.Fill;
 
-            _previousNavContent.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
-            _previousNavContent.Dock = DockStyle.Fill;
             sc.Panel2.Controls.Clear();
             sc.Panel2.Controls.Add(page);
         }
@@ -88,20 +88,20 @@ namespace TweakUIX
             switch (e.Node.Text)
             {
                 case "About":
-                    this.SetView(new AboutForm());       // Register About form
+                    this.SetView(new AboutForm());       // Set about view
                     break;
 
                 case "Policy":
-                    this.SetView(new PolicyForm());      // Register Policy form
+                    this.SetView(new PolicyForm());      // Set policy view
                     break;
 
                 case "*Plugins":
-                    this.SetView(new PluginsForm());     // Register Plugins form
+                    this.SetView(new PluginsForm());     // Set plugins view
                     break;
 
-                default:                                 // Go back to previous/default NavControl
+                default:                                 // Set default view
                     sc.Panel2.Controls.Clear();
-                    if (_previousNavContent != null) sc.Panel2.Controls.Add(_previousNavContent);
+                    if (INavPage != null) sc.Panel2.Controls.Add(INavPage);
                     break;
             }
         }
@@ -363,7 +363,7 @@ namespace TweakUIX
                 var setting = node.Tweak;
                 ConfiguredTaskAwaitable<bool> performTask = Task<bool>.Factory.StartNew(() => setting.DoTweak()).ConfigureAwait(true);
 
-                grpBox.Text = "Applying " + node.Text;
+                groupBox.Text = "Applying " + node.Text;
 
                 var result = await performTask;
                 IncrementProgress();
@@ -387,7 +387,7 @@ namespace TweakUIX
                 var setting = node.Tweak;
                 ConfiguredTaskAwaitable<bool> performTask = Task<bool>.Factory.StartNew(() => setting.UndoTweak()).ConfigureAwait(true);
 
-                grpBox.Text = "Undo " + node.Text;
+                groupBox.Text = "Undo " + node.Text;
 
                 var result = await performTask;
                 IncrementProgress();
@@ -426,7 +426,7 @@ namespace TweakUIX
                 // logger.Log("Check {0}", node.Text);
 
                 bool shouldPerform = await analyzeTask;
-                grpBox.Text = "Check " + node.Text;
+                groupBox.Text = "Check " + node.Text;
                 tweaksTree.SelectedNode = node;
                 tweaksTree.Focus();
 
@@ -456,7 +456,7 @@ namespace TweakUIX
             sum.Append($"{performTweaksCount} tweaks needs to be applied (just a recommendation).\r\n");
             logger.Log(sum.ToString(), "");
 
-            grpBox.Text = performTweaksCount + " of " + selectedTweaks.Count + " issues requires attention.";
+            groupBox.Text = performTweaksCount + " of " + selectedTweaks.Count + " issues requires attention.";
             sc.Panel2.Enabled = true;
         }
 
@@ -583,31 +583,12 @@ namespace TweakUIX
             }
         }
 
-        private void menuExpand_Click(object sender, EventArgs e)
-        {
-            menuExpand.Checked = !(menuExpand.Checked);
+        private void menuExpand_Click(object sender, EventArgs e) => tweaksTree.Nodes[0].ExpandAll();
 
-            tweaksTree.BeginUpdate();
-            if (menuExpand.Checked == true)
-            {
-                tweaksTree.Nodes[0].ExpandAll();
-                tweaksTree.Nodes[0].EnsureVisible();
-            }
-            else if (menuExpand.Checked == false)
-                tweaksTree.Nodes[0].Collapse();
+        private void menuCheck_Click(object sender, EventArgs e) => SelectTweaksNodes(tweaksTree.Nodes, true);
 
-            tweaksTree.EndUpdate();
-        }
-
-        private void menuCheck_Click(object sender, EventArgs e)
-        {
-            menuCheck.Checked = !(menuCheck.Checked);
-
-            if (menuCheck.Checked == true)
-                SelectTweaksNodes(tweaksTree.Nodes, true);
-            else
-                SelectTweaksNodes(tweaksTree.Nodes, false);
-        }
+        private void textSearch_Click(object sender, EventArgs e)
+        { textSearch.Clear(); ResetColorNode(tweaksTree.Nodes, Color.Transparent); }
 
         private void menuSaveLog_Click(object sender, EventArgs e)
         {
@@ -667,9 +648,6 @@ namespace TweakUIX
             }
         }
 
-        private void textSearch_Click(object sender, EventArgs e)
-        { textSearch.Clear(); ResetColorNode(tweaksTree.Nodes, Color.Transparent); }
-
         private void tweaksTree_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -684,19 +662,17 @@ namespace TweakUIX
             }
         }
 
-        private void tweaksTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            tweaksTree.SelectedNode = tweaksTree.GetNodeAt(e.X, e.Y);
-            if (tweaksTree.SelectedNode.Text.Contains("*"))
-
-                btnOptions.Visible = true;
-            else
-                btnOptions.Visible = false;
-        }
-
         private void btnOptions_Click(object sender, EventArgs e)
         {
-            switch (tweaksTree.SelectedNode.Text)
+            TreeNode tn = tweaksTree.SelectedNode;
+
+            if (tn == null)
+            {
+                this.menuMain.Show(Cursor.Position.X, Cursor.Position.Y);
+                return;
+            }
+
+            switch (tn.Text)
             {
                 case "*Block Windows telemetry with WindowsSpyBlocker":
                     Process.Start("notepad.exe", Helpers.Strings.Data.DataRootDir + "spy.txt");
@@ -721,7 +697,7 @@ namespace TweakUIX
                     break;
 
                 default:
-                    MessageBox.Show("No configuration options available.", tweaksTree.SelectedNode.Text);
+                    this.menuMain.Show(Cursor.Position.X, Cursor.Position.Y);
                     break;
             }
         }
@@ -754,7 +730,7 @@ namespace TweakUIX
 
                 richStatus.Text = File.ReadAllText(helpfile);
             else
-                richStatus.Text = "Feature not available. Add it via Menu > \"Add features\" ";
+                richStatus.Text = "Feature not available. Add it via Options > \"Add features\" ";
 
             e.Cancel = true;
         }
@@ -762,8 +738,6 @@ namespace TweakUIX
         private void menuAppConfigure_Click(object sender, EventArgs e) => btnOptions.PerformClick();
 
         private void richStatus_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
-
-        private void btnMenu_Click(object sender, EventArgs e) => this.menuMain.Show(Cursor.Position.X, Cursor.Position.Y);
 
         private void menuProjectURI_Click(object sender, EventArgs e) => Process.Start(Helpers.Strings.Uri.URL_GITREPO);
     }

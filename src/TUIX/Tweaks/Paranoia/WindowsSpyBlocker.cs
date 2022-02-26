@@ -40,7 +40,7 @@ namespace TweakUIX.Tweaks.Paranoia
             }
             catch
             {
-                logger.Log("Feature not available. Add it via Menu > \"Add features\" ");
+                logger.Log("Feature not available. Add it via Options > \"Add features\" ");
                 return false;
             }
         }

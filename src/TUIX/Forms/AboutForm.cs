@@ -23,5 +23,7 @@ namespace TweakUIX
                      + "\n\t(C) 2022 Builtbybel (https://twitter.com/builtbybel)"
                      + "\n\n\t(This is NOT a product made by Microsoft nor related to them.)";
         }
+
+        private void richInfo_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
     }
 }

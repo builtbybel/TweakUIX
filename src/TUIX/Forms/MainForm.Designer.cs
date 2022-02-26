@@ -33,7 +33,7 @@ namespace TweakUIX
             this.sc = new System.Windows.Forms.SplitContainer();
             this.btnOptions = new System.Windows.Forms.Button();
             this.tweaksTree = new System.Windows.Forms.TreeView();
-            this.grpBox = new System.Windows.Forms.GroupBox();
+            this.groupBox = new System.Windows.Forms.GroupBox();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.lblInfo = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
@@ -57,13 +57,12 @@ namespace TweakUIX
             this.contextMenuApp = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuAppConfigure = new System.Windows.Forms.ToolStripMenuItem();
             this.textSearch = new System.Windows.Forms.TextBox();
-            this.btnMenu = new System.Windows.Forms.Button();
             this.tt = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.sc)).BeginInit();
             this.sc.Panel1.SuspendLayout();
             this.sc.Panel2.SuspendLayout();
             this.sc.SuspendLayout();
-            this.grpBox.SuspendLayout();
+            this.groupBox.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.menuMain.SuspendLayout();
             this.contextMenuApp.SuspendLayout();
@@ -74,33 +73,33 @@ namespace TweakUIX
             this.sc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.sc.Location = new System.Drawing.Point(4, 26);
+            this.sc.Location = new System.Drawing.Point(4, 8);
             this.sc.Name = "sc";
             // 
             // sc.Panel1
             // 
             this.sc.Panel1.Controls.Add(this.btnOptions);
             this.sc.Panel1.Controls.Add(this.tweaksTree);
+            this.sc.Panel1.Controls.Add(this.textSearch);
             // 
             // sc.Panel2
             // 
             this.sc.Panel2.AutoScroll = true;
             this.sc.Panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.sc.Panel2.Controls.Add(this.grpBox);
-            this.sc.Size = new System.Drawing.Size(806, 583);
+            this.sc.Panel2.Controls.Add(this.groupBox);
+            this.sc.Size = new System.Drawing.Size(806, 505);
             this.sc.SplitterDistance = 277;
             this.sc.TabIndex = 0;
             // 
             // btnOptions
             // 
             this.btnOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOptions.Location = new System.Drawing.Point(12, 539);
+            this.btnOptions.Location = new System.Drawing.Point(12, 461);
             this.btnOptions.Name = "btnOptions";
             this.btnOptions.Size = new System.Drawing.Size(75, 23);
             this.btnOptions.TabIndex = 3;
             this.btnOptions.Text = "Options...";
             this.btnOptions.UseVisualStyleBackColor = true;
-            this.btnOptions.Visible = false;
             this.btnOptions.Click += new System.EventHandler(this.btnOptions_Click);
             // 
             // tweaksTree
@@ -118,34 +117,33 @@ namespace TweakUIX
             this.tweaksTree.Location = new System.Drawing.Point(12, 0);
             this.tweaksTree.Name = "tweaksTree";
             this.tweaksTree.ShowNodeToolTips = true;
-            this.tweaksTree.Size = new System.Drawing.Size(262, 533);
+            this.tweaksTree.Size = new System.Drawing.Size(262, 455);
             this.tweaksTree.TabIndex = 0;
             this.tweaksTree.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tweaksTree_AfterCheck);
             this.tweaksTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tweaksTree_AfterSelect);
-            this.tweaksTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tweaksTree_NodeMouseClick);
             this.tweaksTree.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tweaksTree_MouseUp);
             // 
-            // grpBox
+            // groupBox
             // 
-            this.grpBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpBox.BackColor = System.Drawing.Color.White;
-            this.grpBox.Controls.Add(this.pnlBottom);
-            this.grpBox.Controls.Add(this.btnTemplateLoad);
-            this.grpBox.Controls.Add(this.lblTemplate);
-            this.grpBox.Controls.Add(this.richStatus);
-            this.grpBox.Controls.Add(this.progress);
-            this.grpBox.Controls.Add(this.cbTemplate);
-            this.grpBox.Controls.Add(this.btnTemplateSave);
-            this.grpBox.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.grpBox.Location = new System.Drawing.Point(6, 5);
-            this.grpBox.Name = "grpBox";
-            this.grpBox.Size = new System.Drawing.Size(516, 575);
-            this.grpBox.TabIndex = 1;
-            this.grpBox.TabStop = false;
-            this.grpBox.Text = "Tweak UI for Windows 10/11";
-            this.tt.SetToolTip(this.grpBox, "Description box");
+            this.groupBox.BackColor = System.Drawing.Color.White;
+            this.groupBox.Controls.Add(this.pnlBottom);
+            this.groupBox.Controls.Add(this.btnTemplateLoad);
+            this.groupBox.Controls.Add(this.lblTemplate);
+            this.groupBox.Controls.Add(this.richStatus);
+            this.groupBox.Controls.Add(this.progress);
+            this.groupBox.Controls.Add(this.cbTemplate);
+            this.groupBox.Controls.Add(this.btnTemplateSave);
+            this.groupBox.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox.Location = new System.Drawing.Point(6, 5);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(516, 497);
+            this.groupBox.TabIndex = 1;
+            this.groupBox.TabStop = false;
+            this.groupBox.Text = "Tweak UI for Windows 10/11";
+            this.tt.SetToolTip(this.groupBox, "Description box");
             // 
             // pnlBottom
             // 
@@ -157,7 +155,7 @@ namespace TweakUIX
             this.pnlBottom.Controls.Add(this.btnApply);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBottom.ForeColor = System.Drawing.Color.Black;
-            this.pnlBottom.Location = new System.Drawing.Point(3, 469);
+            this.pnlBottom.Location = new System.Drawing.Point(3, 391);
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(510, 103);
             this.pnlBottom.TabIndex = 0;
@@ -174,7 +172,7 @@ namespace TweakUIX
             // btnCheck
             // 
             this.btnCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCheck.Location = new System.Drawing.Point(6, 77);
+            this.btnCheck.Location = new System.Drawing.Point(6, 74);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(75, 23);
             this.btnCheck.TabIndex = 2;
@@ -185,7 +183,7 @@ namespace TweakUIX
             // btnUndo
             // 
             this.btnUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUndo.Location = new System.Drawing.Point(432, 77);
+            this.btnUndo.Location = new System.Drawing.Point(432, 74);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(75, 23);
             this.btnUndo.TabIndex = 1;
@@ -196,7 +194,7 @@ namespace TweakUIX
             // btnApply
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.Location = new System.Drawing.Point(351, 77);
+            this.btnApply.Location = new System.Drawing.Point(351, 74);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 0;
@@ -239,7 +237,7 @@ namespace TweakUIX
             this.richStatus.Location = new System.Drawing.Point(12, 72);
             this.richStatus.Name = "richStatus";
             this.richStatus.ReadOnly = true;
-            this.richStatus.Size = new System.Drawing.Size(498, 391);
+            this.richStatus.Size = new System.Drawing.Size(498, 313);
             this.richStatus.TabIndex = 1;
             this.richStatus.Text = "";
             this.richStatus.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richStatus_LinkClicked);
@@ -367,32 +365,21 @@ namespace TweakUIX
             // 
             // textSearch
             // 
-            this.textSearch.Location = new System.Drawing.Point(16, 5);
+            this.textSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textSearch.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.textSearch.Location = new System.Drawing.Point(102, 461);
             this.textSearch.Name = "textSearch";
-            this.textSearch.Size = new System.Drawing.Size(142, 20);
+            this.textSearch.Size = new System.Drawing.Size(107, 20);
             this.textSearch.TabIndex = 4;
             this.textSearch.Text = "Search...";
             this.textSearch.Click += new System.EventHandler(this.textSearch_Click);
             this.textSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textSearch_KeyUp);
             // 
-            // btnMenu
-            // 
-            this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenu.Location = new System.Drawing.Point(197, 5);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(62, 20);
-            this.btnMenu.TabIndex = 6;
-            this.btnMenu.Text = "Menu";
-            this.btnMenu.UseVisualStyleBackColor = true;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(822, 621);
-            this.Controls.Add(this.btnMenu);
-            this.Controls.Add(this.textSearch);
+            this.ClientSize = new System.Drawing.Size(822, 525);
             this.Controls.Add(this.sc);
             this.HelpButton = true;
             this.MaximizeBox = false;
@@ -405,17 +392,17 @@ namespace TweakUIX
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.MainForm_HelpButtonClicked);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.sc.Panel1.ResumeLayout(false);
+            this.sc.Panel1.PerformLayout();
             this.sc.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sc)).EndInit();
             this.sc.ResumeLayout(false);
-            this.grpBox.ResumeLayout(false);
-            this.grpBox.PerformLayout();
+            this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
             this.pnlBottom.ResumeLayout(false);
             this.pnlBottom.PerformLayout();
             this.menuMain.ResumeLayout(false);
             this.contextMenuApp.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -432,7 +419,7 @@ namespace TweakUIX
         private System.Windows.Forms.Button btnTemplateLoad;
         private System.Windows.Forms.Label lblTemplate;
         private System.Windows.Forms.Button btnTemplateSave;
-        private System.Windows.Forms.GroupBox grpBox;
+        private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.ContextMenuStrip menuMain;
         private System.Windows.Forms.ToolStripMenuItem menuExpand;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -446,7 +433,6 @@ namespace TweakUIX
         private System.Windows.Forms.ToolStripMenuItem menuAppConfigure;
         private System.Windows.Forms.Button btnOptions;
         private System.Windows.Forms.TextBox textSearch;
-        private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.ToolTip tt;
         private System.Windows.Forms.SplitContainer sc;
     }
