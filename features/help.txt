@@ -1,23 +1,25 @@
-[ToolTip] Info about a tweak: Move the cursor over a tweak to view a brief explanation. Tweaks marked with a *(asterisk) offer configuration options. To do this, use the provided "Options" button or right-click on entry. 
-                                          
-[Button] Check: Determines which tweaks are enabled and configured on your system or not. NO system changes are done yet! 
-                                           
-[Button] Apply: This will enable all selected tweaks.
-                                           
-[Button] Undo: This will restore the default Windows tweaks.
-    
-[Button] Load template: This will load a preset file with recommended tweaks.
+[Options] Various program options can be accessed via the "Options..." button in the lower left-hand side of the app window.
 
-[Button] Save template: This allows you to set your favorite tweaks and save them to a local file.
-                                       
-[State] Tweaks needs to be applied: This indicates that the Windows tweaks are in place.
+[Tweak explanations] Move the cursor over a tweak to view a brief explanation. Tweaks marked with a *(asterisk) offer configuration options. To do this, use the provided "Options" button or right-click on entry. 
+                                          
+[Check Button] Determines which tweaks are enabled and configured on your system or not. NO system changes are done yet! 
                                            
-[State] Tweaks already applied: This indicates that the recommended tweaks are in place.
+[Apply Button] This will enable all selected tweaks.
+                                           
+[Undo Button] This will restore the default Windows tweaks.
+    
+[Load template Button] This will load a preset file with recommended tweaks.
+
+[Save template Button] This allows you to set your favorite tweaks and save them to a local file.
+                                       
+[Tweaks needs to be applied] This indicates that the Windows tweaks are in place.
+                                           
+[Tweaks already applied] This indicates that the recommended tweaks are in place.
 
 
 
 
 -------------
-To update this help file or any other feature goto Menu > Add features > Install
+To update this help file or any other feature goto Options > Add features > Install
 
 More information about this app can be found here https://github.com/builtbybel/TweakUIX
