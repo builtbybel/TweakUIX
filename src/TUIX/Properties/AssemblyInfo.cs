@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("TweakUIX")]
+[assembly: AssemblyTitle("Tweak UIX")]
 [assembly: AssemblyDescription("Tweak UI")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Builtbybel")]
-[assembly: AssemblyProduct("TweakUIX")]
+[assembly: AssemblyProduct("Tweak UIX")]
 [assembly: AssemblyCopyright("Copyright ©  2022 Builtbybel")]
 [assembly: AssemblyTrademark("Builtbybel")]
 [assembly: AssemblyCulture("")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder Standardwerte für die Build- und Revisionsnummern verwenden,
 // indem Sie "*" wie unten gezeigt eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.16.130.240")]
-[assembly: AssemblyFileVersion("0.16.130.240")]
+[assembly: AssemblyVersion("0.16.200.300")]
+[assembly: AssemblyFileVersion("0.16.200.300")]
