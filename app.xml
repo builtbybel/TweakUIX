@@ -1,0 +1,98 @@
+<TweakUIX>
+  <Feature>
+     <id>Features signature file</id>
+	 <description>All features offered here are obtained from this file</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/app.xml</uri>
+   </Feature>
+   <Feature>
+     <id>Help file</id>
+	 <description>Short Guide to Tweak UIX</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/help.txt</uri>
+   </Feature>
+      <Feature>
+     <id>Startup configuration file</id>
+	 <description>This file allows you to store a startup configuration</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/startup.tuix</uri>
+   </Feature>
+  <Feature>
+    <id>WindowsSpyBlocker - Firewall spy rules</id>
+	 <description>Spy rules blocking Windows telemetry</description>
+	<dev>crazy-max</dev>
+    <uri>https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/firewall/spy.txt</uri>
+   </Feature>
+     <Feature>
+     <id>Template for installing essential apps</id>
+	 <description>The great eight: 7zip, Bleachbit, IrfanView, Firefox, Notepad++, ShareX, SumatraPDF, VLC Player</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/packages.app</uri>
+   </Feature>
+      <Feature>
+     <id>Template for debloating Windows 10 and Windows 11</id>
+	 <description>This willl fetch a community debloating template</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/uninstaller.app</uri>
+   </Feature>
+         <Feature>
+     <id>Windows 10 Template</id>
+	 <description>Loads a preset of Tweaks available for Windows 10</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/Windows10_Template.tuix</uri>
+   </Feature>
+         <Feature>
+     <id>Gaming Template</id>
+	 <description>Recommended Tweaks for a better Gaming Experience</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/Gaming_Template.tuix</uri>
+   </Feature>
+     <Feature>
+     <id>Bypass Edge as default handle for web searches (Plugin)</id>
+	 <description>This plugin allows you to bypass Edge as default handle for web searches </description>
+	<dev>AveYo</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/Bypass_Edge_default_handler.ps1</uri>
+   </Feature>
+      <Feature>
+     <id>Clean up Windows (Plugin)</id>
+	 <description>This will use classic Disk clean-up utility aka Cleanmgr.exe to clear unnecessary files from your computer's hard disk </description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/Clean-up_Windows.ps1</uri>
+   </Feature>
+   <Feature>
+     <id>Telemetry Plugins</id>
+	 <description>This will install plugins to remove telemetry, disable services etc. </description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/Disable-services.ps1,https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/Remove_telemetry-third-party-apps.ps1</uri>
+   </Feature>
+      <Feature>
+     <id>Remove OneDrive (Plugin)</id>
+	 <description>This plugin will remove and disable OneDrive integration.</description>
+	<dev>W4RH4WK</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/Remove_OneDrive.ps1</uri>
+   </Feature>
+    <Feature>
+     <id>Reinstall all in-box apps (Plugin)</id>
+	 <description>This plugin will reinstall all in-box apps in a single step.</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/Reinstall-all-built-in-apps.ps1</uri>
+   </Feature>
+    <Feature>
+     <id>Enable Ultimate Peformance Mode (Plugin)</id>
+	 <description>This plugin will add an "Ultimate Performance" power plan option to energy options.</description>
+	<dev>Builtbybel</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/Ultimate_PerformanceMode.ps1</uri>
+   </Feature>
+    <Feature>
+     <id>AutoLogon (Plugin)</id>
+	 <description>This plugin will enable secure Windows AutoLogon</description>
+	<dev>rcmaehl</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/AutoLogon.ps1</uri>
+   </Feature>
+       <Feature>
+     <id>MSEdgeRedirect (Plugin)</id>
+	 <description>This plugin will run a third-party utility with a GUI whichs allows you to redirect News, Search, Widgets, Weather and more to your default Browser.</description>
+	<dev>rcmaehl</dev>
+    <uri>https://raw.githubusercontent.com/builtbybel/TweakUIX/main/features/plugins/MSEdgeRedirect.ps1</uri>
+   </Feature>
+ </TweakUIX>
