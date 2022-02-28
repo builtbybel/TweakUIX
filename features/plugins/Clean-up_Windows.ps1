@@ -1,5 +1,6 @@
 ﻿###This will use classic Disk clean-up utility aka Cleanmgr.exe to clear unnecessary files from your computer's hard disk instead of Microsoft's replacement "Storage Sense app" which is part of the Settings app.###
 ###This plugin will use command-line options to specify that Cleanmgr.exe cleans up all areas expect Recycle Bin and Previous Windows Installations.###
+###Author of this plugin: https://stackoverflow.com/questions/40534323/windows-update-cleanup-in-registry-editor/40537520#40537520###
 ###Requires -RunSilent
 
 Requires -RunAsAdministrator
