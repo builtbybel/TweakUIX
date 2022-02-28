@@ -120,8 +120,6 @@ namespace TweakUIX
             catch { }
         }
 
-        private void richPluginInfo_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
-
         private void InitializeOptionalPlugins()
         {
             if (!Directory.Exists(optionalPluginsDir))
@@ -217,11 +215,17 @@ namespace TweakUIX
             return;
         }
 
-        private void BtnPopOut_Click(object sender, EventArgs e)
-        {
-            PluginsForm plugins = new PluginsForm(); plugins.Show();
-        }
+        private void richPluginInfo_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
 
         private void richHelp_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
+
+        private void BtnPopOut_Click(object sender, EventArgs e)
+        {
+            using (var form = new PluginsForm())
+
+            {
+                form.ShowDialog();
+            }
+        }
     }
 }

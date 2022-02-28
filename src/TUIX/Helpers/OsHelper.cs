@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace TweakUIX.Helpers
 {
-    public class OS
+    public class OsHelper
     {
         public string IsWin11()
         {

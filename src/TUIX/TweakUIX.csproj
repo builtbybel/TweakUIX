@@ -86,11 +86,11 @@
     <Compile Include="Forms\FeaturesForm.Designer.cs">
       <DependentUpon>FeaturesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\OS.cs" />
+    <Compile Include="Helpers\OsHelper.cs" />
     <Compile Include="Helpers\Strings.cs" />
     <Compile Include="Helpers\Utils.cs" />
-    <Compile Include="Helpers\TweaksBase.cs" />
-    <Compile Include="Helpers\TweaksNode.cs" />
+    <Compile Include="TweaksBase.cs" />
+    <Compile Include="TweaksNode.cs" />
     <Compile Include="Helpers\ErrorHelper.cs" />
     <Compile Include="ITreeNode.cs" />
     <Compile Include="Forms\MainForm.cs">

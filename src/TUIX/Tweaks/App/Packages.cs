@@ -18,7 +18,7 @@ namespace TweakUIX.Tweaks.App
 
         public override string Info()
         {
-            return "Click [Check] to display a list of apps that will be install.";
+            return "Click [Check] to display a list of apps that will be installed.";
         }
 
         internal static string Normalize(string line)

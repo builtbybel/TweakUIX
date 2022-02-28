@@ -154,7 +154,7 @@ namespace TweakUIX
             this.groupBox.Size = new System.Drawing.Size(519, 497);
             this.groupBox.TabIndex = 1;
             this.groupBox.TabStop = false;
-            this.groupBox.Text = "Tweak UI for Windows 10/11";
+            this.groupBox.Text = "Tweak UI for Windows";
             this.tt.SetToolTip(this.groupBox, "Description box");
             // 
             // pnlBottom
@@ -175,7 +175,7 @@ namespace TweakUIX
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(9, 14);
+            this.lblInfo.Location = new System.Drawing.Point(20, 13);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(47, 13);
             this.lblInfo.TabIndex = 3;
@@ -184,7 +184,7 @@ namespace TweakUIX
             // btnCheck
             // 
             this.btnCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCheck.Location = new System.Drawing.Point(6, 74);
+            this.btnCheck.Location = new System.Drawing.Point(23, 74);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(75, 23);
             this.btnCheck.TabIndex = 2;
@@ -195,7 +195,7 @@ namespace TweakUIX
             // btnUndo
             // 
             this.btnUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUndo.Location = new System.Drawing.Point(435, 74);
+            this.btnUndo.Location = new System.Drawing.Point(414, 74);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(75, 23);
             this.btnUndo.TabIndex = 1;
@@ -206,7 +206,7 @@ namespace TweakUIX
             // btnApply
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.Location = new System.Drawing.Point(354, 74);
+            this.btnApply.Location = new System.Drawing.Point(333, 74);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 0;
@@ -302,50 +302,50 @@ namespace TweakUIX
             this.menuProjectURI});
             this.menuMain.Name = "menuMain";
             this.menuMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuMain.Size = new System.Drawing.Size(228, 148);
+            this.menuMain.Size = new System.Drawing.Size(226, 148);
             // 
             // menuFeatures
             // 
             this.menuFeatures.Name = "menuFeatures";
-            this.menuFeatures.Size = new System.Drawing.Size(227, 22);
+            this.menuFeatures.Size = new System.Drawing.Size(225, 22);
             this.menuFeatures.Text = "Add features";
             this.menuFeatures.Click += new System.EventHandler(this.menuFeatures_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(224, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(222, 6);
             // 
             // menuExpand
             // 
             this.menuExpand.Name = "menuExpand";
-            this.menuExpand.Size = new System.Drawing.Size(227, 22);
+            this.menuExpand.Size = new System.Drawing.Size(225, 22);
             this.menuExpand.Text = "Expand all";
             this.menuExpand.Click += new System.EventHandler(this.menuExpand_Click);
             // 
             // menuCheck
             // 
             this.menuCheck.Name = "menuCheck";
-            this.menuCheck.Size = new System.Drawing.Size(227, 22);
+            this.menuCheck.Size = new System.Drawing.Size(225, 22);
             this.menuCheck.Text = "Check all";
             this.menuCheck.Click += new System.EventHandler(this.menuCheck_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(224, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(222, 6);
             // 
             // menuSaveLog
             // 
             this.menuSaveLog.Name = "menuSaveLog";
-            this.menuSaveLog.Size = new System.Drawing.Size(227, 22);
+            this.menuSaveLog.Size = new System.Drawing.Size(225, 22);
             this.menuSaveLog.Text = "Save log";
             this.menuSaveLog.Click += new System.EventHandler(this.menuSaveLog_Click);
             // 
             // menuSendLog
             // 
             this.menuSendLog.Name = "menuSendLog";
-            this.menuSendLog.Size = new System.Drawing.Size(227, 22);
+            this.menuSendLog.Size = new System.Drawing.Size(225, 22);
             this.menuSendLog.Text = "Upload log to Github";
             this.menuSendLog.Click += new System.EventHandler(this.menuSendLog_Click);
             // 
@@ -354,7 +354,7 @@ namespace TweakUIX
             this.menuProjectURI.BackColor = System.Drawing.Color.Gainsboro;
             this.menuProjectURI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuProjectURI.Name = "menuProjectURI";
-            this.menuProjectURI.Size = new System.Drawing.Size(227, 22);
+            this.menuProjectURI.Size = new System.Drawing.Size(225, 22);
             this.menuProjectURI.Text = "Follow project on Github...";
             this.menuProjectURI.Click += new System.EventHandler(this.menuProjectURI_Click);
             // 
@@ -366,12 +366,12 @@ namespace TweakUIX
             this.menuAppConfigure});
             this.contextMenuApp.Name = "menuMain";
             this.contextMenuApp.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.contextMenuApp.Size = new System.Drawing.Size(184, 26);
+            this.contextMenuApp.Size = new System.Drawing.Size(182, 26);
             // 
             // menuAppConfigure
             // 
             this.menuAppConfigure.Name = "menuAppConfigure";
-            this.menuAppConfigure.Size = new System.Drawing.Size(183, 22);
+            this.menuAppConfigure.Size = new System.Drawing.Size(181, 22);
             this.menuAppConfigure.Text = "Configure this app";
             this.menuAppConfigure.Click += new System.EventHandler(this.menuAppConfigure_Click);
             // 

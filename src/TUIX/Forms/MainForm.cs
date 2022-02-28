@@ -16,7 +16,7 @@ namespace TweakUIX
 {
     public partial class MainForm : Form
     {
-        private Helpers.OS osInfo = new Helpers.OS();
+        private Helpers.OsHelper osInfo = new Helpers.OsHelper();
 
         private int progression = 0;
         private int progressionIncrease = 0;
@@ -76,10 +76,10 @@ namespace TweakUIX
             form.AutoScroll = true;
             form.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
             form.Dock = DockStyle.Fill;
+            sc.Panel2.Controls.Clear();
             INavPage.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
             INavPage.Dock = DockStyle.Fill;
 
-            sc.Panel2.Controls.Clear();
             sc.Panel2.Controls.Add(page);
         }
 

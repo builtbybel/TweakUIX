@@ -29,7 +29,7 @@ namespace TweakUIX
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBoxPlugins = new System.Windows.Forms.GroupBox();
@@ -41,8 +41,8 @@ namespace TweakUIX
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.BtnPopOut = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.richHelp = new System.Windows.Forms.RichTextBox();
             this.listCategory = new System.Windows.Forms.ListBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -173,6 +173,7 @@ namespace TweakUIX
             this.richPluginInfo.TabIndex = 11;
             this.richPluginInfo.Text = "You will find here plugin files for TweakUIX.\nTo install new plugins goto Options" +
     " > Add features.\n\n";
+            this.richPluginInfo.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richPluginInfo_LinkClicked);
             // 
             // pnlBottom
             // 
@@ -182,6 +183,7 @@ namespace TweakUIX
             this.pnlBottom.BackColor = System.Drawing.SystemColors.Control;
             this.pnlBottom.Controls.Add(this.btnApply);
             this.pnlBottom.Controls.Add(this.btnCancel);
+            this.pnlBottom.Controls.Add(this.BtnPopOut);
             this.pnlBottom.Location = new System.Drawing.Point(3, 414);
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(513, 92);
@@ -191,7 +193,7 @@ namespace TweakUIX
             // 
             this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnApply.ForeColor = System.Drawing.Color.Black;
-            this.btnApply.Location = new System.Drawing.Point(0, 66);
+            this.btnApply.Location = new System.Drawing.Point(23, 66);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 5;
@@ -203,7 +205,7 @@ namespace TweakUIX
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(434, 66);
+            this.btnCancel.Location = new System.Drawing.Point(333, 66);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
@@ -212,11 +214,22 @@ namespace TweakUIX
             this.btnCancel.Visible = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // BtnPopOut
+            // 
+            this.BtnPopOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnPopOut.ForeColor = System.Drawing.Color.Black;
+            this.BtnPopOut.Location = new System.Drawing.Point(414, 66);
+            this.BtnPopOut.Name = "BtnPopOut";
+            this.BtnPopOut.Size = new System.Drawing.Size(75, 23);
+            this.BtnPopOut.TabIndex = 12;
+            this.BtnPopOut.Text = "Pop-out";
+            this.BtnPopOut.UseVisualStyleBackColor = true;
+            this.BtnPopOut.Click += new System.EventHandler(this.BtnPopOut_Click);
+            // 
             // tabPage2
             // 
             this.tabPage2.AutoScroll = true;
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.BtnPopOut);
             this.tabPage2.Controls.Add(this.richHelp);
             this.tabPage2.Controls.Add(this.listCategory);
             this.tabPage2.Controls.Add(this.splitContainer1);
@@ -226,18 +239,6 @@ namespace TweakUIX
             this.tabPage2.Size = new System.Drawing.Size(519, 509);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Advanced plugins";
-            // 
-            // BtnPopOut
-            // 
-            this.BtnPopOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnPopOut.ForeColor = System.Drawing.Color.Black;
-            this.BtnPopOut.Location = new System.Drawing.Point(6, 409);
-            this.BtnPopOut.Name = "BtnPopOut";
-            this.BtnPopOut.Size = new System.Drawing.Size(75, 23);
-            this.BtnPopOut.TabIndex = 11;
-            this.BtnPopOut.Text = "Pop-out";
-            this.BtnPopOut.UseVisualStyleBackColor = true;
-            this.BtnPopOut.Click += new System.EventHandler(this.BtnPopOut_Click);
             // 
             // richHelp
             // 
@@ -314,14 +315,14 @@ namespace TweakUIX
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView.Location = new System.Drawing.Point(7, 10);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
@@ -354,6 +355,7 @@ namespace TweakUIX
             this.Name = "PluginsForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Tweak UIX - Plugins";
             this.tab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
