@@ -1,4 +1,4 @@
-### TweakUIX - Packages (Essentials community list)
+### Tweak UIX - Packages (Essentials community list)
 ### License: MIT
 ### Updated: 2022-02-10
 ### More info: https://github.com/builtbybel/TweakUIX
@@ -11,6 +11,6 @@ BleachBit.BleachBit
 IrfanSkiljan.IrfanView
 Mozilla.Firefox
 Notepad++.Notepad++
-ShareX.ShareX
+ShareX.ShareXShareX
 SumatraPDF.SumatraPDF
 VideoLAN.VLC
