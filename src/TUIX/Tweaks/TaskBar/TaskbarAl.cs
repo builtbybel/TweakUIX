@@ -1,17 +1,17 @@
 ﻿using Microsoft.Win32;
 
-namespace TweakUIX.Tweaks.Desktop
+namespace TweakUIX.Tweaks.Taskbar
 {
-    internal class TaskbarSi : TweaksBase
+    internal class TaskbarAl : TweaksBase
     {
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
         private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
-        private const int desiredValue = 0;
+        private const int desiredValue = 0; //left
 
         public override string ID()
         {
-            return "Small Taskbar and icons";
+            return "Align Taskbar to left";
         }
 
         public override string Info()
@@ -22,7 +22,7 @@ namespace TweakUIX.Tweaks.Desktop
         public override bool CheckTweak()
         {
             return !(
-               RegistryHelper.IntEquals(keyName, "TaskbarSi", desiredValue)
+               RegistryHelper.IntEquals(keyName, "TaskbarAl", desiredValue)
              );
         }
 
@@ -30,9 +30,9 @@ namespace TweakUIX.Tweaks.Desktop
         {
             try
             {
-                Registry.SetValue(keyName, "TaskbarSi", desiredValue, RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "TaskbarAl", desiredValue, RegistryValueKind.DWord);
 
-                logger.Log("- Taskbar size has been set to small.\nRestart is required for the changes to take effect!");
+                logger.Log("- Taskbar alignment has been set to left.");
                 logger.Log(keyName);
                 return true;
             }
@@ -46,8 +46,8 @@ namespace TweakUIX.Tweaks.Desktop
         {
             try
             {
-                Registry.SetValue(keyName, "TaskbarSi", "1", RegistryValueKind.DWord);
-                logger.Log("- Taskbar size has been set to default/medium.\nRestart is required for the changes to take effect!");
+                Registry.SetValue(keyName, "TaskbarAl", "1", RegistryValueKind.DWord);
+                logger.Log("- Taskbar alignment has been set to middle.");
                 return true;
             }
             catch

@@ -23,7 +23,7 @@ namespace TweakUIX
         private bool bLoadTemplate = false;
 
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
-        private Control INavPage;
+        public Control INavPage;
 
         // Enables double-buffering for all controls from the form level down
         protected override CreateParams CreateParams
@@ -88,20 +88,64 @@ namespace TweakUIX
             switch (e.Node.Text)
             {
                 case "About":
-                    this.SetView(new AboutForm());       // Set about view
+                    this.SetView(new AboutForm());              // Set about view
                     break;
 
                 case "Policy":
-                    this.SetView(new PolicyForm());      // Set policy view
+                    this.SetView(new PolicyForm());             // Set policy view
+                    break;
+
+                case "*Packages":
+                    this.SetView(new PackagesForm());      // Set packages view
                     break;
 
                 case "*Plugins":
-                    this.SetView(new PluginsForm());     // Set plugins view
+                    this.SetView(new PluginsForm());            // Set plugins view
                     break;
 
-                default:                                 // Set default view
+                default:                                        // Set default view
                     sc.Panel2.Controls.Clear();
                     if (INavPage != null) sc.Panel2.Controls.Add(INavPage);
+                    break;
+            }
+        }
+
+        private void btnOptions_Click(object sender, EventArgs e)
+        {
+            TreeNode tn = tweaksTree.SelectedNode;
+
+            if (tn == null)
+            {
+                this.menuMain.Show(Cursor.Position.X, Cursor.Position.Y);
+                return;
+            }
+
+            switch (tn.Text)
+            {
+                case "*Block Windows telemetry with WindowsSpyBlocker":
+                    Process.Start("notepad.exe", Helpers.Strings.Data.DataRootDir + "spy.txt");
+                    break;
+
+                case "*Uninstall broken Windows updates":
+                    Process.Start("notepad.exe", Helpers.Strings.Data.DataRootDir + "brokenKB.app");
+                    break;
+
+                case "*Uninstaller":
+                case "*Remove bloatware apps (community list)":
+                    Process.Start("notepad.exe", Helpers.Strings.Data.DataRootDir + "uninstaller.app");
+                    break;
+
+                case "*Packages":
+                case "*Install essential apps":
+                    Process.Start("notepad.exe", Helpers.Strings.Data.DataRootDir + "packages.app");
+                    break;
+
+                case "*Plugins":
+                    menuFeatures.PerformClick();
+                    break;
+
+                default:
+                    this.menuMain.Show(Cursor.Position.X, Cursor.Position.Y);
                     break;
             }
         }
@@ -132,6 +176,16 @@ namespace TweakUIX
                 new TweaksNode(new Tweaks.Explorer.HiddenFileExt()),
             });
 
+            System.Windows.Forms.TreeNode taskbar = new System.Windows.Forms.TreeNode("Taskbar and Start menu", new System.Windows.Forms.TreeNode[] {
+                new TweaksNode(new Tweaks.Taskbar.TaskbarAl()),
+                new TweaksNode(new Tweaks.Taskbar.TaskbarSi()),
+                new TweaksNode(new Tweaks.Taskbar.TaskbarMM()),
+                new TweaksNode(new Tweaks.Taskbar.TaskbarSearch()),
+                new TweaksNode(new Tweaks.Taskbar.TaskbarChat()),
+                new TweaksNode(new Tweaks.Taskbar.TaskView()),
+                new TweaksNode(new Tweaks.Taskbar.MostUsedApps()),
+            }); CheckNodes(taskbar);
+
             System.Windows.Forms.TreeNode desktop = new System.Windows.Forms.TreeNode("Desktop", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Desktop.AppsTheme()),
                 new TweaksNode(new Tweaks.Desktop.WindowsTheme()),
@@ -139,14 +193,6 @@ namespace TweakUIX
                 new TweaksNode(new Tweaks.Desktop.SnapAssistFlyout()),
                 new TweaksNode(new Tweaks.Desktop.Widgets()),
                 new TweaksNode(new Tweaks.Desktop.WidgetsRemove()),
-                new TweaksNode(new Tweaks.Desktop.TaskbarAl()),
-                new TweaksNode(new Tweaks.Desktop.TaskbarSi()),
-                new TweaksNode(new Tweaks.Desktop.TaskbarMM()),
-                new TweaksNode(new Tweaks.Desktop.TaskbarSearch()),
-                new TweaksNode(new Tweaks.Desktop.TaskbarChat()),
-                new TweaksNode(new Tweaks.Desktop.TaskView()),
-
-                new TweaksNode(new Tweaks.Desktop.MostUsedApps()),
             }); CheckNodes(desktop);
 
             System.Windows.Forms.TreeNode system = new System.Windows.Forms.TreeNode("My Computer", new System.Windows.Forms.TreeNode[] {
@@ -158,7 +204,7 @@ namespace TweakUIX
                 new TweaksNode(new Tweaks.System.InstallWSA()),
                 new TweaksNode(new Tweaks.System.HyperV()),
                 new TweaksNode(new Tweaks.System.TeamsAutostart()),
-            }); CheckNodes(system);
+            });
 
             System.Windows.Forms.TreeNode paranoia = new System.Windows.Forms.TreeNode("Paranoia", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Paranoia.CleanMgr()),
@@ -228,10 +274,7 @@ namespace TweakUIX
 
             System.Windows.Forms.TreeNode installer = new System.Windows.Forms.TreeNode("*Packages", new System.Windows.Forms.TreeNode[] {
                  new TweaksNode(new Tweaks.App.Packages()),
-            })
-            {
-                ToolTipText = "Right-click on entry to configure this app",
-            };
+            });
 
             System.Windows.Forms.TreeNode plugins = new System.Windows.Forms.TreeNode("*Plugins", new System.Windows.Forms.TreeNode[] {
             })
@@ -245,6 +288,7 @@ namespace TweakUIX
                 about,
                 policy,
                 explorer,
+                taskbar,
                 desktop,
                 system,
                 paranoia,
@@ -259,9 +303,11 @@ namespace TweakUIX
 
             tweaksTree.Nodes.Add(root);
 
-            // Some tvw nicety
+            // Some tweaksTree nicety
             RemoveTreeNodeCheckmarks();
             foreach (System.Windows.Forms.TreeNode tn in tweaksTree.Nodes) { tn.Expand(); }
+            tweaksTree.SelectedNode = tweaksTree.Nodes[0].Nodes[0]; // Preselect about tree
+
             tweaksTree.EndUpdate();
         }
 
@@ -317,7 +363,7 @@ namespace TweakUIX
         {
             TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);     // About
             TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[1]);     // Policy
-            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[12]);    // Plugins
+            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[13]);    // Plugins
         }
 
         // Check favored parent node including all child nodes
@@ -654,46 +700,6 @@ namespace TweakUIX
                 {
                     contextMenuApp.Show(tweaksTree, e.Location);
                 }
-            }
-        }
-
-        private void btnOptions_Click(object sender, EventArgs e)
-        {
-            TreeNode tn = tweaksTree.SelectedNode;
-
-            if (tn == null)
-            {
-                this.menuMain.Show(Cursor.Position.X, Cursor.Position.Y);
-                return;
-            }
-
-            switch (tn.Text)
-            {
-                case "*Block Windows telemetry with WindowsSpyBlocker":
-                    Process.Start("notepad.exe", Helpers.Strings.Data.DataRootDir + "spy.txt");
-                    break;
-
-                case "*Uninstall broken Windows updates":
-                    Process.Start("notepad.exe", Helpers.Strings.Data.DataRootDir + "brokenKB.app");
-                    break;
-
-                case "*Uninstaller":
-                case "*Remove bloatware apps (community list)":
-                    Process.Start("notepad.exe", Helpers.Strings.Data.DataRootDir + "uninstaller.app");
-                    break;
-
-                case "*Packages":
-                case "*Install essential apps":
-                    Process.Start("notepad.exe", Helpers.Strings.Data.DataRootDir + "packages.app");
-                    break;
-
-                case "*Plugins":
-                    menuFeatures.PerformClick();
-                    break;
-
-                default:
-                    this.menuMain.Show(Cursor.Position.X, Cursor.Position.Y);
-                    break;
             }
         }
 

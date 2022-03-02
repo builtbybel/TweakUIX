@@ -86,6 +86,12 @@
     <Compile Include="Forms\FeaturesForm.Designer.cs">
       <DependentUpon>FeaturesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PackagesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PackagesForm.Designer.cs">
+      <DependentUpon>PackagesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\OsHelper.cs" />
     <Compile Include="Helpers\Strings.cs" />
     <Compile Include="Helpers\Utils.cs" />
@@ -152,14 +158,14 @@
     <Compile Include="Tweaks\Explorer\FileExplorer.cs" />
     <Compile Include="Tweaks\Explorer\HiddenFileExt.cs" />
     <Compile Include="Tweaks\Explorer\HiddenFileFolder.cs" />
-    <Compile Include="Tweaks\Desktop\MostUsedApps.cs" />
+    <Compile Include="Tweaks\TaskBar\MostUsedApps.cs" />
     <Compile Include="Tweaks\Desktop\SnapAssistFlyout.cs" />
-    <Compile Include="Tweaks\Desktop\TaskbarAl.cs" />
-    <Compile Include="Tweaks\Desktop\TaskbarChat.cs" />
-    <Compile Include="Tweaks\Desktop\TaskbarMM.cs" />
-    <Compile Include="Tweaks\Desktop\TaskbarSearch.cs" />
-    <Compile Include="Tweaks\Desktop\TaskbarSi.cs" />
-    <Compile Include="Tweaks\Desktop\TaskView.cs" />
+    <Compile Include="Tweaks\TaskBar\TaskbarAl.cs" />
+    <Compile Include="Tweaks\TaskBar\TaskbarChat.cs" />
+    <Compile Include="Tweaks\TaskBar\TaskbarMM.cs" />
+    <Compile Include="Tweaks\TaskBar\TaskbarSearch.cs" />
+    <Compile Include="Tweaks\TaskBar\TaskbarSi.cs" />
+    <Compile Include="Tweaks\TaskBar\TaskView.cs" />
     <Compile Include="Tweaks\Desktop\Transparency.cs" />
     <Compile Include="Tweaks\Desktop\Widgets.cs" />
     <Compile Include="Tweaks\Desktop\WidgetsR.cs" />
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PolicyForm.resx">
       <DependentUpon>PolicyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PackagesForm.resx">
+      <DependentUpon>PackagesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

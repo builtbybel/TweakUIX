@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 
-namespace TweakUIX.Tweaks.Desktop
+namespace TweakUIX.Tweaks.Taskbar
 {
     internal class TaskbarMM : TweaksBase
     {

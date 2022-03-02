@@ -42,8 +42,8 @@ namespace TweakUIX.Tweaks.App
                     }
                 }
 
-                logger.Log("TIP: If you prefer other apps, then you can create your own essentials for your new Windows device on this page https://winstall.app" +
-                           "\nCopy the IDs and add them to \"uninstaller.app\" in \"app\" folder of this application.");
+                logger.Log("TIP: If you prefer other apps, select the \"*Packages\" tree and customize your installation list." +
+                           "\nYou can create your own essentials also on this page https://winstall.app by copying the IDs and adding them to \"packages.app\" in \"app\" folder of this application.");
             }
             catch
             {

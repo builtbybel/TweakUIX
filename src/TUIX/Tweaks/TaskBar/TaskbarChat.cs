@@ -1,18 +1,18 @@
 ﻿using Microsoft.Win32;
 using System;
 
-namespace TweakUIX.Tweaks.Desktop
+namespace TweakUIX.Tweaks.Taskbar
 {
-    internal class TaskbarSearch : TweaksBase
+    internal class TaskbarChat : TweaksBase
     {
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
-        private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search";
+        private const string keyName = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
         private const int desiredValue = 0;
 
         public override string ID()
         {
-            return "Hide Search icon on taskbar";
+            return "Hide Chat icon (Microsoft Teams) on taskbar";
         }
 
         public override string Info()
@@ -23,7 +23,7 @@ namespace TweakUIX.Tweaks.Desktop
         public override bool CheckTweak()
         {
             return !(
-                 RegistryHelper.IntEquals(keyName, "SearchboxTaskbarMode", desiredValue)
+                 RegistryHelper.IntEquals(keyName, "TaskbarMn", desiredValue)
             );
         }
 
@@ -31,14 +31,14 @@ namespace TweakUIX.Tweaks.Desktop
         {
             try
             {
-                Registry.SetValue(keyName, "SearchboxTaskbarMode", desiredValue, RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "TaskbarMn", desiredValue, RegistryValueKind.DWord);
 
-                logger.Log("- Search icon has been disabled.");
+                logger.Log("- Chat icon has been disabled.");
                 logger.Log(keyName);
                 return true;
             }
             catch (Exception ex)
-            { logger.Log("Could not disable search icon {0}", ex.Message); }
+            { logger.Log("Could not disable chat icon {0}", ex.Message); }
 
             return false;
         }
@@ -47,8 +47,8 @@ namespace TweakUIX.Tweaks.Desktop
         {
             try
             {
-                Registry.SetValue(keyName, "SearchboxTaskbarMode", 1, RegistryValueKind.DWord);
-                logger.Log("- Search icon has been enabled.");
+                Registry.SetValue(keyName, "TaskbarMn", 1, RegistryValueKind.DWord);
+                logger.Log("- Chat icon has been enabled.");
                 return true;
             }
             catch

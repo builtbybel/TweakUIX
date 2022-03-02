@@ -1,9 +1,9 @@
 ﻿using Microsoft.Win32;
 using System;
 
-namespace TweakUIX.Tweaks.Desktop
+namespace TweakUIX.Tweaks.Taskbar
 {
-    internal class TaskbarChat : TweaksBase
+    internal class TaskView : TweaksBase
     {
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
 
@@ -12,7 +12,7 @@ namespace TweakUIX.Tweaks.Desktop
 
         public override string ID()
         {
-            return "Hide Chat icon (Microsoft Teams) on taskbar";
+            return "Hide Task view button on taskbar";
         }
 
         public override string Info()
@@ -23,7 +23,7 @@ namespace TweakUIX.Tweaks.Desktop
         public override bool CheckTweak()
         {
             return !(
-                 RegistryHelper.IntEquals(keyName, "TaskbarMn", desiredValue)
+                 RegistryHelper.IntEquals(keyName, "ShowTaskViewButton", desiredValue)
             );
         }
 
@@ -31,14 +31,14 @@ namespace TweakUIX.Tweaks.Desktop
         {
             try
             {
-                Registry.SetValue(keyName, "TaskbarMn", desiredValue, RegistryValueKind.DWord);
+                Registry.SetValue(keyName, "ShowTaskViewButton", desiredValue, RegistryValueKind.DWord);
 
-                logger.Log("- Chat icon has been disabled.");
+                logger.Log("- Task view button has been disabled.");
                 logger.Log(keyName);
                 return true;
             }
             catch (Exception ex)
-            { logger.Log("Could not disable chat icon {0}", ex.Message); }
+            { logger.Log("Could not disable Task view button {0}", ex.Message); }
 
             return false;
         }
@@ -47,8 +47,8 @@ namespace TweakUIX.Tweaks.Desktop
         {
             try
             {
-                Registry.SetValue(keyName, "TaskbarMn", 1, RegistryValueKind.DWord);
-                logger.Log("- Chat icon has been enabled.");
+                Registry.SetValue(keyName, "ShowTaskViewButton", 1, RegistryValueKind.DWord);
+                logger.Log("- Task view button has been enabled.");
                 return true;
             }
             catch

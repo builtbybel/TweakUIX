@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 
-namespace TweakUIX.Tweaks.Desktop
+namespace TweakUIX.Tweaks.Taskbar
 {
     internal class MostUsedApps : TweaksBase
     {
