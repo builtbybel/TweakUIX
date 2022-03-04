@@ -42,7 +42,7 @@ namespace TweakUIX.Tweaks.App
                     }
                 }
 
-                logger.Log("TIP: If you prefer other apps, select the \"*Packages\" tree and customize your installation list." +
+                logger.Log("TIP: If you prefer other apps, goto \"*Packages > Options\" and customize your installation list." +
                            "\nYou can create your own essentials also on this page https://winstall.app by copying the IDs and adding them to \"packages.app\" in \"app\" folder of this application.");
             }
             catch
@@ -92,6 +92,7 @@ namespace TweakUIX.Tweaks.App
                         {
                             logger.Log($"\nInstalling {currentPackage}");
                             InstallPackages($"winget install --id={Normalize(currentPackage)} -e --accept-package-agreements --accept-source-agreements");
+                            logger.Log($"{currentPackage} has been installed.");
                         }
                     }
                 }

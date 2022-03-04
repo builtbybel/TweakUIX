@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace TweakUIX.Controls
+namespace TweakUIX.Theming
 {
     /// <summary>
     /// Remove checkmarks from child/nodes

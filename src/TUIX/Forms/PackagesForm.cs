@@ -93,5 +93,12 @@ namespace TweakUIX
                 }
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            var mainForm = Application.OpenForms.OfType<MainForm>().Single();
+            mainForm.sc.Panel2.Controls.Clear();
+            if (mainForm.INavPage != null) mainForm.sc.Panel2.Controls.Add(mainForm.INavPage);
+        }
     }
 }

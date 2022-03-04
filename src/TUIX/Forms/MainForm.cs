@@ -5,12 +5,13 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TweakUIX.Controls;
 using TweakUIX.ITreeNode;
+using TweakUIX.Theming;
 
 namespace TweakUIX
 {
@@ -24,17 +25,6 @@ namespace TweakUIX
 
         private static readonly ErrorHelper logger = ErrorHelper.Instance;
         public Control INavPage;
-
-        // Enables double-buffering for all controls from the form level down
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams handleParam = base.CreateParams;
-                handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED
-                return handleParam;
-            }
-        }
 
         public MainForm()
         {
@@ -56,6 +46,12 @@ namespace TweakUIX
         {
             this.Size = new Size(800, 600);
 
+            // Enables double-buffering here in sc.panel2 using reflection
+            typeof(Panel).InvokeMember("DoubleBuffered",
+             BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
+             null, sc.Panel2, new object[] { true });
+
+            // Some app info....
             lblInfo.Text = "Version " + Program.GetCurrentVersionTostring()
                                 + "\n\nFor " + osInfo.GetChassisType() + "\x20"
                                 + osInfo.IsWin11() + "\x20"
@@ -93,11 +89,7 @@ namespace TweakUIX
 
                 case "Policy":
                     this.SetView(new PolicyForm());             // Set policy view
-                    break;
-
-                case "*Packages":
-                    this.SetView(new PackagesForm());      // Set packages view
-                    break;
+                    break; ;
 
                 case "*Plugins":
                     this.SetView(new PluginsForm());            // Set plugins view
@@ -137,7 +129,7 @@ namespace TweakUIX
 
                 case "*Packages":
                 case "*Install essential apps":
-                    Process.Start("notepad.exe", Helpers.Strings.Data.DataRootDir + "packages.app");
+                    this.SetView(new PackagesForm());           // Set packages view
                     break;
 
                 case "*Plugins":

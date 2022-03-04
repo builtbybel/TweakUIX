@@ -434,7 +434,7 @@ namespace TweakUIX
         private System.Windows.Forms.Button btnOptions;
         private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.ToolTip tt;
-        private System.Windows.Forms.SplitContainer sc;
+        public System.Windows.Forms.SplitContainer sc;
     }
 }
 
