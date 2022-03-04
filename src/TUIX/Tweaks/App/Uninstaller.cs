@@ -28,7 +28,7 @@ namespace TweakUIX.Tweaks.App
         {
             try
             {
-                logger.Log("The following apps will be uninstalled:");
+                logger.Log("Removal of the following apps is running:");
 
                 string[] apps = File.ReadAllLines(appsList);
 

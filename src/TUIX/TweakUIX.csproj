@@ -80,6 +80,12 @@
     <Compile Include="Forms\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AppsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppsForm.Designer.cs">
+      <DependentUpon>AppsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FeaturesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,9 @@
     <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AppsForm.resx">
+      <DependentUpon>AppsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FeaturesForm.resx">
       <DependentUpon>FeaturesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,6 +246,7 @@
   <ItemGroup>
     <Content Include="AppIcon.ico" />
     <Content Include="Resources\buildDate.txt" />
+    <Content Include="Resources\systemApps.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

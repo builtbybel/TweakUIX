@@ -61,12 +61,39 @@ namespace TweakUIX.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die 21.02.2022 19:43:23,05 
+        ///   Sucht eine lokalisierte Zeichenfolge, die 04.03.2022 19:10:23,93 
         /// ähnelt.
         /// </summary>
         internal static string buildDate {
             get {
                 return ResourceManager.GetString("buildDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die 1527c705-839a-4832-9118-54d4Bd6a0c89
+        ///c5e2524a-ea46-4f67-841f-6a9465d9d515
+        ///E2A4F912-2574-4A75-9BB0-0D023378592B
+        ///F46D4000-FD22-4DB4-AC8E-4E1DDDE828FE
+        ///InputApp
+        ///Microsoft.AAD.BrokerPlugin
+        ///Microsoft.AccountsControl
+        ///Microsoft.Advertising.Xaml
+        ///Microsoft.AsyncTextService
+        ///Microsoft.BioEnrollment
+        ///Microsoft.CredDialogHost
+        ///Microsoft.ECApp
+        ///Microsoft.LockApp
+        ///Microsoft.MicrosoftEdge
+        ///Microsoft.MicrosoftEdgeDevToolsClient
+        ///Microsoft.NET
+        ///Microsoft.PPIProjection
+        ///Microsoft.Services.Store.Engagement
+        ///Microsoft.V [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string systemApps {
+            get {
+                return ResourceManager.GetString("systemApps", resourceCulture);
             }
         }
     }

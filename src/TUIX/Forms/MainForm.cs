@@ -122,9 +122,9 @@ namespace TweakUIX
                     Process.Start("notepad.exe", Helpers.Strings.Data.DataRootDir + "brokenKB.app");
                     break;
 
-                case "*Uninstaller":
+                case "*Apps and Features":
                 case "*Remove bloatware apps (community list)":
-                    Process.Start("notepad.exe", Helpers.Strings.Data.DataRootDir + "uninstaller.app");
+                    this.SetView(new AppsForm());           // Set packages view
                     break;
 
                 case "*Packages":
@@ -256,7 +256,7 @@ namespace TweakUIX
                 new TweaksNode(new Tweaks.Apps.CellularData()),
             });
 
-            System.Windows.Forms.TreeNode uninstaller = new System.Windows.Forms.TreeNode("*Uninstaller", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode appsFeatures = new System.Windows.Forms.TreeNode("*Apps and Features", new System.Windows.Forms.TreeNode[] {
                  new TweaksNode(new Tweaks.App.Uninstaller()),
                  new TweaksNode(new Tweaks.App.InBoxApps()),
             })
@@ -288,7 +288,7 @@ namespace TweakUIX
                 gaming,
                 privacy,
                 apps,
-                uninstaller,
+                appsFeatures,
                 installer,
                 plugins,
             });
