@@ -1,7 +1,5 @@
 ![Latest Release](https://img.shields.io/github/v/release/builtbybel/TweakUIX?style=for-the-badge)
 
-
-
 ![header](https://github.com/builtbybel/TweakUIX/blob/main/assets/header.png)
 
 <br>
@@ -12,7 +10,7 @@
 This will be my first attempt to recreate a part of the classic at that time ubiquitous **Tweak UI** app featuring the classic look.
 
 ## The original
-![msedge_zLM0f2Ce3r](https://user-images.githubusercontent.com/57478606/154860215-162bd277-5a55-4af2-a4b2-edf48f140453.png)
+![tweakui](https://github.com/builtbybel/TweakUIX/blob/main/assets/tweakui.png?raw=true)
 
 
 _Tweak UI was part of Windows XP PowerToys and one of the most known Windows PowerToys to tweak the User Interface (UI). With this tool you are able to change settings, which aren't reachable within Windows. Since the release of Windows 95, Microsoft has made available a set of "PowerToys", which is a suite of extra little utilities that Microsoft feels power users would appreciate. Now, after about 25 years, Microsoft has resurrected PowerToys for Windows 10 and Windows 11. But my favorite tool is still missing..._
