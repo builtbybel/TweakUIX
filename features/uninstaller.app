@@ -1,4 +1,4 @@
-### TweakUIX  - Uninstaller (Community rules)
+### Tweak UIX  - Uninstaller (Community rules)
 ### License: MIT
 ### Updated: 2022-02-10
 ### More info: https://github.com/builtbybel/TweakUIX
