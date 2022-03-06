@@ -86,6 +86,12 @@
     <Compile Include="Forms\AppsForm.Designer.cs">
       <DependentUpon>AppsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DesktopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DesktopForm.Designer.cs">
+      <DependentUpon>DesktopForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FeaturesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AppsForm.resx">
       <DependentUpon>AppsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DesktopForm.resx">
+      <DependentUpon>DesktopForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FeaturesForm.resx">
       <DependentUpon>FeaturesForm.cs</DependentUpon>

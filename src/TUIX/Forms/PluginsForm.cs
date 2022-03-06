@@ -13,11 +13,11 @@ namespace TweakUIX
     {
         private string optionalPluginsDir = Helpers.Strings.Data.PluginsRootDir + "MajorGeeks Windows Tweaks";
 
-        public PluginsForm()
-        {
-            InitializeComponent();
-            InitializePlugins();
-        }
+        public PluginsForm() => InitializeComponent();
+
+        private void PluginsForm_Shown(object sender, EventArgs e) => this.Shown += new EventHandler(PluginsForm_Shown);
+
+        private void PluginsForm_Load(object sender, EventArgs e) => InitializePlugins();
 
         private void InitializePlugins()
         {

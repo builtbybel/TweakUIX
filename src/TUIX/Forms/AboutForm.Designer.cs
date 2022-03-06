@@ -56,11 +56,11 @@ namespace TweakUIX
             // 
             this.btnAppUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAppUpdate.ForeColor = System.Drawing.Color.Black;
-            this.btnAppUpdate.Location = new System.Drawing.Point(356, 164);
+            this.btnAppUpdate.Location = new System.Drawing.Point(366, 164);
             this.btnAppUpdate.Name = "btnAppUpdate";
-            this.btnAppUpdate.Size = new System.Drawing.Size(121, 23);
+            this.btnAppUpdate.Size = new System.Drawing.Size(114, 23);
             this.btnAppUpdate.TabIndex = 12;
-            this.btnAppUpdate.Text = "Check for updates...";
+            this.btnAppUpdate.Text = "Check for updates";
             this.btnAppUpdate.UseVisualStyleBackColor = true;
             this.btnAppUpdate.Click += new System.EventHandler(this.btnAppUpdate_Click);
             // 
@@ -86,9 +86,9 @@ namespace TweakUIX
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picture1.ErrorImage = null;
             this.picture1.InitialImage = null;
-            this.picture1.Location = new System.Drawing.Point(12, 40);
+            this.picture1.Location = new System.Drawing.Point(12, 49);
             this.picture1.Name = "picture1";
-            this.picture1.Size = new System.Drawing.Size(502, 206);
+            this.picture1.Size = new System.Drawing.Size(502, 197);
             this.picture1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picture1.TabIndex = 17;
             this.picture1.TabStop = false;
@@ -97,9 +97,9 @@ namespace TweakUIX
             // 
             this.linkAppInfo.AutoEllipsis = true;
             this.linkAppInfo.BackColor = System.Drawing.Color.Transparent;
-            this.linkAppInfo.Location = new System.Drawing.Point(24, 9);
+            this.linkAppInfo.Location = new System.Drawing.Point(24, 5);
             this.linkAppInfo.Name = "linkAppInfo";
-            this.linkAppInfo.Size = new System.Drawing.Size(311, 31);
+            this.linkAppInfo.Size = new System.Drawing.Size(393, 41);
             this.linkAppInfo.TabIndex = 18;
             this.linkAppInfo.TabStop = true;
             this.linkAppInfo.Text = "Do you remember this picture?\r\nClick here to get some more infos about this proje" +

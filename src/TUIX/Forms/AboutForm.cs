@@ -24,7 +24,7 @@ namespace TweakUIX
 
         private void AboutForm_Shown(object sender, EventArgs e)
         {
-            if (!Helpers.Utils.IsInet()) richInfo.Text += "Some app infos could not be fetched.";
+            if (!Helpers.Utils.IsInet()) linkAppInfo.Text = "\nNO INTERNET CONNECTION ESTABLISHED.\nSome app infos could not be fetched...";
             else picture1.ImageLocation = "https://github.com/builtbybel/TweakUIX/blob/main/assets/tweakui.png?raw=true";
         }
 

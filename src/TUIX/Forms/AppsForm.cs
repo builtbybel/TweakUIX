@@ -12,30 +12,31 @@ namespace TweakUIX
     public partial class AppsForm : Form
     {
         private string fAppsLocal = Helpers.Strings.Data.DataRootDir + "uninstaller.app";
+
+        private readonly string _featureAddTemplate = "We recommend you installing the following feature:" +
+                                "\n\t- Template for debloating Windows 10 and Windows 11" +
+                                "\n(To do this, simply click on \"Add features > Install\")";
+
         private List<string> removeAppsSystem = new List<string>();
         private readonly PowerShell powerShell = PowerShell.Create();
 
-        public AppsForm()
-        {
-            InitializeComponent();
-        }
+        public AppsForm() => InitializeComponent();
 
-        private void AppsForm_Shown(object sender, EventArgs e)
-        {
+        private void AppsForm_Shown(object sender, EventArgs e) => this.Shown += new EventHandler(AppsForm_Shown);
 
-            InitializeAppsSystem();   // Systemapps from resource file
-            InitializeApps();         // Now the normal apps
-            GetAppsLocal();           // Load local apps removal list
+        private void AppsForm_Load(object sender, EventArgs e)
+        {
+            this.GetAppsLocal();           // Retrieve local apps in removal list
+            this.InitializeAppsSystem();   // Retrieve hidden systemapps from resource file
+            this.InitializeApps();         // Yet just the normal....
+
         }
 
         public void GetAppsLocal()
         {
             if (!File.Exists(fAppsLocal))
             {
-                MessageBox.Show("Apps removal list is empty." +
-                               "\n\nWe recommend you installing the following community debloating list:" +
-                                "\n\t- Template for debloating Windows 10 and Windows 11" +
-                                "\n(To do this, simply click on Tweak UI > Options > Add features)");
+                MessageBox.Show("Apps removal list is empty.\n\n" + _featureAddTemplate);
                 return;
             }
 
@@ -114,12 +115,12 @@ namespace TweakUIX
             groupBin.Text = "Recycle bin" + " (" + remove.ToString() + ")";
 
             if (installed == 0)
-                btnAddAll.Enabled =
-                btnAdd.Enabled =
+                btnMoveAll.Enabled =
+                btnMove.Enabled =
                 false;
             else
-                btnAddAll.Enabled =
-                btnAdd.Enabled =
+                btnMoveAll.Enabled =
+                btnMove.Enabled =
                 true;
 
             if (remove == 0)
@@ -132,7 +133,7 @@ namespace TweakUIX
                 true;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnMove_Click(object sender, EventArgs e)
         {
             if (listApps.Items.Count != 0)
             {
@@ -146,7 +147,7 @@ namespace TweakUIX
             }
         }
 
-        private void btnAddAll_Click(object sender, EventArgs e)
+        private void btnMoveAll_Click(object sender, EventArgs e)
         {
             foreach (var item in listApps.Items)
             {
@@ -195,11 +196,63 @@ namespace TweakUIX
             else InitializeApps();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
             var mainForm = Application.OpenForms.OfType<MainForm>().Single();
             mainForm.sc.Panel2.Controls.Clear();
             if (mainForm.INavPage != null) mainForm.sc.Panel2.Controls.Add(mainForm.INavPage);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            listApps.Items.Clear();
+            listRemove.Items.Clear();
+
+            GetAppsLocal();
+            AppsForm_Leave(sender, e);
+            InitializeAppsSystem();
+            InitializeApps();
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog f = new OpenFileDialog();
+            f.InitialDirectory = Helpers.Strings.Data.DataRootDir;
+
+            if (f.ShowDialog() == DialogResult.OK)
+
+            {
+                List<string> lines = new List<string>();
+                using (StreamReader r = new StreamReader(f.OpenFile()))
+                {
+                    listRemove.Items.Clear();
+
+                    string line;
+                    while ((line = r.ReadLine()) != null)
+                    {
+                        listRemove.Items.Add(line);
+                        RefreshApps();
+                        string compare = listApps.Items.ToString();
+                        foreach (string item in listRemove.Items) if (item.Any(compare.Contains)) listApps.Items.Remove(item);
+                    }
+
+                    RefreshApps();
+
+                    MessageBox.Show("We've synced your import list with the apps in Recycle bin.\n" +
+                        "Please note, that some of these apps may not be installed on your system.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void btnAddFeature_Click(object sender, EventArgs e)
+        {
+            using (var form = new FeaturesForm())
+
+            {
+               
+                form.ShowDialog();
+                btnRefresh_Click(null, null);
+            }
         }
 
         private void AppsForm_Leave(object sender, EventArgs e) => System.IO.File.WriteAllLines(fAppsLocal, listRemove.Items.Cast<string>().ToArray());

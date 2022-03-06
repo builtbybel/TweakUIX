@@ -36,9 +36,9 @@ namespace TweakUIX
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-            this.InitializeTweaks();
-            this.InitializeTemplates();
-            this.StarterPlugin(true);
+            this.Bunny73();                 // Init tweaks
+            this.Bear35();                  // Init templates
+            this.Piglet1(true);             // Starter plugin (optional)
         }
 
         // Some UI nicety
@@ -91,6 +91,10 @@ namespace TweakUIX
                     this.SetView(new PolicyForm());             // Set policy view
                     break; ;
 
+                case "Desktop":
+                    this.SetView(new DesktopForm());            // Set desktop view
+                    break; ;
+
                 case "*Plugins":
                     this.SetView(new PluginsForm());            // Set plugins view
                     break;
@@ -111,7 +115,6 @@ namespace TweakUIX
                 this.menuMain.Show(Cursor.Position.X, Cursor.Position.Y);
                 return;
             }
-
             switch (tn.Text)
             {
                 case "*Block Windows telemetry with WindowsSpyBlocker":
@@ -124,7 +127,7 @@ namespace TweakUIX
 
                 case "*Apps and Features":
                 case "*Remove bloatware apps (community list)":
-                    this.SetView(new AppsForm());           // Set packages view
+                    this.SetView(new AppsForm());               // Set packages view
                     break;
 
                 case "*Packages":
@@ -142,8 +145,11 @@ namespace TweakUIX
             }
         }
 
-        public void InitializeTweaks()
+        public void Bunny73()
         {
+            // Why does Tweak UIX have functions called BEAR, BUNNY and PIGLET?
+            // Just for fun........Thanks @Raymond, the father of Tweak UI https://devblogs.microsoft.com/oldnewthing/20030818-00/?p=42873
+
             tweaksTree.Nodes.Clear();
             tweaksTree.BeginUpdate();
 
@@ -303,7 +309,7 @@ namespace TweakUIX
             tweaksTree.EndUpdate();
         }
 
-        private void InitializeTemplates()
+        private void Bear35()
         {
             cbTemplate.Items.Clear();
 
@@ -525,10 +531,10 @@ namespace TweakUIX
         private void btnTemplateLoad_Click(object sender, EventArgs e)
         {
             bLoadTemplate = true;
-            StarterPlugin(false);
+            Piglet1(false);
         }
 
-        private void StarterPlugin(bool isStarter = false)
+        private void Piglet1(bool isStarter = false)
         {
             string filePath = Helpers.Strings.Data.DataRootDir + "startup.tuix";
 
@@ -612,7 +618,7 @@ namespace TweakUIX
                     writer.Close();
                 }
                 MessageBox.Show("Template has been successfully saved.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                InitializeTemplates(); // Refresh
+                Bear35(); 
             }
         }
 
