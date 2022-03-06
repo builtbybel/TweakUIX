@@ -233,7 +233,7 @@ namespace TweakUIX
                 new TweaksNode(new Tweaks.Privacy.AppsAutoInstall()),
                 new TweaksNode(new Tweaks.Privacy.WindowsTips()),
                 new TweaksNode(new Tweaks.Privacy.TailoredExperiences()),
-            });
+            }); ;
 
             System.Windows.Forms.TreeNode apps = new System.Windows.Forms.TreeNode("Apps permissions (disable)", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Apps.AppNotifications()),
@@ -618,7 +618,7 @@ namespace TweakUIX
                     writer.Close();
                 }
                 MessageBox.Show("Template has been successfully saved.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Bear35(); 
+                Bear35();
             }
         }
 

@@ -3,33 +3,33 @@
     public abstract class TweaksBase
     {
         /// <summary>
-        /// Name of Assessment
+        /// Name of the Tweak
         /// </summary>
-        /// <returns>The asssessment name</returns>
+        /// <returns>The Tweak name</returns>
         public abstract string ID();
 
         /// <summary>
-        /// Tooltip text of sssessments
+        /// Tooltip text of tweaks
         /// </summary>
-        /// <returns>The asssessment tooltip</returns>
+        /// <returns>The tweaks tooltip</returns>
         public abstract string Info();
 
         /// <summary>
-        /// Checks whether assessments should be applied
+        /// Checks whether tweaks should be applied
         /// </summary>
-        /// <returns>Returns true if the asssessment should be applied, false otherwise.</returns>
+        /// <returns>Returns true if the tweak should be applied, false otherwise.</returns>
         public abstract bool CheckTweak();
 
         /// <summary>
-        /// Do the Assessment
+        /// Apply Tweak
         /// </summary>
-        /// <returns>Returns true if the asssessment was successfull, false otherwise.</returns>
+        /// <returns>Returns true if the tweak was successfull, false otherwise.</returns>
         public abstract bool DoTweak();
 
         /// <summary>
-        /// Undo the Assessment
+        /// Undo Tweak
         /// </summary>
-        /// <returns>Returns true if the asssessment was successfull, false otherwise.</returns>
+        /// <returns>Returns true if the tweak was successfull, false otherwise.</returns>
         public abstract bool UndoTweak();
     }
 }
