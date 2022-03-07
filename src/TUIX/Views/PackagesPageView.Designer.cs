@@ -1,16 +1,16 @@
 ﻿namespace TweakUIX
 {
-    partial class PackagesForm
+    partial class PackagesPageView
     {
-        /// <summary>
-        /// Required designer variable.
+        /// <summary> 
+        /// Erforderliche Designervariable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
+        /// <summary> 
+        /// Verwendete Ressourcen bereinigen.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +20,11 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Vom Komponenten-Designer generierter Code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// <summary> 
+        /// Erforderliche Methode für die Designerunterstützung. 
+        /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent()
         {
@@ -35,7 +35,7 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listAvailable = new System.Windows.Forms.ListBox();
-            this.btnMove = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -47,10 +47,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox.Controls.Add(this.listInstall);
             this.groupBox.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox.Location = new System.Drawing.Point(1, 5);
+            this.groupBox.Location = new System.Drawing.Point(3, 3);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(411, 267);
-            this.groupBox.TabIndex = 17;
+            this.groupBox.TabIndex = 23;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Local packages (to be installed)";
             // 
@@ -72,10 +72,10 @@
             // 
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefresh.ForeColor = System.Drawing.Color.Black;
-            this.btnRefresh.Location = new System.Drawing.Point(419, 53);
+            this.btnRefresh.Location = new System.Drawing.Point(420, 51);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(80, 23);
-            this.btnRefresh.TabIndex = 19;
+            this.btnRefresh.TabIndex = 26;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -84,10 +84,10 @@
             // 
             this.btnAddFeature.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddFeature.ForeColor = System.Drawing.Color.Black;
-            this.btnAddFeature.Location = new System.Drawing.Point(419, 24);
+            this.btnAddFeature.Location = new System.Drawing.Point(420, 22);
             this.btnAddFeature.Name = "btnAddFeature";
             this.btnAddFeature.Size = new System.Drawing.Size(81, 23);
-            this.btnAddFeature.TabIndex = 18;
+            this.btnAddFeature.TabIndex = 24;
             this.btnAddFeature.Text = "Add feature\r\n";
             this.btnAddFeature.UseVisualStyleBackColor = true;
             this.btnAddFeature.Click += new System.EventHandler(this.btnAddFeature_Click);
@@ -96,10 +96,10 @@
             // 
             this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemove.ForeColor = System.Drawing.Color.Black;
-            this.btnRemove.Location = new System.Drawing.Point(419, 128);
+            this.btnRemove.Location = new System.Drawing.Point(421, 126);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(81, 23);
-            this.btnRemove.TabIndex = 14;
+            this.btnRemove.TabIndex = 21;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
@@ -111,10 +111,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.listAvailable);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox1.Location = new System.Drawing.Point(1, 278);
+            this.groupBox1.Location = new System.Drawing.Point(3, 276);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(411, 212);
-            this.groupBox1.TabIndex = 18;
+            this.groupBox1.Size = new System.Drawing.Size(411, 269);
+            this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Remote packages";
             // 
@@ -129,51 +129,47 @@
             this.listAvailable.Location = new System.Drawing.Point(11, 19);
             this.listAvailable.Name = "listAvailable";
             this.listAvailable.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listAvailable.Size = new System.Drawing.Size(394, 169);
+            this.listAvailable.Size = new System.Drawing.Size(394, 234);
             this.listAvailable.TabIndex = 13;
             // 
-            // btnMove
+            // btnAdd
             // 
-            this.btnMove.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnMove.ForeColor = System.Drawing.Color.Black;
-            this.btnMove.Location = new System.Drawing.Point(419, 379);
-            this.btnMove.Name = "btnMove";
-            this.btnMove.Size = new System.Drawing.Size(81, 23);
-            this.btnMove.TabIndex = 12;
-            this.btnMove.Text = "Add";
-            this.btnMove.UseVisualStyleBackColor = true;
-            this.btnMove.Click += new System.EventHandler(this.btnMove_Click);
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAdd.ForeColor = System.Drawing.Color.Black;
+            this.btnAdd.Location = new System.Drawing.Point(420, 382);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(81, 23);
+            this.btnAdd.TabIndex = 20;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.ForeColor = System.Drawing.Color.Black;
-            this.btnOK.Location = new System.Drawing.Point(419, 503);
+            this.btnOK.Location = new System.Drawing.Point(334, 551);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(81, 23);
-            this.btnOK.TabIndex = 14;
+            this.btnOK.TabIndex = 22;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // PackagesForm
+            // PackagesPageView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 538);
+            this.Controls.Add(this.groupBox);
             this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.btnMove);
-            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnAddFeature);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox);
-            this.Name = "PackagesForm";
-            this.ShowIcon = false;
-            this.Text = "Properties";
-            this.Load += new System.EventHandler(this.PackagesForm_Load);
-            this.Shown += new System.EventHandler(this.PackagesForm_Shown);
-            this.Leave += new System.EventHandler(this.PackagesForm_Leave);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnOK);
+            this.Name = "PackagesPageView";
+            this.Size = new System.Drawing.Size(542, 577);
+            this.Leave += new System.EventHandler(this.PackagesPageView_Leave);
             this.groupBox.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -184,12 +180,12 @@
 
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.ListBox listInstall;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnAddFeature;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox listAvailable;
-        private System.Windows.Forms.Button btnMove;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.Button btnAddFeature;
-        private System.Windows.Forms.Button btnRefresh;
     }
 }

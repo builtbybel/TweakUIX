@@ -11,18 +11,16 @@ using System.Windows.Forms;
 
 namespace TweakUIX
 {
-    public partial class DesktopForm : Form
+    public partial class DesktopIconsPageView : UserControl
     {
-        public DesktopForm()
-        {
-            InitializeComponent();
-        }
+        public DesktopIconsPageView() =>  InitializeComponent();
+        
 
-        private void btnDesktopIcons_Click(object sender, EventArgs e)
+        private void btnShowDesktopIcons_Click(object sender, EventArgs e)
         {
-           var proc = @"C:\Windows\System32\rundll32.exe";
-           var args= "shell32.dll,Control_RunDLL desk.cpl,,0";
-                Process.Start(proc, args);
+            var proc = @"C:\Windows\System32\rundll32.exe";
+            var args = "shell32.dll,Control_RunDLL desk.cpl,,0";
+            Process.Start(proc, args);
         }
 
         private void btnOK_Click(object sender, EventArgs e)

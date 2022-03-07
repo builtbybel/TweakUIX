@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
@@ -9,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TweakUIX
 {
-    public partial class AppsForm : Form
+    public partial class AppsPageView : UserControl
     {
         private string fAppsLocal = Helpers.Strings.Data.DataRootDir + "uninstaller.app";
 
@@ -20,16 +19,16 @@ namespace TweakUIX
         private List<string> removeAppsSystem = new List<string>();
         private readonly PowerShell powerShell = PowerShell.Create();
 
-        public AppsForm() => InitializeComponent();
-
-        private void AppsForm_Shown(object sender, EventArgs e) => this.Shown += new EventHandler(AppsForm_Shown);
-
-        private void AppsForm_Load(object sender, EventArgs e)
+        public AppsPageView()
         {
-            this.GetAppsLocal();           // Retrieve local apps in removal list
-            this.InitializeAppsSystem();   // Retrieve hidden systemapps from resource file
-            this.InitializeApps();         // Yet just the normal....
+            InitializeComponent();
 
+            if (Visible && !Disposing)
+            {
+                this.GetAppsLocal();           // Retrieve local apps in removal list
+                this.InitializeAppsSystem();   // Retrieve hidden systemapps from resource file
+                this.InitializeApps();         // Yet just the normal....
+            }
         }
 
         public void GetAppsLocal()
@@ -133,87 +132,6 @@ namespace TweakUIX
                 true;
         }
 
-        private void btnMove_Click(object sender, EventArgs e)
-        {
-            if (listApps.Items.Count != 0)
-            {
-                if (listApps.SelectedItem == null) listApps.SelectedIndex = 0;
-                while (listApps.SelectedItem != null)
-                {
-                    listRemove.Items.Add(listApps.SelectedItem);
-                    listApps.Items.Remove(listApps.SelectedItem);
-                }
-                RefreshApps();
-            }
-        }
-
-        private void btnMoveAll_Click(object sender, EventArgs e)
-        {
-            foreach (var item in listApps.Items)
-            {
-                listRemove.Items.Add(item);
-            }
-            listApps.Items.Clear();
-            RefreshApps();
-        }
-
-        private void btnRestoreAll_Click(object sender, EventArgs e)
-        {
-            foreach (var item in listRemove.Items)
-            {
-                listApps.Items.Add(item);
-            }
-            listRemove.Items.Clear();
-            RefreshApps();
-        }
-
-        private void btnRestore_Click(object sender, EventArgs e)
-        {
-            if (listRemove.Items.Count != 0)
-            {
-                if (listRemove.SelectedItem == null) listRemove.SelectedIndex = 0;
-                while (listRemove.SelectedItem != null)
-                {
-                    listApps.Items.Add(listRemove.SelectedItem);
-                    listRemove.Items.Remove(listRemove.SelectedItem);
-                }
-                RefreshApps();
-            }
-        }
-
-        private void checkAppsSystem_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkAppsSystem.Checked)
-            {
-                MessageBox.Show("Be picky about which System applications to uninstall." +
-                "\n\nYou can uninstall most of the built-in apps, even ones that don't normally offer an \"Uninstall\" option." +
-                "\n\nNote, however, this app won't allow you to remove a few of the most important built-in apps, like Microsoft Edge, .NET framework, UI.Xaml etc. " +
-                "as these apps are needed for the Windows 11 \"Experience\" and for other programs. If you try, you’ll see an error message saying the removal failed.");
-
-                InitializeAppsSystem();
-                InitializeApps();
-            }
-            else InitializeApps();
-        }
-
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-            var mainForm = Application.OpenForms.OfType<MainForm>().Single();
-            mainForm.sc.Panel2.Controls.Clear();
-            if (mainForm.INavPage != null) mainForm.sc.Panel2.Controls.Add(mainForm.INavPage);
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            listApps.Items.Clear();
-            listRemove.Items.Clear();
-
-            GetAppsLocal();
-            AppsForm_Leave(sender, e);
-            InitializeAppsSystem();
-            InitializeApps();
-        }
-
         private void btnImport_Click(object sender, EventArgs e)
         {
             OpenFileDialog f = new OpenFileDialog();
@@ -249,12 +167,92 @@ namespace TweakUIX
             using (var form = new FeaturesForm())
 
             {
-               
                 form.ShowDialog();
                 btnRefresh_Click(null, null);
             }
         }
 
-        private void AppsForm_Leave(object sender, EventArgs e) => System.IO.File.WriteAllLines(fAppsLocal, listRemove.Items.Cast<string>().ToArray());
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            listApps.Items.Clear();
+            listRemove.Items.Clear();
+
+            GetAppsLocal();
+            AppsPageView_Leave(sender, e);
+            InitializeAppsSystem();
+            InitializeApps();
+        }
+
+        private void btnRestoreAll_Click(object sender, EventArgs e)
+        {
+            foreach (var item in listRemove.Items)
+            {
+                listApps.Items.Add(item);
+            }
+            listRemove.Items.Clear();
+            RefreshApps();
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e)
+        {
+            if (listRemove.Items.Count != 0)
+            {
+                if (listRemove.SelectedItem == null) listRemove.SelectedIndex = 0;
+                while (listRemove.SelectedItem != null)
+                {
+                    listApps.Items.Add(listRemove.SelectedItem);
+                    listRemove.Items.Remove(listRemove.SelectedItem);
+                }
+                RefreshApps();
+            }
+        }
+
+        private void btnMoveAll_Click(object sender, EventArgs e)
+        {
+            foreach (var item in listApps.Items)
+            {
+                listRemove.Items.Add(item);
+            }
+            listApps.Items.Clear();
+            RefreshApps();
+        }
+
+        private void btnMove_Click(object sender, EventArgs e)
+        {
+            if (listApps.Items.Count != 0)
+            {
+                if (listApps.SelectedItem == null) listApps.SelectedIndex = 0;
+                while (listApps.SelectedItem != null)
+                {
+                    listRemove.Items.Add(listApps.SelectedItem);
+                    listApps.Items.Remove(listApps.SelectedItem);
+                }
+                RefreshApps();
+            }
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            var mainForm = Application.OpenForms.OfType<MainForm>().Single();
+            mainForm.sc.Panel2.Controls.Clear();
+            if (mainForm.INavPage != null) mainForm.sc.Panel2.Controls.Add(mainForm.INavPage);
+        }
+
+        private void checkAppsSystem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkAppsSystem.Checked)
+            {
+                MessageBox.Show("Be picky about which System applications to uninstall." +
+                "\n\nYou can uninstall most of the built-in apps, even ones that don't normally offer an \"Uninstall\" option." +
+                "\n\nNote, however, this app won't allow you to remove a few of the most important built-in apps, like Microsoft Edge, .NET framework, UI.Xaml etc. " +
+                "as these apps are needed for the Windows 11 \"Experience\" and for other programs. If you try, you’ll see an error message saying the removal failed.");
+
+                InitializeAppsSystem();
+                InitializeApps();
+            }
+            else InitializeApps();
+        }
+
+        private void AppsPageView_Leave(object sender, EventArgs e) => System.IO.File.WriteAllLines(fAppsLocal, listRemove.Items.Cast<string>().ToArray());
     }
 }

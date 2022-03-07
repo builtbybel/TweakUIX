@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -9,15 +12,13 @@ using System.Windows.Forms;
 
 namespace TweakUIX
 {
-    public partial class PluginsForm : Form
+    public partial class PluginsPageView : UserControl
     {
         private string optionalPluginsDir = Helpers.Strings.Data.PluginsRootDir + "MajorGeeks Windows Tweaks";
 
-        public PluginsForm() => InitializeComponent();
+        public PluginsPageView() => InitializeComponent();
 
-        private void PluginsForm_Shown(object sender, EventArgs e) => this.Shown += new EventHandler(PluginsForm_Shown);
-
-        private void PluginsForm_Load(object sender, EventArgs e) => InitializePlugins();
+        private void PluginsPageView_Load(object sender, EventArgs e)  => InitializePlugins();
 
         private void InitializePlugins()
         {
@@ -101,25 +102,6 @@ namespace TweakUIX
             }
         }
 
-        private void listPlugs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string plugsDir = Helpers.Strings.Data.PluginsRootDir + "\\" + listPlugs.Text + ".ps1";
-
-            try
-            {
-                using (StreamReader sr = new StreamReader(plugsDir, Encoding.Default))
-                {
-                    StringBuilder content = new StringBuilder();
-
-                    while (!sr.EndOfStream)
-                        content.AppendLine(sr.ReadLine());
-
-                    richPluginInfo.Text = string.Join(Environment.NewLine, File.ReadAllLines(plugsDir).Where(s => s.StartsWith("###")).Select(s => s.Substring(3).Replace("###", "\n")));
-                }
-            }
-            catch { }
-        }
-
         private void InitializeOptionalPlugins()
         {
             if (!Directory.Exists(optionalPluginsDir))
@@ -142,7 +124,26 @@ namespace TweakUIX
             listTweaks.SelectedIndexChanged += listTweaks_SelectedIndexChanged;
         }
 
-        private void btnApply_Click(object sender, EventArgs e) => DoPlugin();
+        private void listPlugs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string plugsDir = Helpers.Strings.Data.PluginsRootDir + "\\" + listPlugs.Text + ".ps1";
+
+            try
+            {
+                using (StreamReader sr = new StreamReader(plugsDir, Encoding.Default))
+                {
+                    StringBuilder content = new StringBuilder();
+
+                    while (!sr.EndOfStream)
+                        content.AppendLine(sr.ReadLine());
+
+                    richPluginInfo.Text = string.Join(Environment.NewLine, File.ReadAllLines(plugsDir).Where(s => s.StartsWith("###")).Select(s => s.Substring(3).Replace("###", "\n")));
+                }
+            }
+            catch { }
+        }
+
+        private void btnApply_Click(object sender, EventArgs e)  => DoPlugin();
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -173,7 +174,7 @@ namespace TweakUIX
         private void listTweaks_SelectedIndexChanged(object sender, EventArgs e)
         {
             var parentDir = Path.Combine(optionalPluginsDir, listCategory.SelectedItem.ToString(),
-             listTweaks.SelectedItem.ToString());
+       listTweaks.SelectedItem.ToString());
             dataGridView.DataSource = Directory.GetFiles(parentDir)
                 .Select(f => new { FileName = Path.GetFileName(f) }).ToList();
         }
@@ -215,17 +216,8 @@ namespace TweakUIX
             return;
         }
 
-        private void richPluginInfo_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
+        private void richPluginInfo_LinkClicked(object sender, LinkClickedEventArgs e)  => Helpers.Utils.LaunchUri(e.LinkText);
 
         private void richHelp_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
-
-        private void BtnPopOut_Click(object sender, EventArgs e)
-        {
-            using (var form = new PluginsForm())
-
-            {
-                form.ShowDialog();
-            }
-        }
     }
 }

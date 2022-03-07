@@ -1,16 +1,16 @@
 ﻿namespace TweakUIX
 {
-    partial class DesktopForm
+    partial class DesktopIconsPageView
     {
-        /// <summary>
-        /// Required designer variable.
+        /// <summary> 
+        /// Erforderliche Designervariable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
+        /// <summary> 
+        /// Verwendete Ressourcen bereinigen.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,38 +20,38 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Vom Komponenten-Designer generierter Code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// <summary> 
+        /// Erforderliche Methode für die Designerunterstützung. 
+        /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent()
         {
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnDesktopIcons = new System.Windows.Forms.Button();
+            this.btnShowDesktopIcons = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox
             // 
-            this.groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox.Controls.Add(this.label1);
-            this.groupBox.Controls.Add(this.btnDesktopIcons);
+            this.groupBox.Controls.Add(this.btnShowDesktopIcons);
             this.groupBox.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox.Location = new System.Drawing.Point(2, 4);
+            this.groupBox.Location = new System.Drawing.Point(3, 3);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(524, 138);
-            this.groupBox.TabIndex = 17;
+            this.groupBox.TabIndex = 19;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Desktop Icon Settings";
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoEllipsis = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
@@ -61,41 +61,38 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Select the icons you wish to appear first on the desktop.";
             // 
-            // btnDesktopIcons
+            // btnShowDesktopIcons
             // 
-            this.btnDesktopIcons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDesktopIcons.ForeColor = System.Drawing.Color.Black;
-            this.btnDesktopIcons.Location = new System.Drawing.Point(363, 67);
-            this.btnDesktopIcons.Name = "btnDesktopIcons";
-            this.btnDesktopIcons.Size = new System.Drawing.Size(131, 23);
-            this.btnDesktopIcons.TabIndex = 0;
-            this.btnDesktopIcons.Text = "My Computer Icons";
-            this.btnDesktopIcons.UseVisualStyleBackColor = true;
-            this.btnDesktopIcons.Click += new System.EventHandler(this.btnDesktopIcons_Click);
+            this.btnShowDesktopIcons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowDesktopIcons.ForeColor = System.Drawing.Color.Black;
+            this.btnShowDesktopIcons.Location = new System.Drawing.Point(363, 67);
+            this.btnShowDesktopIcons.Name = "btnShowDesktopIcons";
+            this.btnShowDesktopIcons.Size = new System.Drawing.Size(131, 23);
+            this.btnShowDesktopIcons.TabIndex = 0;
+            this.btnShowDesktopIcons.Text = "My Computer Icons";
+            this.btnShowDesktopIcons.UseVisualStyleBackColor = true;
+            this.btnShowDesktopIcons.Click += new System.EventHandler(this.btnShowDesktopIcons_Click);
             // 
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.ForeColor = System.Drawing.Color.Black;
-            this.btnOK.Location = new System.Drawing.Point(415, 159);
+            this.btnOK.Location = new System.Drawing.Point(416, 158);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(81, 23);
-            this.btnOK.TabIndex = 18;
+            this.btnOK.TabIndex = 20;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // DesktopForm
+            // DesktopIconsPageView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(526, 538);
-            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.groupBox);
-            this.Name = "DesktopForm";
-            this.ShowIcon = false;
-            this.Text = "Desktop";
+            this.Controls.Add(this.btnOK);
+            this.Name = "DesktopIconsPageView";
+            this.Size = new System.Drawing.Size(542, 577);
             this.groupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -104,8 +101,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox;
-        private System.Windows.Forms.Button btnDesktopIcons;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnShowDesktopIcons;
         private System.Windows.Forms.Button btnOK;
     }
 }

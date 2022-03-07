@@ -1,17 +1,16 @@
-﻿
-namespace TweakUIX
+﻿namespace TweakUIX
 {
-    partial class PolicyForm
+    partial class PolicyPageView
     {
-        /// <summary>
-        /// Required designer variable.
+        /// <summary> 
+        /// Erforderliche Designervariable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
+        /// <summary> 
+        /// Verwendete Ressourcen bereinigen.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,37 +20,23 @@ namespace TweakUIX
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Vom Komponenten-Designer generierter Code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// <summary> 
+        /// Erforderliche Methode für die Designerunterstützung. 
+        /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRun = new System.Windows.Forms.Button();
+            this.groupBox = new System.Windows.Forms.GroupBox();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox
-            // 
-            this.groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox.Controls.Add(this.label1);
-            this.groupBox.Controls.Add(this.btnRun);
-            this.groupBox.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox.Location = new System.Drawing.Point(2, 4);
-            this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(524, 109);
-            this.groupBox.TabIndex = 17;
-            this.groupBox.TabStop = false;
-            this.groupBox.Text = "Group Policy Editor";
-            // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoEllipsis = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
@@ -73,16 +58,27 @@ namespace TweakUIX
             this.btnRun.UseVisualStyleBackColor = true;
             this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
-            // PolicyForm
+            // groupBox
+            // 
+            this.groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox.Controls.Add(this.label1);
+            this.groupBox.Controls.Add(this.btnRun);
+            this.groupBox.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox.Location = new System.Drawing.Point(3, 3);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(524, 109);
+            this.groupBox.TabIndex = 18;
+            this.groupBox.TabStop = false;
+            this.groupBox.Text = "Group Policy Editor";
+            // 
+            // PolicyPageView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 538);
             this.Controls.Add(this.groupBox);
-            this.Name = "PolicyForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.Text = "Policy";
+            this.Name = "PolicyPageView";
+            this.Size = new System.Drawing.Size(542, 577);
             this.groupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -90,8 +86,8 @@ namespace TweakUIX
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRun;
+        private System.Windows.Forms.GroupBox groupBox;
     }
 }

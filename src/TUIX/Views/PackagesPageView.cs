@@ -7,16 +7,14 @@ using System.Windows.Forms;
 
 namespace TweakUIX
 {
-    public partial class PackagesForm : Form
+    public partial class PackagesPageView : UserControl
     {
         private string fPackagesLocal = Helpers.Strings.Data.DataRootDir + "packages.app";
 
-        public PackagesForm() => this.InitializeComponent();
-
-        private void PackagesForm_Shown(object sender, EventArgs e) => this.Shown += new EventHandler(PackagesForm_Shown);
-
-        private void PackagesForm_Load(object sender, EventArgs e)
+        public PackagesPageView()
         {
+            InitializeComponent();
+
             this.GetPackagesLocal();
             this.RequestPackagesRemote();
         }
@@ -71,6 +69,21 @@ namespace TweakUIX
             { MessageBox.Show(ex.Message); }
         }
 
+        private void btnAddFeature_Click(object sender, EventArgs e)
+        {
+            using (var form = new FeaturesForm())
+
+            {
+                form.ShowDialog();
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            listInstall.Items.Clear();
+            GetPackagesLocal();
+        }
+
         private void btnRemove_Click(object sender, EventArgs e)
         {
             if (listInstall.Items.Count != 0)
@@ -83,7 +96,7 @@ namespace TweakUIX
             }
         }
 
-        private void btnMove_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             if (listAvailable.Items.Count != 0)
             {
@@ -107,23 +120,6 @@ namespace TweakUIX
             if (mainForm.INavPage != null) mainForm.sc.Panel2.Controls.Add(mainForm.INavPage);
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            listInstall.Items.Clear();
-            GetPackagesLocal();
-        }
-
-        private void btnAddFeature_Click(object sender, EventArgs e)
-        {
-            using (var form = new FeaturesForm())
-
-            {
-                form.ShowDialog();
-            }
-        }
-
-        private void PackagesForm_Leave(object sender, EventArgs e) => System.IO.File.WriteAllLines(fPackagesLocal, listInstall.Items.Cast<string>().ToArray());
-
-    
+        private void PackagesPageView_Leave(object sender, EventArgs e) => System.IO.File.WriteAllLines(fPackagesLocal, listInstall.Items.Cast<string>().ToArray());
     }
 }

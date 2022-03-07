@@ -74,35 +74,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AboutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AboutForm.Designer.cs">
-      <DependentUpon>AboutForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AppsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AppsForm.Designer.cs">
-      <DependentUpon>AppsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\DesktopForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\DesktopForm.Designer.cs">
-      <DependentUpon>DesktopForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FeaturesForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FeaturesForm.Designer.cs">
       <DependentUpon>FeaturesForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\PackagesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\PackagesForm.Designer.cs">
-      <DependentUpon>PackagesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\OsHelper.cs" />
     <Compile Include="Helpers\Strings.cs" />
@@ -116,18 +92,6 @@
     </Compile>
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\PluginsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\PluginsForm.Designer.cs">
-      <DependentUpon>PluginsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\PolicyForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\PolicyForm.Designer.cs">
-      <DependentUpon>PolicyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -204,29 +168,53 @@
     <Compile Include="Tweaks\Update\Wuauserv.cs" />
     <Compile Include="Tweaks\Update\Wusa.cs" />
     <Compile Include="Helpers\WindowsHelper.cs" />
-    <EmbeddedResource Include="Forms\AboutForm.resx">
-      <DependentUpon>AboutForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AppsForm.resx">
-      <DependentUpon>AppsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DesktopForm.resx">
-      <DependentUpon>DesktopForm.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Views\AboutPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\AboutPageView.Designer.cs">
+      <DependentUpon>AboutPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AppsPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\AppsPageView.Designer.cs">
+      <DependentUpon>AppsPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DesktopIconsPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DesktopIconsPageView.Designer.cs">
+      <DependentUpon>DesktopIconsPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DriveLettersPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DriveLettersPageView.Designer.cs">
+      <DependentUpon>DriveLettersPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PackagesPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PackagesPageView.Designer.cs">
+      <DependentUpon>PackagesPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PluginsPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PluginsPageView.Designer.cs">
+      <DependentUpon>PluginsPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PolicyPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PolicyPageView.Designer.cs">
+      <DependentUpon>PolicyPageView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\FeaturesForm.resx">
       <DependentUpon>FeaturesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PluginsForm.resx">
-      <DependentUpon>PluginsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PolicyForm.resx">
-      <DependentUpon>PolicyForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PackagesForm.resx">
-      <DependentUpon>PackagesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -238,6 +226,27 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\AboutPageView.resx">
+      <DependentUpon>AboutPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AppsPageView.resx">
+      <DependentUpon>AppsPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DesktopIconsPageView.resx">
+      <DependentUpon>DesktopIconsPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DriveLettersPageView.resx">
+      <DependentUpon>DriveLettersPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PackagesPageView.resx">
+      <DependentUpon>PackagesPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PluginsPageView.resx">
+      <DependentUpon>PluginsPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PolicyPageView.resx">
+      <DependentUpon>PolicyPageView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

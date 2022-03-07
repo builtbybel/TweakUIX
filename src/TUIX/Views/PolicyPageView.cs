@@ -11,12 +11,10 @@ using System.Windows.Forms;
 
 namespace TweakUIX
 {
-    public partial class PolicyForm : Form
+    public partial class PolicyPageView : UserControl
     {
-        public PolicyForm()
-        {
-            InitializeComponent();
-        }
+        public PolicyPageView() =>   InitializeComponent();
+        
 
         private void btnRun_Click(object sender, EventArgs e)
         {

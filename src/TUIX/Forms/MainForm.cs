@@ -62,21 +62,17 @@ namespace TweakUIX
                               + "\nThe help will appear in the \"Description \" box.";
         }
 
-        private void SetView(Form page)
+        private void SetView(Control tweakPage)
         {
-            var form = page as Form;
-            form.TopLevel = false;
-            form.Parent = this;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Visible = true;
-            form.AutoScroll = true;
-            form.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
-            form.Dock = DockStyle.Fill;
-            sc.Panel2.Controls.Clear();
+            var control = tweakPage as Control;
+
+            control.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
+            control.Dock = DockStyle.Fill;
             INavPage.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
             INavPage.Dock = DockStyle.Fill;
 
-            sc.Panel2.Controls.Add(page);
+            sc.Panel2.Controls.Clear();
+            sc.Panel2.Controls.Add(tweakPage);
         }
 
         private void tweaksTree_AfterSelect(object sender, TreeViewEventArgs e)
@@ -84,22 +80,26 @@ namespace TweakUIX
             switch (e.Node.Text)
             {
                 case "About":
-                    this.SetView(new AboutForm());              // Set about view
+                    this.SetView(new AboutPageView());                   // Set about view
                     break;
 
                 case "Policy":
-                    this.SetView(new PolicyForm());             // Set policy view
+                    this.SetView(new PolicyPageView());                  // Set policy view
                     break; ;
 
-                case "Desktop":
-                    this.SetView(new DesktopForm());            // Set desktop view
+                case "Desktop Icons":
+                    this.SetView(new DesktopIconsPageView());            // Set desktop view
+                    break; ;
+
+                case "Drive Letters":
+                    this.SetView(new DriveLettersPageView());            // Set drive letters view
                     break; ;
 
                 case "*Plugins":
-                    this.SetView(new PluginsForm());            // Set plugins view
+                    this.SetView(new PluginsPageView());                 // Set plugins view
                     break;
 
-                default:                                        // Set default view
+                default:                                                 // Set default view
                     sc.Panel2.Controls.Clear();
                     if (INavPage != null) sc.Panel2.Controls.Add(INavPage);
                     break;
@@ -127,12 +127,12 @@ namespace TweakUIX
 
                 case "*Apps and Features":
                 case "*Remove bloatware apps (community list)":
-                    this.SetView(new AppsForm());               // Set packages view
+                    this.SetView(new AppsPageView());                   // Set apps & features view
                     break;
 
                 case "*Packages":
                 case "*Install essential apps":
-                    this.SetView(new PackagesForm());           // Set packages view
+                    this.SetView(new PackagesPageView());               // Set packages view
                     break;
 
                 case "*Plugins":
@@ -156,7 +156,7 @@ namespace TweakUIX
             // Set logger to target richStatus
             logger.SetTarget(richStatus);
 
-            // Root node
+            // root node
             System.Windows.Forms.TreeNode root = new System.Windows.Forms.TreeNode("Tweak UI")
             {
                 Checked = false,
@@ -202,7 +202,7 @@ namespace TweakUIX
                 new TweaksNode(new Tweaks.System.InstallWSA()),
                 new TweaksNode(new Tweaks.System.HyperV()),
                 new TweaksNode(new Tweaks.System.TeamsAutostart()),
-            });
+        }); ;
 
             System.Windows.Forms.TreeNode paranoia = new System.Windows.Forms.TreeNode("Paranoia", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Paranoia.CleanMgr()),
@@ -233,7 +233,7 @@ namespace TweakUIX
                 new TweaksNode(new Tweaks.Privacy.AppsAutoInstall()),
                 new TweaksNode(new Tweaks.Privacy.WindowsTips()),
                 new TweaksNode(new Tweaks.Privacy.TailoredExperiences()),
-            });
+            }); ;
 
             System.Windows.Forms.TreeNode apps = new System.Windows.Forms.TreeNode("Apps permissions (disable)", new System.Windows.Forms.TreeNode[] {
                 new TweaksNode(new Tweaks.Apps.AppNotifications()),
@@ -301,6 +301,11 @@ namespace TweakUIX
 
             tweaksTree.Nodes.Add(root);
 
+            // Extend X pages
+            system.Nodes.Add("hidenseek", "Hide and Seek");
+            system.Nodes["hidenseek"].Nodes.Add("Desktop Icons");
+            system.Nodes["hidenseek"].Nodes.Add("Drive Letters");
+
             // Some tweaksTree nicety
             RemoveTreeNodeCheckmarks();
             foreach (System.Windows.Forms.TreeNode tn in tweaksTree.Nodes) { tn.Expand(); }
@@ -362,6 +367,11 @@ namespace TweakUIX
             TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[0]);     // About
             TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[1]);     // Policy
             TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[13]);    // Plugins
+
+            // Hide and Seek tree
+            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[5].Nodes[8]);
+            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[5].Nodes[8].Nodes[0]);
+            TreeNodeTheming.RemoveCheckmarks(tweaksTree, tweaksTree.Nodes[0].Nodes[5].Nodes[8].Nodes[1]);
         }
 
         // Check favored parent node including all child nodes
@@ -618,7 +628,7 @@ namespace TweakUIX
                     writer.Close();
                 }
                 MessageBox.Show("Template has been successfully saved.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Bear35(); 
+                Bear35();
             }
         }
 
