@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.btnAppUpdate = new System.Windows.Forms.Button();
             this.richInfo = new System.Windows.Forms.RichTextBox();
             this.linkAppInfo = new System.Windows.Forms.LinkLabel();
             this.picture1 = new System.Windows.Forms.PictureBox();
+            this.tt = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox
             // 
-            this.groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox.Controls.Add(this.btnAppUpdate);
             this.groupBox.Controls.Add(this.richInfo);
@@ -49,7 +51,7 @@
             this.groupBox.Size = new System.Drawing.Size(502, 203);
             this.groupBox.TabIndex = 19;
             this.groupBox.TabStop = false;
-            this.groupBox.Text = "About Tweak UIX";
+            this.groupBox.Text = "About this App";
             // 
             // btnAppUpdate
             // 
@@ -65,8 +67,8 @@
             // 
             // richInfo
             // 
-            this.richInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.richInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richInfo.BackColor = System.Drawing.SystemColors.Control;
             this.richInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -84,17 +86,16 @@
             this.linkAppInfo.BackColor = System.Drawing.Color.Transparent;
             this.linkAppInfo.Location = new System.Drawing.Point(33, 13);
             this.linkAppInfo.Name = "linkAppInfo";
-            this.linkAppInfo.Size = new System.Drawing.Size(393, 41);
+            this.linkAppInfo.Size = new System.Drawing.Size(393, 26);
             this.linkAppInfo.TabIndex = 21;
             this.linkAppInfo.TabStop = true;
-            this.linkAppInfo.Text = "Do you remember this picture?\r\nClick here to get some more infos about this proje" +
-    "ct....";
+            this.linkAppInfo.Text = "Remember this classic picture? \r\nClick here to learn more about this project...";
             this.linkAppInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAppInfo_LinkClicked);
             // 
             // picture1
             // 
-            this.picture1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.picture1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picture1.ErrorImage = null;
             this.picture1.InitialImage = null;
@@ -104,6 +105,8 @@
             this.picture1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picture1.TabIndex = 20;
             this.picture1.TabStop = false;
+            this.tt.SetToolTip(this.picture1, "Click to change your desktop background image");
+            this.picture1.Click += new System.EventHandler(this.SetWallper);
             // 
             // AboutPageView
             // 
@@ -128,5 +131,6 @@
         private System.Windows.Forms.RichTextBox richInfo;
         private System.Windows.Forms.LinkLabel linkAppInfo;
         private System.Windows.Forms.PictureBox picture1;
+        private System.Windows.Forms.ToolTip tt;
     }
 }

@@ -71,7 +71,9 @@ namespace TweakUIX
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            RegistryKey keyName = Registry.LocalMachine.CreateSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer");
+            if (checkedListBox.CheckedItems.Count == 0) MessageBox.Show("No drive checked to hide.\nThis means you are going to assign drive letters again."); 
+
+             RegistryKey keyName = Registry.LocalMachine.CreateSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer");
             VolumeId drives = VolumeId.Empty;
             foreach (string letter in checkedListBox.CheckedItems)
             {

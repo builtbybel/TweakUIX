@@ -409,8 +409,8 @@ namespace TweakUIX
 
             foreach (TweaksNode node in treeNodes)
             {
-                var setting = node.Tweak;
-                ConfiguredTaskAwaitable<bool> performTask = Task<bool>.Factory.StartNew(() => setting.DoTweak()).ConfigureAwait(true);
+                var tweak = node.Tweak;
+                ConfiguredTaskAwaitable<bool> performTask = Task<bool>.Factory.StartNew(() => tweak.DoTweak()).ConfigureAwait(true);
 
                 groupBox.Text = "Applying " + node.Text;
 
@@ -433,8 +433,8 @@ namespace TweakUIX
 
             foreach (TweaksNode node in treeNodes)
             {
-                var setting = node.Tweak;
-                ConfiguredTaskAwaitable<bool> performTask = Task<bool>.Factory.StartNew(() => setting.UndoTweak()).ConfigureAwait(true);
+                var tweak = node.Tweak;
+                ConfiguredTaskAwaitable<bool> performTask = Task<bool>.Factory.StartNew(() => tweak.UndoTweak()).ConfigureAwait(true);
 
                 groupBox.Text = "Undo " + node.Text;
 
@@ -469,9 +469,9 @@ namespace TweakUIX
 
             foreach (TweaksNode node in selectedTweaks)
             {
-                var setting = node.Tweak;
-                ListViewItem detail = new ListViewItem(setting.ID());
-                ConfiguredTaskAwaitable<bool> analyzeTask = Task<bool>.Factory.StartNew(() => setting.CheckTweak()).ConfigureAwait(true);
+                var tweak = node.Tweak;
+                ListViewItem detail = new ListViewItem(tweak.ID());
+                ConfiguredTaskAwaitable<bool> analyzeTask = Task<bool>.Factory.StartNew(() => tweak.CheckTweak()).ConfigureAwait(true);
                 // logger.Log("Check {0}", node.Text);
 
                 bool shouldPerform = await analyzeTask;
@@ -734,12 +734,10 @@ namespace TweakUIX
             string helpfile = Helpers.Strings.Data.DataRootDir + "help.txt";
             richStatus.Focus();
 
-            if (!richStatus.Focused) MessageBox.Show("Not supported in this view.");
+            if (!richStatus.Focused) { MessageBox.Show("Not supported in this view."); return; }
             if (File.Exists(helpfile))
-
                 richStatus.Text = File.ReadAllText(helpfile);
-            else
-                richStatus.Text = "Feature not available. Add it via Options > \"Add features\" ";
+            else MessageBox.Show("Feature not available. Add it via Options > \"Add features\".");
 
             e.Cancel = true;
         }
