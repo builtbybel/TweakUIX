@@ -106,7 +106,7 @@
             this.picture1.TabIndex = 20;
             this.picture1.TabStop = false;
             this.tt.SetToolTip(this.picture1, "Click to change your desktop background image");
-            this.picture1.Click += new System.EventHandler(this.SetWallper);
+            this.picture1.Click += new System.EventHandler(this.SetDesktopBackground);
             // 
             // AboutPageView
             // 

@@ -43,7 +43,7 @@ namespace TweakUIX
 
         private void linkAppInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Process.Start("https://www.builtbybel.com/blog/19-apps/47-powertoys-tweakui-is-back-for-windows-10-and-windows-11");
 
-        private void SetWallper(object sender, EventArgs e)
+        private void SetDesktopBackground(object sender, EventArgs e)
         {
             {
                 OpenFileDialog f = new OpenFileDialog();

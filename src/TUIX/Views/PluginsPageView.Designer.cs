@@ -30,12 +30,13 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.listTweaks = new System.Windows.Forms.ListBox();
             this.richHelp = new System.Windows.Forms.RichTextBox();
-            this.listCategory = new System.Windows.Forms.ListBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblTweak = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.comboTweaks = new System.Windows.Forms.ComboBox();
+            this.comboCategory = new System.Windows.Forms.ComboBox();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBoxInfo = new System.Windows.Forms.GroupBox();
@@ -47,10 +48,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.tab = new System.Windows.Forms.TabControl();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBoxInfo.SuspendLayout();
@@ -69,20 +66,6 @@
             this.tabPage3.Text = "Scriptomatic";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // listTweaks
-            // 
-            this.listTweaks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listTweaks.BackColor = System.Drawing.SystemColors.Control;
-            this.listTweaks.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listTweaks.FormattingEnabled = true;
-            this.listTweaks.Location = new System.Drawing.Point(7, 10);
-            this.listTweaks.Name = "listTweaks";
-            this.listTweaks.Size = new System.Drawing.Size(126, 403);
-            this.listTweaks.TabIndex = 5;
-            this.listTweaks.SelectedIndexChanged += new System.EventHandler(this.listTweaks_SelectedIndexChanged);
-            // 
             // richHelp
             // 
             this.richHelp.BackColor = System.Drawing.SystemColors.Info;
@@ -95,38 +78,6 @@
             this.richHelp.TabIndex = 10;
             this.richHelp.Text = "";
             this.richHelp.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richHelp_LinkClicked);
-            // 
-            // listCategory
-            // 
-            this.listCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.listCategory.BackColor = System.Drawing.SystemColors.Control;
-            this.listCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listCategory.FormattingEnabled = true;
-            this.listCategory.Location = new System.Drawing.Point(7, 16);
-            this.listCategory.Name = "listCategory";
-            this.listCategory.Size = new System.Drawing.Size(154, 377);
-            this.listCategory.TabIndex = 7;
-            this.listCategory.SelectedIndexChanged += new System.EventHandler(this.listCategory_SelectedIndexChanged);
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(167, 6);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.listTweaks);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.AutoScroll = true;
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView);
-            this.splitContainer1.Size = new System.Drawing.Size(349, 428);
-            this.splitContainer1.SplitterDistance = 136;
-            this.splitContainer1.TabIndex = 8;
             // 
             // dataGridView
             // 
@@ -152,14 +103,14 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView.Location = new System.Drawing.Point(7, 10);
+            this.dataGridView.Location = new System.Drawing.Point(10, 154);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView.ShowEditingIcon = false;
-            this.dataGridView.Size = new System.Drawing.Size(192, 413);
+            this.dataGridView.Size = new System.Drawing.Size(503, 311);
             this.dataGridView.TabIndex = 3;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             this.dataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView_RowPrePaint);
@@ -168,15 +119,62 @@
             // 
             this.tabPage2.AutoScroll = true;
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.lblTweak);
+            this.tabPage2.Controls.Add(this.lblCategory);
+            this.tabPage2.Controls.Add(this.dataGridView);
+            this.tabPage2.Controls.Add(this.comboTweaks);
+            this.tabPage2.Controls.Add(this.comboCategory);
             this.tabPage2.Controls.Add(this.richHelp);
-            this.tabPage2.Controls.Add(this.listCategory);
-            this.tabPage2.Controls.Add(this.splitContainer1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(519, 545);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Plus Pack";
+            // 
+            // lblTweak
+            // 
+            this.lblTweak.AutoSize = true;
+            this.lblTweak.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTweak.Location = new System.Drawing.Point(21, 91);
+            this.lblTweak.Name = "lblTweak";
+            this.lblTweak.Size = new System.Drawing.Size(164, 13);
+            this.lblTweak.TabIndex = 15;
+            this.lblTweak.Text = "Select a tweak from this list";
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Location = new System.Drawing.Point(21, 27);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(179, 13);
+            this.lblCategory.TabIndex = 13;
+            this.lblCategory.Text = "Select a category form this list";
+            // 
+            // comboTweaks
+            // 
+            this.comboTweaks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboTweaks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboTweaks.FormattingEnabled = true;
+            this.comboTweaks.Location = new System.Drawing.Point(10, 107);
+            this.comboTweaks.Name = "comboTweaks";
+            this.comboTweaks.Size = new System.Drawing.Size(489, 21);
+            this.comboTweaks.TabIndex = 12;
+            this.comboTweaks.SelectedIndexChanged += new System.EventHandler(this.listPlusPackTweaks);
+            // 
+            // comboCategory
+            // 
+            this.comboCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboCategory.FormattingEnabled = true;
+            this.comboCategory.Location = new System.Drawing.Point(10, 43);
+            this.comboCategory.Name = "comboCategory";
+            this.comboCategory.Size = new System.Drawing.Size(489, 21);
+            this.comboCategory.TabIndex = 11;
+            this.comboCategory.SelectedIndexChanged += new System.EventHandler(this.listPlusPackCategory);
             // 
             // btnApply
             // 
@@ -337,12 +335,9 @@
             this.Name = "PluginsPageView";
             this.Size = new System.Drawing.Size(542, 577);
             this.Load += new System.EventHandler(this.PluginsPageView_Load);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.groupBoxInfo.ResumeLayout(false);
             this.groupBoxPlugins.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -355,10 +350,7 @@
         #endregion
 
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.ListBox listTweaks;
         private System.Windows.Forms.RichTextBox richHelp;
-        private System.Windows.Forms.ListBox listCategory;
-        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnApply;
@@ -372,5 +364,9 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl tab;
         private System.Windows.Forms.Panel pnlBottom;
+        private System.Windows.Forms.ComboBox comboCategory;
+        private System.Windows.Forms.ComboBox comboTweaks;
+        private System.Windows.Forms.Label lblTweak;
+        private System.Windows.Forms.Label lblCategory;
     }
 }

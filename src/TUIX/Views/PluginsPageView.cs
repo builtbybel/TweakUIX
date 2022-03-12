@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -18,7 +16,7 @@ namespace TweakUIX
 
         public PluginsPageView() => InitializeComponent();
 
-        private void PluginsPageView_Load(object sender, EventArgs e)  => InitializePlugins();
+        private void PluginsPageView_Load(object sender, EventArgs e) => InitializePlugins();
 
         private void InitializePlugins()
         {
@@ -102,28 +100,6 @@ namespace TweakUIX
             }
         }
 
-        private void InitializeOptionalPlugins()
-        {
-            if (!Directory.Exists(optionalPluginsDir))
-            {
-                richHelp.Text = "The following packages are supported."
-                                + "\n- https://www.majorgeeks.com/files/details/majorgeeks_registry_tweaks.html"
-                                + "\n(After downloading, just extract it to \"app\\plugins\" directory.)";
-
-                return;
-            }
-            richHelp.Text = "How does it work?"
-                       + "\n1. Select a category and the tweak"
-                       + "\n2. Double click to trigger the tweak"
-                       + "\n3. Online help files are automatically searched and highlighted green."
-                       + "\n\n(This package is powered by https://www.majorgeeks.com)";
-
-            listCategory.DataSource = Directory.GetDirectories(optionalPluginsDir)
-                .Select(Path.GetFileName).ToList();
-            listCategory.SelectedIndexChanged += listCategory_SelectedIndexChanged;
-            listTweaks.SelectedIndexChanged += listTweaks_SelectedIndexChanged;
-        }
-
         private void listPlugs_SelectedIndexChanged(object sender, EventArgs e)
         {
             string plugsDir = Helpers.Strings.Data.PluginsRootDir + "\\" + listPlugs.Text + ".ps1";
@@ -143,7 +119,7 @@ namespace TweakUIX
             catch { }
         }
 
-        private void btnApply_Click(object sender, EventArgs e)  => DoPlugin();
+        private void btnApply_Click(object sender, EventArgs e) => DoPlugin();
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -164,17 +140,44 @@ namespace TweakUIX
             btnCancel.Visible = false;
         }
 
-        private void listCategory_SelectedIndexChanged(object sender, EventArgs e)
+        private void AddPlusPack()
         {
-            var parentDir = Path.Combine(optionalPluginsDir, listCategory.SelectedItem.ToString());
-            listTweaks.DataSource = Directory.GetDirectories(parentDir)
+            if (!Directory.Exists(optionalPluginsDir))
+            {
+                richHelp.Text = "The following packages are supported."
+                                + "\n- https://www.majorgeeks.com/files/details/majorgeeks_registry_tweaks.html"
+                                + "\n(After downloading, just extract it to \"app\\plugins\" directory.)";
+
+                lblCategory.Visible =
+                lblTweak.Visible =
+                comboCategory.Visible =
+                comboTweaks.Visible = false;
+
+                return;
+            }
+            richHelp.Text = "How does it work?"
+                       + "\n1. Select a category and an individual tweak from the list"
+                       + "\n2. Double click to trigger the tweak"
+                       + "\n3. Online help files are automatically searched and highlighted green"
+                       + "\n\n(This package is powered by https://www.majorgeeks.com)";
+
+            comboCategory.DataSource = Directory.GetDirectories(optionalPluginsDir)
+                .Select(Path.GetFileName).ToList();
+            comboCategory.SelectedIndexChanged += listPlusPackCategory;
+            comboTweaks.SelectedIndexChanged += listPlusPackTweaks;
+        }
+
+        private void listPlusPackCategory(object sender, EventArgs e)
+        {
+            var parentDir = Path.Combine(optionalPluginsDir, comboCategory.SelectedItem.ToString());
+            comboTweaks.DataSource = Directory.GetDirectories(parentDir)
                  .Select(Path.GetFileName).ToList();
         }
 
-        private void listTweaks_SelectedIndexChanged(object sender, EventArgs e)
+        private void listPlusPackTweaks(object sender, EventArgs e)
         {
-            var parentDir = Path.Combine(optionalPluginsDir, listCategory.SelectedItem.ToString(),
-       listTweaks.SelectedItem.ToString());
+            var parentDir = Path.Combine(optionalPluginsDir, comboCategory.SelectedItem.ToString(),
+            comboTweaks.SelectedItem.ToString());
             dataGridView.DataSource = Directory.GetFiles(parentDir)
                 .Select(f => new { FileName = Path.GetFileName(f) }).ToList();
         }
@@ -199,7 +202,7 @@ namespace TweakUIX
             try
             {
                 if (e.RowIndex != -1)
-                    Process.Start(optionalPluginsDir + "\\" + listCategory.Text + "\\" + listTweaks.Text + "\\" + dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                    Process.Start(optionalPluginsDir + "\\" + comboCategory.Text + "\\" + comboTweaks.Text + "\\" + dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -207,7 +210,7 @@ namespace TweakUIX
         private void tab_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tab.SelectedTab == tab.TabPages[1])
-                InitializeOptionalPlugins();
+                AddPlusPack();
             else if (tab.SelectedTab == tab.TabPages[2])
             {
                 MessageBox.Show("In the pipeline...\nThis was also a feature of Microsoft at that time of the ubiquitous Tweak UI app.");
@@ -216,7 +219,7 @@ namespace TweakUIX
             return;
         }
 
-        private void richPluginInfo_LinkClicked(object sender, LinkClickedEventArgs e)  => Helpers.Utils.LaunchUri(e.LinkText);
+        private void richPluginInfo_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
 
         private void richHelp_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
     }
