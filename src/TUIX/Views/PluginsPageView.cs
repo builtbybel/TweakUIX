@@ -148,7 +148,8 @@ namespace TweakUIX
                                 + "\n- https://www.majorgeeks.com/files/details/majorgeeks_registry_tweaks.html"
                                 + "\n(After downloading, just extract it to \"app\\plugins\" directory.)";
 
-                lblCategory.Visible =
+                lblComponentCategory.Visible =
+                lblTweakCategory.Visible =
                 lblTweak.Visible =
                 comboCategory.Visible =
                 comboTweaks.Visible = false;

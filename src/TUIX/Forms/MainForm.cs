@@ -272,7 +272,10 @@ namespace TweakUIX
 
             System.Windows.Forms.TreeNode installer = new System.Windows.Forms.TreeNode("*Packages", new System.Windows.Forms.TreeNode[] {
                  new TweaksNode(new Tweaks.App.Packages()),
-            });
+            })
+            {
+                ToolTipText = "Right-click on entry to configure this app",
+            };
 
             System.Windows.Forms.TreeNode plugins = new System.Windows.Forms.TreeNode("*Plugins", new System.Windows.Forms.TreeNode[] {
             })
@@ -747,5 +750,11 @@ namespace TweakUIX
         private void richStatus_LinkClicked(object sender, LinkClickedEventArgs e) => Helpers.Utils.LaunchUri(e.LinkText);
 
         private void menuProjectURI_Click(object sender, EventArgs e) => Process.Start(Helpers.Strings.Uri.URL_GITREPO);
+
+        private void lnkRunTweakomatic_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (File.Exists(@"tweakomatic.exe")) Process.Start(@"tweakomatic.exe");
+            else MessageBox.Show("Tweakomatic not found.\nYou can get it from here: https://github.com/builtbybel/Tweakomatic");
+        }
     }
 }

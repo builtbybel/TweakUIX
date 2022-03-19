@@ -24,7 +24,7 @@ namespace TweakUIX
             var buildDateTime = Properties.Resources.buildDate;
             richInfo.Text = "PowerToys/Tweak UI Replica"
                      + "\n\tVersion " + Program.GetCurrentVersionTostring()
-                     + "\n\tAurora release, MIT"
+                     + "\n\tPrometheus release, MIT"
                      + "\n\tGithub: https://github.com/builtbybel/TweakUIX"
                      + "\n\tBuiltbybel (https://twitter.com/builtbybel)"
                      + "\n\tBuild on " + buildDateTime

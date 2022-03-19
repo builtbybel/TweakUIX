@@ -41,7 +41,6 @@ namespace TweakUIX
             this.btnUndo = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnTemplateLoad = new System.Windows.Forms.Button();
-            this.lblTemplate = new System.Windows.Forms.Label();
             this.richStatus = new System.Windows.Forms.RichTextBox();
             this.progress = new System.Windows.Forms.ProgressBar();
             this.cbTemplate = new System.Windows.Forms.ComboBox();
@@ -58,6 +57,7 @@ namespace TweakUIX
             this.contextMenuApp = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuAppConfigure = new System.Windows.Forms.ToolStripMenuItem();
             this.tt = new System.Windows.Forms.ToolTip(this.components);
+            this.lnkRunTweakomatic = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.sc)).BeginInit();
             this.sc.Panel1.SuspendLayout();
             this.sc.Panel2.SuspendLayout();
@@ -94,7 +94,7 @@ namespace TweakUIX
             // btnOptions
             // 
             this.btnOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOptions.Location = new System.Drawing.Point(5, 461);
+            this.btnOptions.Location = new System.Drawing.Point(5, 463);
             this.btnOptions.Name = "btnOptions";
             this.btnOptions.Size = new System.Drawing.Size(75, 23);
             this.btnOptions.TabIndex = 3;
@@ -117,7 +117,7 @@ namespace TweakUIX
             this.tweaksTree.Location = new System.Drawing.Point(6, 0);
             this.tweaksTree.Name = "tweaksTree";
             this.tweaksTree.ShowNodeToolTips = true;
-            this.tweaksTree.Size = new System.Drawing.Size(251, 455);
+            this.tweaksTree.Size = new System.Drawing.Size(253, 457);
             this.tweaksTree.TabIndex = 0;
             this.tweaksTree.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tweaksTree_AfterCheck);
             this.tweaksTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tweaksTree_AfterSelect);
@@ -127,7 +127,7 @@ namespace TweakUIX
             // 
             this.textSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textSearch.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.textSearch.Location = new System.Drawing.Point(95, 461);
+            this.textSearch.Location = new System.Drawing.Point(95, 463);
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(107, 20);
             this.textSearch.TabIndex = 4;
@@ -141,9 +141,9 @@ namespace TweakUIX
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox.BackColor = System.Drawing.Color.White;
+            this.groupBox.Controls.Add(this.lnkRunTweakomatic);
             this.groupBox.Controls.Add(this.pnlBottom);
             this.groupBox.Controls.Add(this.btnTemplateLoad);
-            this.groupBox.Controls.Add(this.lblTemplate);
             this.groupBox.Controls.Add(this.richStatus);
             this.groupBox.Controls.Add(this.progress);
             this.groupBox.Controls.Add(this.cbTemplate);
@@ -151,7 +151,7 @@ namespace TweakUIX
             this.groupBox.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox.Location = new System.Drawing.Point(2, 5);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(519, 497);
+            this.groupBox.Size = new System.Drawing.Size(521, 499);
             this.groupBox.TabIndex = 1;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Tweak UI for Windows";
@@ -167,9 +167,9 @@ namespace TweakUIX
             this.pnlBottom.Controls.Add(this.btnApply);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBottom.ForeColor = System.Drawing.Color.Black;
-            this.pnlBottom.Location = new System.Drawing.Point(3, 391);
+            this.pnlBottom.Location = new System.Drawing.Point(3, 393);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(513, 103);
+            this.pnlBottom.Size = new System.Drawing.Size(515, 103);
             this.pnlBottom.TabIndex = 0;
             // 
             // lblInfo
@@ -226,16 +226,6 @@ namespace TweakUIX
             this.btnTemplateLoad.Text = "Load template...";
             this.btnTemplateLoad.UseVisualStyleBackColor = false;
             this.btnTemplateLoad.Click += new System.EventHandler(this.btnTemplateLoad_Click);
-            // 
-            // lblTemplate
-            // 
-            this.lblTemplate.AutoSize = true;
-            this.lblTemplate.ForeColor = System.Drawing.Color.Black;
-            this.lblTemplate.Location = new System.Drawing.Point(9, 36);
-            this.lblTemplate.Name = "lblTemplate";
-            this.lblTemplate.Size = new System.Drawing.Size(74, 13);
-            this.lblTemplate.TabIndex = 4;
-            this.lblTemplate.Text = "Tweakomatic:";
             // 
             // richStatus
             // 
@@ -375,6 +365,17 @@ namespace TweakUIX
             this.menuAppConfigure.Text = "Configure this app";
             this.menuAppConfigure.Click += new System.EventHandler(this.menuAppConfigure_Click);
             // 
+            // lnkRunTweakomatic
+            // 
+            this.lnkRunTweakomatic.AutoSize = true;
+            this.lnkRunTweakomatic.Location = new System.Drawing.Point(9, 36);
+            this.lnkRunTweakomatic.Name = "lnkRunTweakomatic";
+            this.lnkRunTweakomatic.Size = new System.Drawing.Size(74, 13);
+            this.lnkRunTweakomatic.TabIndex = 169;
+            this.lnkRunTweakomatic.TabStop = true;
+            this.lnkRunTweakomatic.Text = "Tweakomatic:";
+            this.lnkRunTweakomatic.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRunTweakomatic_LinkClicked);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -417,7 +418,6 @@ namespace TweakUIX
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.ComboBox cbTemplate;
         private System.Windows.Forms.Button btnTemplateLoad;
-        private System.Windows.Forms.Label lblTemplate;
         private System.Windows.Forms.Button btnTemplateSave;
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.ContextMenuStrip menuMain;
@@ -435,6 +435,7 @@ namespace TweakUIX
         private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.ToolTip tt;
         public System.Windows.Forms.SplitContainer sc;
+        private System.Windows.Forms.LinkLabel lnkRunTweakomatic;
     }
 }
 
